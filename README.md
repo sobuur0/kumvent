@@ -68,3 +68,5 @@ User-facing part of the app, this directory will contain all things user interfa
 - **pages:** This directory will contain the actual layout of the UI for the entire application.
 - **widgets:** Directory for reusable & customizable UI components.
 
+
+**Note: Other project structure to be added as the app progresses
