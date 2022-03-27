@@ -14,6 +14,7 @@ For help getting started with Flutter, view our
 [online documentation](https://flutter.dev/docs), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
 
+**Before contributing, it is strongly advised to take a look at [CONTRIBUTING.md](CONTRIBUTING.md)**
 
 **It is advisable to use Android Studio as your preferred IDE**
 
