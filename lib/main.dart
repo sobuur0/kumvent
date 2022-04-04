@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kumvent/constants/colours.dart';
 import 'package:kumvent/presentation/pages/sign_in_page.dart';
 
 void main() {
@@ -12,6 +13,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData(
         primarySwatch: Colors.blue,
+        scaffoldBackgroundColor: kScaffoldBackgroundColor,
       ),
       home: const SignInPage(),
     );
