@@ -16,46 +16,52 @@ class _SignInPageState extends State<SignInPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Column(
-          children: [
-            const Text(
-              'Create a new Account',
-            ),
-            const Text(
-              'Name'
-            ),
-            TextFormField(),
-            const Text(
-              'Email Address'
-            ),
-            TextFormField(),
-            const Text(
-              'Password'
-            ),
-            TextFormField(),
-            Row(
-              children: [
-                Checkbox(
-                  value: _isChecked,
-                  onChanged: (value) {
-                    setState(() {
-                      _isChecked = true;
-                    });
-                  },
-                ),
-                const Text.rich(
-                  TextSpan(
-                    children: [
-                      TextSpan(text: 'I agree to'),
-                      TextSpan(text: 'Terms of Service'),
-                      TextSpan(text: 'and'),
-                      TextSpan(text: 'Privacy Policy'),
-                    ],
+        child: Padding(
+          padding: const EdgeInsets.symmetric(
+            horizontal: 16.0,
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const Text(
+                'Create a new Account',
+              ),
+              const Text(
+                'Name'
+              ),
+              TextFormField(),
+              const Text(
+                'Email Address'
+              ),
+              TextFormField(),
+              const Text(
+                'Password'
+              ),
+              TextFormField(),
+              Row(
+                children: [
+                  Checkbox(
+                    value: _isChecked,
+                    onChanged: (value) {
+                      setState(() {
+                        _isChecked = true;
+                      });
+                    },
                   ),
-                ),
-              ],
-            ),
-          ],
+                  const Text.rich(
+                    TextSpan(
+                      children: [
+                        TextSpan(text: 'I agree to'),
+                        TextSpan(text: 'Terms of Service'),
+                        TextSpan(text: 'and'),
+                        TextSpan(text: 'Privacy Policy'),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
         ),
       ),
     );
