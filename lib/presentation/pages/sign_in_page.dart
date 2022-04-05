@@ -1,6 +1,8 @@
 import 'dart:ffi';
 
 import 'package:flutter/material.dart';
+import 'package:kumvent/constants/app_styles.dart';
+import 'package:kumvent/constants/colours.dart';
 
 class SignInPage extends StatefulWidget {
   const SignInPage({Key? key}) : super(key: key);
@@ -16,52 +18,96 @@ class _SignInPageState extends State<SignInPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(
-            horizontal: 16.0,
-          ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const Text(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Padding(
+              padding: const EdgeInsets.symmetric(
+                horizontal: 16.0,
+                vertical: 40.0,
+              ),
+              child: Text(
                 'Create a new Account',
+                style: TextStyles.bold(
+                  color: kTextPrimaryColor,
+                  fontSize: 24.0,
+                ),
               ),
-              const Text(
-                'Name'
+            ),
+            Text(
+              'Name',
+              style: TextStyles.semiBold(
+                color: kHeaderTextColor,
+                fontSize: 16.0,
               ),
-              TextFormField(),
-              const Text(
-                'Email Address'
+            ),
+            TextFormField(),
+            Text(
+              'Email Address',
+              style: TextStyles.semiBold(
+                color: kHeaderTextColor,
+                fontSize: 16.0,
               ),
-              TextFormField(),
-              const Text(
-                'Password'
+            ),
+            TextFormField(),
+            Text(
+              'Password',
+              style: TextStyles.semiBold(
+                color: kHeaderTextColor,
+                fontSize: 16.0,
               ),
-              TextFormField(),
-              Row(
-                children: [
-                  Checkbox(
-                    value: _isChecked,
-                    onChanged: (value) {
-                      setState(() {
-                        _isChecked = true;
-                      });
-                    },
-                  ),
-                  const Text.rich(
+            ),
+            TextFormField(),
+            Row(
+              children: [
+                Checkbox(
+                  value: _isChecked,
+                  onChanged: (value) {
+                    setState(() {
+                      _isChecked = true;
+                    });
+                  },
+                ),
+                Expanded(
+                  child: Text.rich(
                     TextSpan(
                       children: [
-                        TextSpan(text: 'I agree to'),
-                        TextSpan(text: 'Terms of Service'),
-                        TextSpan(text: 'and'),
-                        TextSpan(text: 'Privacy Policy'),
+                        //TODO: tell shina to give the correct fontFamily to these texts
+                        TextSpan(
+                          text: 'I agree to',
+                          style: TextStyles.regular(
+                            color: kHeaderTextColor,
+                            fontSize: 14.0,
+                          ),
+                        ),
+                        TextSpan(
+                          text: 'Terms of Service',
+                          style: TextStyles.medium(
+                            color: kLightActionButton,
+                            fontSize: 14.0,
+                          ),
+                        ),
+                        TextSpan(
+                          text: 'and',
+                          style: TextStyles.regular(
+                            color: kHeaderTextColor,
+                            fontSize: 14.0,
+                          ),
+                        ),
+                        TextSpan(
+                          text: 'Privacy Policy',
+                          style: TextStyles.medium(
+                            color: kLightActionButton,
+                            fontSize: 14.0,
+                          ),
+                        ),
                       ],
                     ),
                   ),
-                ],
-              ),
-            ],
-          ),
+                ),
+              ],
+            ),
+          ],
         ),
       ),
     );

@@ -19,10 +19,34 @@ class TextStyles {
   }
 
   /// Returns a [TextStyle] that uses the default font Family (quicksand)
-  /// with default 'fontWeight' of [FontWeight.w100].
+  /// with default 'fontWeight' of [FontWeight.w700].
   static TextStyle bold({
     required Color color,
     required double fontSize,
   }) =>
       _defaultextStyle(color, fontSize, FontWeight.w700);
+
+  /// Returns a [TextStyle] that uses the default font Family (quicksand)
+  /// with default 'fontWeight' of [FontWeight.w600].
+  static TextStyle semiBold({
+    required Color color,
+    required double fontSize,
+  }) =>
+      _defaultextStyle(color, fontSize, FontWeight.w600);
+
+  /// Returns a [TextStyle] that uses the default font Family (quicksand)
+  /// with default 'fontWeight' of [FontWeight.w500].
+  static TextStyle medium({
+    required Color color,
+    required double fontSize,
+  }) =>
+      _defaultextStyle(color, fontSize, FontWeight.w500);
+
+  /// Returns a [TextStyle] that uses the default font Family (quicksand)
+  /// with default 'fontWeight' of [FontWeight.w400].
+  static TextStyle regular({
+    required Color color,
+    required double fontSize,
+  }) =>
+      _defaultextStyle(color, fontSize, FontWeight.w400);
 }
