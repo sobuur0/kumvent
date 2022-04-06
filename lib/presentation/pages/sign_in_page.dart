@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:kumvent/constants/app_styles.dart';
 import 'package:kumvent/constants/colours.dart';
 import 'package:kumvent/presentation/widgets/icon_container.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class SignInPage extends StatefulWidget {
   const SignInPage({Key? key}) : super(key: key);
@@ -251,25 +250,54 @@ class _SignInPageState extends State<SignInPage> {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: const [
                   IconContainer(
-                    icon: Icon(
+                    child: Icon(
                       Icons.apple,
                       size: 35.0,
                     ),
                   ),
                   IconContainer(
-                    icon: Icon(
+                    child: Icon(
                       Icons.facebook,
                       size: 35.0,
+                      color: Color(0xFF039BE5),
                     ),
                   ),
                   IconContainer(
-                    icon: Icon(
-                      FontAwesomeIcons.google,
-                      size: 35.0,
+                    child: Image(
+                      image: AssetImage('images/google.png'),
                     ),
                   ),
                 ],
               ),
+            ),
+            const SizedBox(
+              height: 20.0,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text.rich(
+                  TextSpan(
+                    children: [
+                      TextSpan(
+                        text: 'Have an account? ',
+                        style: TextStyles.medium(
+                          color: Colors.black,
+                          fontSize: 14.0,
+                        ),
+                      ),
+                      TextSpan(
+                        text: 'Login',
+                        style: TextStyles.semiBold(
+                          color: kBlueShadeColor,
+                          fontSize: 14.0,
+                        ),
+                      ),
+                    ],
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+              ],
             ),
           ],
         ),

@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:kumvent/constants/colours.dart';
 
 class IconContainer extends StatelessWidget {
-  final Widget icon;
+  final Widget child;
 
   const IconContainer({
-    required this.icon,
+    required this.child,
     Key? key,
   }) : super(key: key);
 
@@ -20,7 +20,7 @@ class IconContainer extends StatelessWidget {
           borderRadius: BorderRadius.circular(10.0),
         ),
       ),
-      child: icon,
+      child: child,
     );
   }
 }
