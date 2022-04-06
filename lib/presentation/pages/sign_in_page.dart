@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:kumvent/constants/app_styles.dart';
 import 'package:kumvent/constants/colours.dart';
+import 'package:kumvent/presentation/widgets/icon_container.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class SignInPage extends StatefulWidget {
   const SignInPage({Key? key}) : super(key: key);
@@ -235,6 +237,35 @@ class _SignInPageState extends State<SignInPage> {
                       thickness: 1.0,
                       color: const Color(0xFF000000B2).withOpacity(0.7),
                       indent: 30.0,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(
+                horizontal: 16.0,
+                vertical: 10.0,
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: const [
+                  IconContainer(
+                    icon: Icon(
+                      Icons.apple,
+                      size: 35.0,
+                    ),
+                  ),
+                  IconContainer(
+                    icon: Icon(
+                      Icons.facebook,
+                      size: 35.0,
+                    ),
+                  ),
+                  IconContainer(
+                    icon: Icon(
+                      FontAwesomeIcons.google,
+                      size: 35.0,
                     ),
                   ),
                 ],
