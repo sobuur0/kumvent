@@ -4,7 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 ///Utility class for all styles used in the app
 class TextStyles {
-  static TextStyle _defaultextStyle(
+  static TextStyle _defaultTextStyle(
       Color color,
       double size,
       FontWeight fontWeight,
@@ -24,7 +24,7 @@ class TextStyles {
     required Color color,
     required double fontSize,
   }) =>
-      _defaultextStyle(color, fontSize, FontWeight.w700);
+      _defaultTextStyle(color, fontSize, FontWeight.w700);
 
   /// Returns a [TextStyle] that uses the default font Family (quicksand)
   /// with default 'fontWeight' of [FontWeight.w600].
@@ -32,7 +32,7 @@ class TextStyles {
     required Color color,
     required double fontSize,
   }) =>
-      _defaultextStyle(color, fontSize, FontWeight.w600);
+      _defaultTextStyle(color, fontSize, FontWeight.w600);
 
   /// Returns a [TextStyle] that uses the default font Family (quicksand)
   /// with default 'fontWeight' of [FontWeight.w500].
@@ -40,7 +40,7 @@ class TextStyles {
     required Color color,
     required double fontSize,
   }) =>
-      _defaultextStyle(color, fontSize, FontWeight.w500);
+      _defaultTextStyle(color, fontSize, FontWeight.w500);
 
   /// Returns a [TextStyle] that uses the default font Family (quicksand)
   /// with default 'fontWeight' of [FontWeight.w400].
@@ -48,5 +48,5 @@ class TextStyles {
     required Color color,
     required double fontSize,
   }) =>
-      _defaultextStyle(color, fontSize, FontWeight.w400);
+      _defaultTextStyle(color, fontSize, FontWeight.w400);
 }
