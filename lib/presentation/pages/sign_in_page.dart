@@ -142,22 +142,18 @@ class _SignInPageState extends State<SignInPage> {
                 ),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.symmetric(
-                horizontal: 2.0,
-                vertical: 10.0,
-              ),
-              child: Row(
-                children: [
-                  Checkbox(
-                    value: _isChecked,
-                    onChanged: (value) {
-                      setState(() {
-                        _isChecked = true;
-                      });
-                    },
-                  ),
-                  Text.rich(
+            Row(
+              children: [
+                Checkbox(
+                  value: _isChecked,
+                  onChanged: (value) {
+                    setState(() {
+                      _isChecked = true;
+                    });
+                  },
+                ),
+                Expanded(
+                  child: Text.rich(
                     TextSpan(
                       children: [
                         //TODO: tell shina to give the correct fontFamily to these texts
@@ -165,35 +161,35 @@ class _SignInPageState extends State<SignInPage> {
                           text: 'I agree to ',
                           style: TextStyles.regular(
                             color: kNeutralColor,
-                            fontSize: 14.0,
+                            fontSize: 12.0,
                           ),
                         ),
                         TextSpan(
                           text: 'Terms of Service ',
                           style: TextStyles.medium(
                             color: kBlueShadeColor,
-                            fontSize: 14.0,
+                            fontSize: 12.0,
                           ),
                         ),
                         TextSpan(
                           text: 'and ',
                           style: TextStyles.regular(
                             color: kNeutralColor,
-                            fontSize: 14.0,
+                            fontSize: 12.0,
                           ),
                         ),
                         TextSpan(
                           text: 'Privacy Policy',
                           style: TextStyles.medium(
                             color: kBlueShadeColor,
-                            fontSize: 14.0,
+                            fontSize: 12.0,
                           ),
                         ),
                       ],
                     ),
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
             Padding(
               padding: const EdgeInsets.symmetric(
@@ -225,19 +221,19 @@ class _SignInPageState extends State<SignInPage> {
               ),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: const [
-                  Expanded(
+                children: [
+                  const Expanded(
                     child: Divider(
                       thickness: 1.0,
                       color: Colors.black,
                       endIndent: 30.0,
                     ),
                   ),
-                  Text('Or'),
+                  const Text('Or'),
                   Expanded(
                     child: Divider(
                       thickness: 1.0,
-                      color: Colors.black,
+                      color: const Color(0xFF000000B2).withOpacity(0.7),
                       indent: 30.0,
                     ),
                   ),
