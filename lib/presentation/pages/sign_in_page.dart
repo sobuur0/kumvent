@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
 import 'package:kumvent/constants/app_styles.dart';
 import 'package:kumvent/constants/colours.dart';
@@ -12,6 +10,9 @@ class SignInPage extends StatefulWidget {
 }
 
 class _SignInPageState extends State<SignInPage> {
+  late TextEditingController _nameController;
+  late TextEditingController _emailAddressController;
+  late TextEditingController _passwordController;
   late bool _isChecked = false;
 
   @override
@@ -22,10 +23,7 @@ class _SignInPageState extends State<SignInPage> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(
-              padding: const EdgeInsets.symmetric(
-                horizontal: 16.0,
-                vertical: 40.0,
-              ),
+              padding: const EdgeInsets.fromLTRB(16.0, 80.0, 16.0, 40.0),
               child: Text(
                 'Create a new Account',
                 style: TextStyles.bold(
@@ -37,27 +35,42 @@ class _SignInPageState extends State<SignInPage> {
             Text(
               'Name',
               style: TextStyles.semiBold(
-                color: kHeaderTextColor,
+                color: kNeutralColor,
                 fontSize: 16.0,
               ),
             ),
-            TextFormField(),
+            TextFormField(
+              controller: _nameController,
+              decoration: InputDecoration(
+                  border: OutlineInputBorder(
+                borderSide: const BorderSide(
+                  color: kTextViewBorderColor,
+                  width: 1.0,
+                  style: BorderStyle.solid,
+                ),
+                borderRadius: BorderRadius.circular(5.0),
+              )),
+            ),
             Text(
               'Email Address',
               style: TextStyles.semiBold(
-                color: kHeaderTextColor,
+                color: kNeutralColor,
                 fontSize: 16.0,
               ),
             ),
-            TextFormField(),
+            TextFormField(
+              controller: _emailAddressController,
+            ),
             Text(
               'Password',
               style: TextStyles.semiBold(
-                color: kHeaderTextColor,
+                color: kNeutralColor,
                 fontSize: 16.0,
               ),
             ),
-            TextFormField(),
+            TextFormField(
+              controller: _passwordController,
+            ),
             Row(
               children: [
                 Checkbox(
@@ -76,28 +89,28 @@ class _SignInPageState extends State<SignInPage> {
                         TextSpan(
                           text: 'I agree to',
                           style: TextStyles.regular(
-                            color: kHeaderTextColor,
+                            color: kNeutralColor,
                             fontSize: 14.0,
                           ),
                         ),
                         TextSpan(
                           text: 'Terms of Service',
                           style: TextStyles.medium(
-                            color: kLightActionButton,
+                            color: kBlueShadeColor,
                             fontSize: 14.0,
                           ),
                         ),
                         TextSpan(
                           text: 'and',
                           style: TextStyles.regular(
-                            color: kHeaderTextColor,
+                            color: kNeutralColor,
                             fontSize: 14.0,
                           ),
                         ),
                         TextSpan(
                           text: 'Privacy Policy',
                           style: TextStyles.medium(
-                            color: kLightActionButton,
+                            color: kBlueShadeColor,
                             fontSize: 14.0,
                           ),
                         ),
