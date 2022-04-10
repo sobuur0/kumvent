@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:kumvent/constants/app_styles.dart';
 import 'package:kumvent/constants/colours.dart';
+import 'package:kumvent/presentation/widgets/action_button.dart';
 import 'package:kumvent/presentation/widgets/icon_container.dart';
 
 class SignInPage extends StatefulWidget {
@@ -182,22 +183,9 @@ class _SignInPageState extends State<SignInPage> {
               ],
             ),
             const Padding(padding: EdgeInsets.only(top: 30.0)),
-            ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                primary: kPrimaryColor,
-                fixedSize: Size(
-                  size.width,
-                  56.0,
-                ),
-              ),
-              onPressed: () {},
-              child: Text(
-                'Create an Account',
-                style: TextStyles.semiBold(
-                  color: Colors.white,
-                  fontSize: 20.0,
-                ),
-              ),
+            ActionButton(
+              buttonWidth: size.width,
+              buttonHeight: 56.0,
             ),
             const Padding(padding: EdgeInsets.only(bottom: 30.0)),
             Row(
