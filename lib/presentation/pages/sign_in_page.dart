@@ -107,7 +107,10 @@ class _SignInPageState extends State<SignInPage> {
               decoration: InputDecoration(
                 filled: true,
                 fillColor: kBackgroundFillColor,
-                suffixIcon: const Icon(Icons.password),
+                suffixIcon: Icon(
+                  Icons.visibility,
+                  color: const Color(0xFF991A2731).withOpacity(0.6),
+                ),
                 constraints: BoxConstraints.tight(
                   Size(
                     size.width,
@@ -124,10 +127,13 @@ class _SignInPageState extends State<SignInPage> {
                 ),
               ),
             ),
-            Expanded(
-              child: Row(
-                children: [
-                  Checkbox(
+            const Padding(padding: EdgeInsets.only(bottom: 15.0)),
+            Row(
+              children: [
+                SizedBox(
+                  height: 24.0,
+                  width: 24.0,
+                  child: Checkbox(
                     value: _isChecked,
                     onChanged: (bool? newValue) {
                       setState(() {
@@ -135,45 +141,45 @@ class _SignInPageState extends State<SignInPage> {
                       });
                     },
                   ),
-                  Expanded(
-                    child: Text.rich(
-                      TextSpan(
-                        children: [
-                          //TODO: tell shina to give the correct fontFamily to these texts
-                          TextSpan(
-                            text: 'I agree to ',
-                            style: TextStyles.regular(
-                              color: kNeutralColor,
-                              fontSize: 12.0,
-                            ),
+                ),
+                Expanded(
+                  child: Text.rich(
+                    TextSpan(
+                      children: [
+                        //TODO: tell shina to give the correct fontFamily to these texts
+                        TextSpan(
+                          text: 'I agree to ',
+                          style: TextStyles.regular(
+                            color: kNeutralColor,
+                            fontSize: 14.0,
                           ),
-                          TextSpan(
-                            text: 'Terms of Service ',
-                            style: TextStyles.medium(
-                              color: kBlueShadeColor,
-                              fontSize: 12.0,
-                            ),
+                        ),
+                        TextSpan(
+                          text: 'Terms of Service ',
+                          style: TextStyles.medium(
+                            color: kBlueShadeColor,
+                            fontSize: 14.0,
                           ),
-                          TextSpan(
-                            text: 'and ',
-                            style: TextStyles.regular(
-                              color: kNeutralColor,
-                              fontSize: 12.0,
-                            ),
+                        ),
+                        TextSpan(
+                          text: 'and ',
+                          style: TextStyles.regular(
+                            color: kNeutralColor,
+                            fontSize: 14.0,
                           ),
-                          TextSpan(
-                            text: 'Privacy Policy',
-                            style: TextStyles.medium(
-                              color: kBlueShadeColor,
-                              fontSize: 12.0,
-                            ),
+                        ),
+                        TextSpan(
+                          text: 'Privacy Policy',
+                          style: TextStyles.medium(
+                            color: kBlueShadeColor,
+                            fontSize: 14.0,
                           ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
             const Padding(padding: EdgeInsets.only(top: 30.0)),
             ElevatedButton(
