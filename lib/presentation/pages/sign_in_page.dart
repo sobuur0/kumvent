@@ -3,6 +3,7 @@ import 'package:kumvent/constants/app_styles.dart';
 import 'package:kumvent/constants/colours.dart';
 import 'package:kumvent/presentation/widgets/action_button.dart';
 import 'package:kumvent/presentation/widgets/icon_container.dart';
+import 'package:kumvent/presentation/widgets/user_registration_form.dart';
 
 class SignInPage extends StatefulWidget {
   const SignInPage({Key? key}) : super(key: key);
@@ -35,97 +36,22 @@ class _SignInPageState extends State<SignInPage> {
               ),
             ),
             const Padding(padding: EdgeInsets.only(top: 30.0)),
-            Text(
-              'Name',
-              style: TextStyles.semiBold(
-                color: kNeutralColor,
-                fontSize: 16.0,
-              ),
-            ),
-            const Padding(padding: EdgeInsets.only(bottom: 10.0)),
-            TextFormField(
-              controller: _nameController,
-              decoration: InputDecoration(
-                filled: true,
-                fillColor: kBackgroundFillColor,
-                constraints: BoxConstraints.tight(
-                  Size(
-                    size.width,
-                    40.0,
-                  ),
-                ),
-                border: OutlineInputBorder(
-                  borderSide: const BorderSide(
-                    color: kTextViewBorderColor,
-                    width: 1.0,
-                    style: BorderStyle.solid,
-                  ),
-                  borderRadius: BorderRadius.circular(5.0),
-                ),
-              ),
+            UserRegistratioForm(
+              text: 'Name',
+              textController: _nameController,
             ),
             const Padding(padding: EdgeInsets.only(top: 20.0)),
-            Text(
-              'Email Address',
-              style: TextStyles.semiBold(
-                color: kNeutralColor,
-                fontSize: 16.0,
-              ),
-            ),
-            const Padding(padding: EdgeInsets.only(bottom: 10.0)),
-            TextFormField(
-              controller: _emailAddressController,
-              decoration: InputDecoration(
-                filled: true,
-                fillColor: kBackgroundFillColor,
-                constraints: BoxConstraints.tight(
-                  Size(
-                    size.width,
-                    40.0,
-                  ),
-                ),
-                border: OutlineInputBorder(
-                  borderSide: const BorderSide(
-                    color: kTextViewBorderColor,
-                    width: 1.0,
-                    style: BorderStyle.solid,
-                  ),
-                  borderRadius: BorderRadius.circular(5.0),
-                ),
-              ),
+            UserRegistratioForm(
+              text: 'Email Address',
+              textController: _emailAddressController,
             ),
             const Padding(padding: EdgeInsets.only(top: 20.0)),
-            Text(
-              'Password',
-              style: TextStyles.semiBold(
-                color: kNeutralColor,
-                fontSize: 16.0,
-              ),
-            ),
-            const Padding(padding: EdgeInsets.only(bottom: 10.0)),
-            TextFormField(
-              controller: _passwordController,
-              decoration: InputDecoration(
-                filled: true,
-                fillColor: kBackgroundFillColor,
-                suffixIcon: Icon(
-                  Icons.visibility,
-                  color: const Color(0xFF991A2731).withOpacity(0.6),
-                ),
-                constraints: BoxConstraints.tight(
-                  Size(
-                    size.width,
-                    40.0,
-                  ),
-                ),
-                border: OutlineInputBorder(
-                  borderSide: const BorderSide(
-                    color: kTextViewBorderColor,
-                    width: 1.0,
-                    style: BorderStyle.solid,
-                  ),
-                  borderRadius: BorderRadius.circular(5.0),
-                ),
+            UserRegistratioForm(
+              text: 'Password',
+              textController: _passwordController,
+              trailing: Icon(
+                Icons.visibility,
+                color: const Color(0xFF991A2731).withOpacity(0.6),
               ),
             ),
             const Padding(padding: EdgeInsets.only(bottom: 20.0)),
