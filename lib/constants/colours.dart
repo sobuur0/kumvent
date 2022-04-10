@@ -8,6 +8,6 @@ const kBlueShadeColor = Color(0xFF4067F2);
 
 const kScaffoldBackgroundColor = Color(0xFFF6F6F6);
 const kTextPrimaryColor = Color(0xFF171717);
-const kTextViewBorderColor = Color.fromARGB(75, 110, 130, 145);
+const kTextViewBorderColor = Color(0xFF7A9DB8);
 const kBackgroundFillColor = Color(0xFFF6F5FA);
 const kIconContainerColor = Color(0xFFE7E7F9);

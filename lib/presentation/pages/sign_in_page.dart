@@ -42,7 +42,7 @@ class _SignInPageState extends State<SignInPage> {
                 fontSize: 16.0,
               ),
             ),
-            const Padding(padding: EdgeInsets.only(bottom: 3.0)),
+            const Padding(padding: EdgeInsets.only(bottom: 10.0)),
             TextFormField(
               controller: _nameController,
               decoration: InputDecoration(
@@ -72,7 +72,7 @@ class _SignInPageState extends State<SignInPage> {
                 fontSize: 16.0,
               ),
             ),
-            const Padding(padding: EdgeInsets.only(bottom: 3.0)),
+            const Padding(padding: EdgeInsets.only(bottom: 10.0)),
             TextFormField(
               controller: _emailAddressController,
               decoration: InputDecoration(
@@ -102,7 +102,7 @@ class _SignInPageState extends State<SignInPage> {
                 fontSize: 16.0,
               ),
             ),
-            const Padding(padding: EdgeInsets.only(bottom: 3.0)),
+            const Padding(padding: EdgeInsets.only(bottom: 10.0)),
             TextFormField(
               controller: _passwordController,
               decoration: InputDecoration(
@@ -128,7 +128,7 @@ class _SignInPageState extends State<SignInPage> {
                 ),
               ),
             ),
-            const Padding(padding: EdgeInsets.only(bottom: 15.0)),
+            const Padding(padding: EdgeInsets.only(bottom: 20.0)),
             Row(
               children: [
                 SizedBox(
@@ -184,6 +184,7 @@ class _SignInPageState extends State<SignInPage> {
             ),
             const Padding(padding: EdgeInsets.only(top: 30.0)),
             ActionButton(
+              onPressed: () {},
               buttonWidth: size.width,
               buttonHeight: 56.0,
             ),
@@ -191,10 +192,10 @@ class _SignInPageState extends State<SignInPage> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                const Expanded(
+                Expanded(
                   child: Divider(
                     thickness: 1.0,
-                    color: Colors.black,
+                    color: Colors.black.withOpacity(0.7),
                     endIndent: 30.0,
                   ),
                 ),
@@ -202,7 +203,7 @@ class _SignInPageState extends State<SignInPage> {
                 Expanded(
                   child: Divider(
                     thickness: 1.0,
-                    color: const Color(0xFF000000B2).withOpacity(0.7),
+                    color: Colors.black.withOpacity(0.7),
                     indent: 30.0,
                   ),
                 ),
@@ -211,22 +212,25 @@ class _SignInPageState extends State<SignInPage> {
             const Padding(padding: EdgeInsets.only(bottom: 25.0)),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: const [
+              children: [
                 IconContainer(
-                  child: Icon(
+                  onTap: () {},
+                  child: const Icon(
                     Icons.apple,
                     size: 35.0,
                   ),
                 ),
                 IconContainer(
-                  child: Icon(
+                  onTap: () {},
+                  child: const Icon(
                     Icons.facebook,
                     size: 35.0,
                     color: Color(0xFF039BE5),
                   ),
                 ),
                 IconContainer(
-                  child: Image(
+                  onTap: () {},
+                  child: const Image(
                     image: AssetImage('images/google.png'),
                   ),
                 ),

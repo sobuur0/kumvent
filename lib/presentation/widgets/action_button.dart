@@ -5,10 +5,12 @@ import 'package:kumvent/constants/colours.dart';
 class ActionButton extends StatelessWidget {
   final double buttonWidth;
   final double buttonHeight;
+  final VoidCallback onPressed;
 
   const ActionButton({
     required this.buttonWidth,
     required this.buttonHeight,
+    required this.onPressed,
     Key? key,
   }) : super(key: key);
 
@@ -22,7 +24,7 @@ class ActionButton extends StatelessWidget {
           buttonHeight,
         ),
       ),
-      onPressed: () {},
+      onPressed: onPressed,
       child: Text(
         'Create an Account',
         style: TextStyles.semiBold(
