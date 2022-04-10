@@ -36,17 +36,17 @@ class _SignInPageState extends State<SignInPage> {
               ),
             ),
             const Padding(padding: EdgeInsets.only(top: 30.0)),
-            UserRegistratioForm(
+            TextFormListTile(
               text: 'Name',
               textController: _nameController,
             ),
             const Padding(padding: EdgeInsets.only(top: 20.0)),
-            UserRegistratioForm(
+            TextFormListTile(
               text: 'Email Address',
               textController: _emailAddressController,
             ),
             const Padding(padding: EdgeInsets.only(top: 20.0)),
-            UserRegistratioForm(
+            TextFormListTile(
               text: 'Password',
               textController: _passwordController,
               trailing: Icon(

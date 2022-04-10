@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:kumvent/constants/app_styles.dart';
 import 'package:kumvent/constants/colours.dart';
 
-class UserRegistratioForm extends StatefulWidget {
+class TextFormListTile extends StatefulWidget {
   final String text;
   final TextEditingController textController;
   final Widget? trailing;
 
-  const UserRegistratioForm({
+  const TextFormListTile({
     required this.text,
     required this.textController,
     this.trailing,
@@ -15,10 +15,10 @@ class UserRegistratioForm extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  State<UserRegistratioForm> createState() => _UserRegistratioFormState();
+  State<TextFormListTile> createState() => _TextFormListTileState();
 }
 
-class _UserRegistratioFormState extends State<UserRegistratioForm> {
+class _TextFormListTileState extends State<TextFormListTile> {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -46,13 +46,26 @@ class _UserRegistratioFormState extends State<UserRegistratioForm> {
                 40.0,
               ),
             ),
-            border: OutlineInputBorder(
+            enabledBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(5.0),
               borderSide: const BorderSide(
                 color: kTextViewBorderColor,
                 width: 1.0,
-                style: BorderStyle.solid,
               ),
+            ),
+            focusedBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(5.0),
+              borderSide: const BorderSide(
+                color: kPrimaryColor,
+                width: 1.0,
+              ),
+            ),
+            errorBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(5.0),
+              borderSide: const BorderSide(
+                color: kErrorColor,
+                width: 1.0,
+              ),
             ),
           ),
         ),

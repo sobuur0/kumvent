@@ -11,3 +11,4 @@ const kTextPrimaryColor = Color(0xFF171717);
 const kTextViewBorderColor = Color(0xFF7A9DB8);
 const kBackgroundFillColor = Color(0xFFF6F5FA);
 const kIconContainerColor = Color(0xFFE7E7F9);
+const kErrorColor = Color(0xFFFF1E05);
