@@ -6,9 +6,9 @@ const kNeutralColor = Color(0xFF1A2731);
 const kSuccessColor = Color(0xFFD1FFD0);
 const kBlueShadeColor = Color(0xFF4067F2);
 
-const kScaffoldBackgroundColor = Color(0xFFF6F6F6);
 const kTextPrimaryColor = Color(0xFF171717);
 const kTextViewBorderColor = Color(0xFF7A9DB8);
 const kBackgroundFillColor = Color(0xFFF6F5FA);
 const kIconContainerColor = Color(0xFFE7E7F9);
 const kErrorColor = Color(0xFFFF1E05);
+const kLeadingIconColor = Color(0xFF171717);

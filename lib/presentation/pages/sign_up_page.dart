@@ -1,18 +1,20 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:kumvent/constants/app_styles.dart';
 import 'package:kumvent/constants/colours.dart';
+import 'package:kumvent/presentation/pages/forgot_password.dart';
 import 'package:kumvent/presentation/widgets/action_button.dart';
 import 'package:kumvent/presentation/widgets/icon_container.dart';
-import 'package:kumvent/presentation/widgets/user_registration_form.dart';
+import 'package:kumvent/presentation/widgets/text_form_list_tile.dart';
 
-class SignInPage extends StatefulWidget {
-  const SignInPage({Key? key}) : super(key: key);
+class SignUpPage extends StatefulWidget {
+  const SignUpPage({Key? key}) : super(key: key);
 
   @override
-  _SignInPageState createState() => _SignInPageState();
+  _SignUpPageState createState() => _SignUpPageState();
 }
 
-class _SignInPageState extends State<SignInPage> {
+class _SignUpPageState extends State<SignUpPage> {
   final TextEditingController _nameController = TextEditingController();
   final TextEditingController _emailAddressController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
@@ -22,9 +24,9 @@ class _SignInPageState extends State<SignInPage> {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
 
-    return Scaffold(
-      body: SafeArea(
-        child: ListView(
+    return SafeArea(
+      child: Scaffold(
+        body: ListView(
           padding: const EdgeInsets.all(16.0),
           children: [
             const Padding(padding: EdgeInsets.only(top: 40.0)),
@@ -162,7 +164,7 @@ class _SignInPageState extends State<SignInPage> {
                 ),
               ],
             ),
-            const Padding(padding: EdgeInsets.only(bottom: 15.0)),
+            const Padding(padding: EdgeInsets.only(bottom: 30.0)),
             Center(
               child: Text.rich(
                 TextSpan(
@@ -176,6 +178,13 @@ class _SignInPageState extends State<SignInPage> {
                     ),
                     TextSpan(
                       text: 'Login',
+                      recognizer: TapGestureRecognizer()
+                        ..onTap = () => Navigator.of(context).push(
+                              MaterialPageRoute(
+                                builder: (context) =>
+                                    const ForgotPasswordPage(),
+                              ),
+                            ),
                       style: TextStyles.semiBold(
                         color: kBlueShadeColor,
                         fontSize: 14.0,
