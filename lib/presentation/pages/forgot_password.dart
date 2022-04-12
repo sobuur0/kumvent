@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:kumvent/constants/app_styles.dart';
 import 'package:kumvent/constants/colours.dart';
+import 'package:kumvent/presentation/pages/check_your_email_page.dart';
 import 'package:kumvent/presentation/widgets/action_button.dart';
 import 'package:kumvent/presentation/widgets/text_form_list_tile.dart';
 
@@ -65,7 +66,11 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
           ActionButton(
             buttonWidth: size.width,
             buttonHeight: 56.0,
-            onPressed: () {},
+            onPressed: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(builder: (context) => const CheckEmailPage()),
+              );
+            },
             title: 'Submit',
           ),
         ],
