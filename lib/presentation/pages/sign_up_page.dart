@@ -1,8 +1,9 @@
+// ignore_for_file: use_full_hex_values_for_flutter_colors
+
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:kumvent/constants/app_styles.dart';
 import 'package:kumvent/constants/colours.dart';
-import 'package:kumvent/presentation/pages/forgot_password.dart';
 import 'package:kumvent/presentation/pages/sign_in_page.dart';
 import 'package:kumvent/presentation/widgets/action_button.dart';
 import 'package:kumvent/presentation/widgets/icon_container.dart';
@@ -76,6 +77,7 @@ class _SignUpPageState extends State<SignUpPage> {
                   child: Text.rich(
                     TextSpan(
                       children: [
+                        // ignore: todo
                         //TODO: tell shina to give the correct fontFamily to these texts
                         TextSpan(
                           text: 'I agree to ',

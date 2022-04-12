@@ -1,3 +1,5 @@
+// ignore_for_file: use_full_hex_values_for_flutter_colors
+
 import 'package:flutter/material.dart';
 import 'package:kumvent/constants/app_styles.dart';
 import 'package:kumvent/constants/colours.dart';
@@ -72,7 +74,7 @@ class _CheckEmailPageState extends State<CheckEmailPage> {
             'Skip, I\'ll confirm later',
             textAlign: TextAlign.center,
             style: TextStyles.medium(
-              color: Color(0xFFCC1A2731),
+              color: const Color(0xFFCC1A2731),
               fontSize: 16.0,
             ),
           ),

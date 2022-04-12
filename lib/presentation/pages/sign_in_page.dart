@@ -1,3 +1,5 @@
+// ignore_for_file: use_full_hex_values_for_flutter_colors
+
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:kumvent/constants/app_styles.dart';
@@ -86,7 +88,7 @@ class _SignInPageState extends State<SignInPage> {
               'Forgot password?',
               textAlign: TextAlign.end,
               style: TextStyles.medium(
-                color: Color(0xFF636262),
+                color: const Color(0xFF636262),
                 fontSize: 12.0,
               ),
             ),
