@@ -2,6 +2,8 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:kumvent/constants/app_styles.dart';
 import 'package:kumvent/constants/colours.dart';
+import 'package:kumvent/presentation/pages/forgot_password.dart';
+import 'package:kumvent/presentation/pages/sign_up_page.dart';
 import 'package:kumvent/presentation/widgets/action_button.dart';
 import 'package:kumvent/presentation/widgets/icon_container.dart';
 import 'package:kumvent/presentation/widgets/text_form_list_tile.dart';
@@ -73,12 +75,20 @@ class _SignInPageState extends State<SignInPage> {
             ),
           ),
           const Padding(padding: EdgeInsets.only(bottom: 8.0)),
-          Text(
-            'Forgot password?',
-            textAlign: TextAlign.end,
-            style: TextStyles.medium(
-              color: Color(0xFF636262),
-              fontSize: 12.0,
+          GestureDetector(
+            onTap: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                    builder: (context) => const ForgotPasswordPage()),
+              );
+            },
+            child: Text(
+              'Forgot password?',
+              textAlign: TextAlign.end,
+              style: TextStyles.medium(
+                color: Color(0xFF636262),
+                fontSize: 12.0,
+              ),
             ),
           ),
           const Padding(padding: EdgeInsets.only(bottom: 22.0)),
@@ -142,18 +152,18 @@ class _SignInPageState extends State<SignInPage> {
               TextSpan(
                 children: [
                   TextSpan(
-                    text: 'Have an account? ',
+                    text: 'Don\'t have an account? ',
                     style: TextStyles.medium(
                       color: Colors.black,
                       fontSize: 14.0,
                     ),
                   ),
                   TextSpan(
-                    text: 'Login',
+                    text: 'SignUp',
                     recognizer: TapGestureRecognizer()
                       ..onTap = () => Navigator.of(context).push(
                             MaterialPageRoute(
-                              builder: (context) => const SignInPage(),
+                              builder: (context) => const SignUpPage(),
                             ),
                           ),
                     style: TextStyles.semiBold(
