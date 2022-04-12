@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:kumvent/constants/app_styles.dart';
 import 'package:kumvent/constants/colours.dart';
 import 'package:kumvent/presentation/pages/forgot_password.dart';
+import 'package:kumvent/presentation/pages/sign_in_page.dart';
 import 'package:kumvent/presentation/widgets/action_button.dart';
 import 'package:kumvent/presentation/widgets/icon_container.dart';
 import 'package:kumvent/presentation/widgets/text_form_list_tile.dart';
@@ -115,6 +116,7 @@ class _SignUpPageState extends State<SignUpPage> {
               onPressed: () {},
               buttonWidth: size.width,
               buttonHeight: 56.0,
+              title: 'Create an Account',
             ),
             const Padding(padding: EdgeInsets.only(bottom: 30.0)),
             Row(
@@ -181,8 +183,7 @@ class _SignUpPageState extends State<SignUpPage> {
                       recognizer: TapGestureRecognizer()
                         ..onTap = () => Navigator.of(context).push(
                               MaterialPageRoute(
-                                builder: (context) =>
-                                    const ForgotPasswordPage(),
+                                builder: (context) => const SignInPage(),
                               ),
                             ),
                       style: TextStyles.semiBold(

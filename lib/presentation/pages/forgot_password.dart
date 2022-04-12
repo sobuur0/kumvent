@@ -19,21 +19,24 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
     final size = MediaQuery.of(context).size;
 
     return Scaffold(
-      appBar: AppBar(leading: Builder(builder: (BuildContext context) {
-        return IconButton(
-          onPressed: () {
-            Navigator.pop(context);
+      appBar: AppBar(
+        leading: Builder(
+          builder: (BuildContext context) {
+            return IconButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              icon: const Icon(
+                Icons.arrow_back,
+                color: kLeadingIconColor,
+              ),
+            );
           },
-          icon: const Icon(
-            Icons.arrow_back,
-            color: kLeadingIconColor,
-          ),
-        );
-      })),
+        ),
+      ),
       body: ListView(
-        padding: const EdgeInsets.only(
-          left: 16.0,
-          right: 16.0,
+        padding: const EdgeInsets.symmetric(
+          horizontal: 16.0,
         ),
         children: [
           const Padding(padding: EdgeInsets.only(top: 60.0)),
@@ -63,6 +66,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
             buttonWidth: size.width,
             buttonHeight: 56.0,
             onPressed: () {},
+            title: 'Submit',
           ),
         ],
       ),

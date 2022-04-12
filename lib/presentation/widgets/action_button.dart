@@ -6,11 +6,13 @@ class ActionButton extends StatelessWidget {
   final double buttonWidth;
   final double buttonHeight;
   final VoidCallback onPressed;
+  final String title;
 
   const ActionButton({
     required this.buttonWidth,
     required this.buttonHeight,
     required this.onPressed,
+    required this.title,
     Key? key,
   }) : super(key: key);
 
@@ -26,7 +28,7 @@ class ActionButton extends StatelessWidget {
       ),
       onPressed: onPressed,
       child: Text(
-        'Create an Account',
+        title,
         style: TextStyles.semiBold(
           color: Colors.white,
           fontSize: 20.0,
