@@ -14,6 +14,7 @@ class MyApp extends StatelessWidget {
       minTextAdapt: true,
       builder: () {
         return MaterialApp(
+          debugShowCheckedModeBanner: false,
           theme: ThemeData(
             scaffoldBackgroundColor: Colors.white,
             appBarTheme: const AppBarTheme(

@@ -19,12 +19,17 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
     final size = MediaQuery.of(context).size;
 
     return Scaffold(
-      appBar: AppBar(
-        leading: const Icon(
-          Icons.arrow_back,
-          color: kLeadingIconColor,
-        ),
-      ),
+      appBar: AppBar(leading: Builder(builder: (BuildContext context) {
+        return IconButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          icon: const Icon(
+            Icons.arrow_back,
+            color: kLeadingIconColor,
+          ),
+        );
+      })),
       body: ListView(
         padding: const EdgeInsets.only(
           left: 16.0,
@@ -41,7 +46,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
           ),
           const Padding(padding: EdgeInsets.only(bottom: 11.0)),
           Text(
-            'Don\’t worry it happens. Please enter the address \nassociated with your account.',
+            'Don\'t worry it happens. Please enter the address \nassociated with your account.',
             textScaleFactor: 0.8,
             style: TextStyles.medium(
               color: kNeutralColor,

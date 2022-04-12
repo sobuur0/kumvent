@@ -6,13 +6,11 @@ class TextFormListTile extends StatefulWidget {
   final String text;
   final TextEditingController textController;
   final Widget? trailing;
-  final double? titlePadding;
 
   const TextFormListTile({
     required this.text,
     required this.textController,
     this.trailing,
-    this.titlePadding,
     Key? key,
   }) : super(key: key);
 
@@ -35,7 +33,7 @@ class _TextFormListTileState extends State<TextFormListTile> {
             fontSize: 16.0,
           ),
         ),
-        Padding(padding: EdgeInsets.only(bottom: 10.0)),
+        const Padding(padding: EdgeInsets.only(bottom: 10.0)),
         TextFormField(
           controller: widget.textController,
           decoration: InputDecoration(
