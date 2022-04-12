@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:kumvent/constants/colours.dart';
-import 'package:kumvent/presentation/pages/sign_in_page.dart';
+import 'package:kumvent/presentation/pages/sign_up_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,11 +14,15 @@ class MyApp extends StatelessWidget {
       minTextAdapt: true,
       builder: () {
         return MaterialApp(
+          debugShowCheckedModeBanner: false,
           theme: ThemeData(
-            primarySwatch: Colors.blue,
-            scaffoldBackgroundColor: kScaffoldBackgroundColor,
+            scaffoldBackgroundColor: Colors.white,
+            appBarTheme: const AppBarTheme(
+              elevation: 0,
+              color: Colors.white,
+            ),
           ),
-          home: const SignInPage(),
+          home: const SignUpPage(),
         );
       },
     );

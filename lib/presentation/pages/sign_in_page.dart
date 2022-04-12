@@ -1,127 +1,184 @@
+// ignore_for_file: use_full_hex_values_for_flutter_colors
+
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:kumvent/constants/app_styles.dart';
 import 'package:kumvent/constants/colours.dart';
+import 'package:kumvent/presentation/pages/forgot_password.dart';
+import 'package:kumvent/presentation/pages/sign_up_page.dart';
+import 'package:kumvent/presentation/widgets/action_button.dart';
+import 'package:kumvent/presentation/widgets/icon_container.dart';
+import 'package:kumvent/presentation/widgets/text_form_list_tile.dart';
 
 class SignInPage extends StatefulWidget {
   const SignInPage({Key? key}) : super(key: key);
 
   @override
-  _SignInPageState createState() => _SignInPageState();
+  State<SignInPage> createState() => _SignInPageState();
 }
 
 class _SignInPageState extends State<SignInPage> {
-  late TextEditingController _nameController;
-  late TextEditingController _emailAddressController;
-  late TextEditingController _passwordController;
-  late bool _isChecked = false;
+  final TextEditingController _emailAddressController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
+
     return Scaffold(
-      body: SafeArea(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Padding(
-              padding: const EdgeInsets.fromLTRB(16.0, 80.0, 16.0, 40.0),
-              child: Text(
-                'Create a new Account',
-                style: TextStyles.bold(
-                  color: kTextPrimaryColor,
-                  fontSize: 24.0,
+      appBar: AppBar(
+        leading: Builder(
+          builder: (BuildContext context) {
+            return IconButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              icon: const Icon(
+                Icons.arrow_back,
+                color: kLeadingIconColor,
+              ),
+            );
+          },
+        ),
+      ),
+      body: ListView(
+        padding: const EdgeInsets.symmetric(
+          horizontal: 16.0,
+        ),
+        children: [
+          const Padding(padding: EdgeInsets.only(top: 47.0)),
+          Text(
+            'Let\'s Sign you in.',
+            style: TextStyles.bold(
+              color: kTextPrimaryColor,
+              fontSize: 24.0,
+            ),
+          ),
+          const Padding(padding: EdgeInsets.only(bottom: 14.0)),
+          Text(
+            'Welcome back. You\'ve been missed!',
+            style: TextStyles.medium(
+              color: kNeutralColor,
+              fontSize: 16.0,
+            ),
+          ),
+          const Padding(padding: EdgeInsets.only(bottom: 75.0)),
+          TextFormListTile(
+            text: 'Email Address',
+            textController: _emailAddressController,
+          ),
+          const Padding(padding: EdgeInsets.only(bottom: 20.0)),
+          TextFormListTile(
+            text: 'Password',
+            textController: _passwordController,
+            trailing: Icon(
+              Icons.visibility,
+              color: const Color(0xFF991A2731).withOpacity(0.6),
+            ),
+          ),
+          const Padding(padding: EdgeInsets.only(bottom: 8.0)),
+          GestureDetector(
+            onTap: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                    builder: (context) => const ForgotPasswordPage()),
+              );
+            },
+            child: Text(
+              'Forgot password?',
+              textAlign: TextAlign.end,
+              style: TextStyles.medium(
+                color: const Color(0xFF636262),
+                fontSize: 12.0,
+              ),
+            ),
+          ),
+          const Padding(padding: EdgeInsets.only(bottom: 22.0)),
+          ActionButton(
+            buttonWidth: size.width,
+            buttonHeight: 56.0,
+            onPressed: () {},
+            title: 'Sign In',
+          ),
+          const Padding(padding: EdgeInsets.only(bottom: 46.0)),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Expanded(
+                child: Divider(
+                  thickness: 1.0,
+                  color: Colors.black.withOpacity(0.7),
+                  endIndent: 30.0,
                 ),
               ),
-            ),
-            Text(
-              'Name',
-              style: TextStyles.semiBold(
-                color: kNeutralColor,
-                fontSize: 16.0,
-              ),
-            ),
-            TextFormField(
-              controller: _nameController,
-              decoration: InputDecoration(
-                  border: OutlineInputBorder(
-                borderSide: const BorderSide(
-                  color: kTextViewBorderColor,
-                  width: 1.0,
-                  style: BorderStyle.solid,
+              const Text('Or'),
+              Expanded(
+                child: Divider(
+                  thickness: 1.0,
+                  color: Colors.black.withOpacity(0.7),
+                  indent: 30.0,
                 ),
-                borderRadius: BorderRadius.circular(5.0),
-              )),
-            ),
-            Text(
-              'Email Address',
-              style: TextStyles.semiBold(
-                color: kNeutralColor,
-                fontSize: 16.0,
               ),
-            ),
-            TextFormField(
-              controller: _emailAddressController,
-            ),
-            Text(
-              'Password',
-              style: TextStyles.semiBold(
-                color: kNeutralColor,
-                fontSize: 16.0,
-              ),
-            ),
-            TextFormField(
-              controller: _passwordController,
-            ),
-            Row(
-              children: [
-                Checkbox(
-                  value: _isChecked,
-                  onChanged: (value) {
-                    setState(() {
-                      _isChecked = true;
-                    });
-                  },
+            ],
+          ),
+          const Padding(padding: EdgeInsets.only(bottom: 25.0)),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              IconContainer(
+                onTap: () {},
+                child: const Icon(
+                  Icons.apple,
+                  size: 35.0,
                 ),
-                Expanded(
-                  child: Text.rich(
-                    TextSpan(
-                      children: [
-                        //TODO: tell shina to give the correct fontFamily to these texts
-                        TextSpan(
-                          text: 'I agree to',
-                          style: TextStyles.regular(
-                            color: kNeutralColor,
-                            fontSize: 14.0,
-                          ),
-                        ),
-                        TextSpan(
-                          text: 'Terms of Service',
-                          style: TextStyles.medium(
-                            color: kBlueShadeColor,
-                            fontSize: 14.0,
-                          ),
-                        ),
-                        TextSpan(
-                          text: 'and',
-                          style: TextStyles.regular(
-                            color: kNeutralColor,
-                            fontSize: 14.0,
-                          ),
-                        ),
-                        TextSpan(
-                          text: 'Privacy Policy',
-                          style: TextStyles.medium(
-                            color: kBlueShadeColor,
-                            fontSize: 14.0,
-                          ),
-                        ),
-                      ],
+              ),
+              IconContainer(
+                onTap: () {},
+                child: const Icon(
+                  Icons.facebook,
+                  size: 35.0,
+                  color: Color(0xFF039BE5),
+                ),
+              ),
+              IconContainer(
+                onTap: () {},
+                child: const Image(
+                  image: AssetImage('images/google.png'),
+                ),
+              ),
+            ],
+          ),
+          const Padding(padding: EdgeInsets.only(bottom: 30.0)),
+          Center(
+            child: Text.rich(
+              TextSpan(
+                children: [
+                  TextSpan(
+                    text: 'Don\'t have an account? ',
+                    style: TextStyles.medium(
+                      color: Colors.black,
+                      fontSize: 14.0,
                     ),
                   ),
-                ),
-              ],
+                  TextSpan(
+                    text: 'SignUp',
+                    recognizer: TapGestureRecognizer()
+                      ..onTap = () => Navigator.of(context).push(
+                            MaterialPageRoute(
+                              builder: (context) => const SignUpPage(),
+                            ),
+                          ),
+                    style: TextStyles.semiBold(
+                      color: kBlueShadeColor,
+                      fontSize: 14.0,
+                    ),
+                  ),
+                ],
+              ),
+              textAlign: TextAlign.center,
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
