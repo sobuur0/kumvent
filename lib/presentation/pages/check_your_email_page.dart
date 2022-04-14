@@ -84,7 +84,7 @@ class _CheckEmailPageState extends State<CheckEmailPage> {
               children: [
                 TextSpan(
                   text:
-                      'Did not receive the email? Check your spam filter\n or ',
+                      'Did not receive the email? Check your spam filter\nor ',
                   style: TextStyles.bold(
                     color: kTextPrimaryColor,
                     fontSize: 16.0,
