@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:kumvent/constants/app_styles.dart';
 import 'package:kumvent/constants/colours.dart';
 import 'package:kumvent/presentation/pages/forgot_password.dart';
+import 'package:kumvent/presentation/pages/homepage.dart';
 import 'package:kumvent/presentation/pages/sign_up_page.dart';
 import 'package:kumvent/presentation/widgets/action_button.dart';
 import 'package:kumvent/presentation/widgets/icon_container.dart';
@@ -97,7 +98,13 @@ class _SignInPageState extends State<SignInPage> {
           ActionButton(
             buttonWidth: size.width,
             buttonHeight: 56.0,
-            onPressed: () {},
+            onPressed: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => const HomePage(),
+                ),
+              );
+            },
             title: 'Sign In',
           ),
           const Padding(padding: EdgeInsets.only(bottom: 46.0)),
