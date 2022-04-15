@@ -14,7 +14,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       drawer: Drawer(
-        backgroundColor: kTextPrimaryColor,
+        backgroundColor: kPrimaryColor,
         child: ListView(
           padding: EdgeInsets.zero,
           children: [],

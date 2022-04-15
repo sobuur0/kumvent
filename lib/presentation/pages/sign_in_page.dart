@@ -43,11 +43,11 @@ class _SignInPageState extends State<SignInPage> {
         ),
       ),
       body: ListView(
-        padding: const EdgeInsets.symmetric(
-          horizontal: 16.0,
+        padding: const EdgeInsets.all(
+          16.0,
         ),
         children: [
-          const Padding(padding: EdgeInsets.only(top: 47.0)),
+          const Padding(padding: EdgeInsets.only(top: 30.0)),
           Text(
             'Let\'s Sign you in.',
             style: TextStyles.bold(
