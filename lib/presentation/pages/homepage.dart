@@ -52,6 +52,130 @@ class _HomePageState extends State<HomePage> {
           ],
         ),
       ),
+      body: ListView(
+        padding: const EdgeInsets.all(16.0),
+        children: [
+          const Padding(padding: EdgeInsets.only(top: 14.0)),
+          Text.rich(
+            TextSpan(
+              children: [
+                TextSpan(
+                  text: 'Let\'s help you find your\nperfect ',
+                  style: TextStyles.semiBold(
+                    color: kTextPrimaryColor,
+                    fontSize: 20.0,
+                  ),
+                ),
+                TextSpan(
+                  text: 'Event Center',
+                  style: TextStyles.bold(
+                    color: kTextPrimaryColor,
+                    fontSize: 24.0,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          const Padding(padding: EdgeInsets.only(bottom: 23.0)),
+          //Search Container
+          Container(
+            child: Row(children: []),
+          ),
+          const Padding(padding: EdgeInsets.only(top: 34.0)),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              TextButton(
+                onPressed: () {},
+                style: ButtonStyle(
+                  padding:
+                      MaterialStateProperty.all<EdgeInsets>(EdgeInsets.zero),
+                ),
+                child: Text(
+                  'Most Popular',
+                  style: TextStyles.bold(
+                    color: kPrimaryColor,
+                    fontSize: 20.0,
+                  ),
+                ),
+              ),
+              TextButton(
+                onPressed: () {},
+                style: ButtonStyle(
+                  padding:
+                      MaterialStateProperty.all<EdgeInsets>(EdgeInsets.zero),
+                ),
+                child: Text(
+                  'view all',
+                  style: TextStyles.regular(
+                    color: kPrimaryColor,
+                    fontSize: 14.0,
+                  ),
+                ),
+              ),
+            ],
+          ),
+          const Padding(padding: EdgeInsets.only(bottom: 16.0)),
+          //Available Hotel Horizontal listView
+          Container(
+            height: 80.0,
+            child: ListView(
+              scrollDirection: Axis.horizontal,
+              children: [
+                Container(
+                  color: Colors.red,
+                  width: 50.0,
+                ),
+                SizedBox(
+                  width: 10.0,
+                ),
+                Container(
+                  color: Colors.red,
+                  width: 50.0,
+                ),
+                SizedBox(
+                  width: 10.0,
+                ),
+                Container(
+                  color: Colors.red,
+                  width: 50.0,
+                ),
+                SizedBox(
+                  width: 10.0,
+                ),
+                Container(
+                  color: Colors.red,
+                  width: 50.0,
+                ),
+                SizedBox(
+                  width: 10.0,
+                ),
+                Container(
+                  color: Colors.red,
+                  width: 50.0,
+                ),
+                SizedBox(
+                  width: 10.0,
+                ),
+                Container(
+                  color: Colors.red,
+                  width: 50.0,
+                ),
+                SizedBox(
+                  width: 10.0,
+                ),
+                Container(
+                  color: Colors.red,
+                  width: 50.0,
+                ),
+                SizedBox(
+                  width: 10.0,
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
