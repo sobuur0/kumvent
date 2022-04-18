@@ -19,7 +19,7 @@ class _HomePageState extends State<HomePage> {
         backgroundColor: kPrimaryColor,
         child: ListView(
           padding: EdgeInsets.zero,
-          children: [],
+          children: const [],
         ),
       ),
       appBar: AppBar(
@@ -80,9 +80,7 @@ class _HomePageState extends State<HomePage> {
           ),
           const Padding(padding: EdgeInsets.only(bottom: 23.0)),
           //Search Container
-          Container(
-            child: Row(children: []),
-          ),
+          Row(children: const []),
           const Padding(padding: EdgeInsets.only(top: 34.0)),
           _buildTextButtons(
             leftText: 'Most Popular',
@@ -93,7 +91,6 @@ class _HomePageState extends State<HomePage> {
             height: size.height * 0.235,
             child: ListView(
               scrollDirection: Axis.horizontal,
-              shrinkWrap: true,
               children: [
                 _buildPopularEventCenters(size),
                 _buildPopularEventCenters(size),
@@ -120,9 +117,15 @@ class _HomePageState extends State<HomePage> {
       height: size.height * 0.22,
       width: 204,
       decoration: BoxDecoration(
-        color: kBackgroundFillColor,
-        borderRadius: BorderRadius.circular(8.0),
-      ),
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(8.0),
+          boxShadow: const [
+            BoxShadow(
+              color: Color(0xFFF3F1F1),
+              blurRadius: 32.0,
+              offset: Offset(0.0, 8.0),
+            )
+          ]),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -175,7 +178,7 @@ class _HomePageState extends State<HomePage> {
                   fontSize: 12.0,
                 ),
               ),
-              Spacer(),
+              const Spacer(),
               Text(
                 '\$123',
                 style: TextStyles.bold(
@@ -232,7 +235,7 @@ class _HomePageState extends State<HomePage> {
       height: 30.0,
       width: 48.0,
       decoration: BoxDecoration(
-        color: Color(0xFFEDECEC).withOpacity(0.3),
+        color: const Color(0xFFEDECEC).withOpacity(0.3),
         borderRadius: BorderRadius.circular(10.0),
       ),
       child: Row(children: [
