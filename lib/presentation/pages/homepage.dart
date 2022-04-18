@@ -79,8 +79,35 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
           const Padding(padding: EdgeInsets.only(bottom: 23.0)),
-          //Search Container
-          Row(children: const []),
+          TextField(
+            decoration: InputDecoration(
+              filled: true,
+              fillColor: const Color(0xFFEDECEC),
+              hintText: 'Search Centres',
+              hintStyle: TextStyles.regular(
+                color: const Color(0xFFA6A4A4),
+                fontSize: 14.0,
+              ),
+              prefixIcon: const Icon(
+                Icons.search,
+                color: Color(0xFFA6A4A4),
+              ),
+              enabledBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(5.0),
+                borderSide: const BorderSide(
+                  color: Color(0xFFEDECEC),
+                  width: 0.0,
+                ),
+              ),
+              focusedBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(5.0),
+                borderSide: const BorderSide(
+                  color: kPrimaryColor,
+                  width: 1.0,
+                ),
+              ),
+            ),
+          ),
           const Padding(padding: EdgeInsets.only(top: 34.0)),
           _buildTextButtons(
             leftText: 'Most Popular',
