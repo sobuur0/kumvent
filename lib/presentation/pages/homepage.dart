@@ -260,6 +260,7 @@ class _HomePageState extends State<HomePage> {
         children: [
           Container(
             decoration: BoxDecoration(
+              //TODO: replace with correct color
               color: Colors.grey,
               borderRadius: BorderRadius.circular(
                 8.0,
@@ -303,7 +304,7 @@ class _HomePageState extends State<HomePage> {
               Text(
                 'Sagamu, Ogun',
                 style: TextStyles.medium(
-                  color: kEventLocationColor,
+                  color: kEventCenterLocationColor,
                   fontSize: 12.0,
                 ),
               ),

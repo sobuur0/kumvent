@@ -12,6 +12,6 @@ const kBackgroundFillColor = Color(0xFFF6F5FA);
 const kIconContainerColor = Color(0xFFE7E7F9);
 const kErrorColor = Color(0xFFFF1E05);
 const kLeadingIconColor = Color(0xFF171717);
-const kEventLocationColor = Color(0xFF2F2F30);
+const kEventCenterLocationColor = Color(0xFF2F2F30);
 const kCenterAvailableTextColor = Color(0xFF028F18);
 const kCenterAvailableIndicatorColor = Color(0xFFD0FFD5);
