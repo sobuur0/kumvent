@@ -145,70 +145,84 @@ class _HomePageState extends State<HomePage> {
                   )
                 ],
               ),
-              child: Row(
+              child: Stack(
                 children: [
-                  Padding(
-                    padding: const EdgeInsets.fromLTRB(18.0, 12.0, 14.0, 12.0),
-                    child: Image.asset('images/atlantis_center.png'),
-                  ),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
+                  Row(
                     children: [
-                      const Padding(padding: EdgeInsets.only(top: 14.0)),
-                      Row(
+                      Padding(
+                        padding:
+                            const EdgeInsets.fromLTRB(18.0, 12.0, 14.0, 12.0),
+                        child: Image.asset('images/atlantis_center.png'),
+                      ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
+                          const Padding(padding: EdgeInsets.only(top: 14.0)),
+                          Row(
+                            children: [
+                              Text(
+                                'Atlantis Event center',
+                                style: TextStyles.bold(
+                                  color: kNeutralColor,
+                                  fontSize: 16.0,
+                                ),
+                              ),
+                            ],
+                          ),
                           Text(
-                            'Atlantis Event center',
-                            style: TextStyles.bold(
+                            'Ita-Oniyan, Ondo',
+                            style: TextStyles.medium(
                               color: kNeutralColor,
-                              fontSize: 16.0,
-                            ),
-                          ),
-                          const Icon(
-                            Icons.favorite,
-                            color: Color(0xFF0D34BF),
-                          ),
-                        ],
-                      ),
-                      Text(
-                        'Ita-Oniyan, Ondo',
-                        style: TextStyles.medium(
-                          color: kNeutralColor,
-                          fontSize: 14.0,
-                        ),
-                      ),
-                      const Padding(padding: EdgeInsets.only(bottom: 10.0)),
-                      Row(
-                        children: [
-                          const Icon(
-                            Icons.star,
-                            color: kSecondaryColor,
-                          ),
-                          Text(
-                            '4.9',
-                            style: TextStyles.bold(
-                              color: kTextPrimaryColor,
                               fontSize: 14.0,
                             ),
+                          ),
+                          const Padding(padding: EdgeInsets.only(bottom: 10.0)),
+                          Row(
+                            children: [
+                              const Icon(
+                                Icons.star,
+                                color: kSecondaryColor,
+                              ),
+                              Text(
+                                '4.9',
+                                style: TextStyles.bold(
+                                  color: kTextPrimaryColor,
+                                  fontSize: 14.0,
+                                ),
+                              ),
+                            ],
                           ),
                         ],
                       ),
                     ],
                   ),
-                  Expanded(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: [
-                        const Padding(
-                          padding: EdgeInsets.only(
-                            right: 9.0,
-                            bottom: 16.0,
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      const Align(
+                        alignment: Alignment.topRight,
+                        child: Padding(
+                          padding: EdgeInsets.symmetric(
+                            horizontal: 12.0,
+                            vertical: 14.0,
+                          ),
+                          child: Icon(
+                            Icons.favorite,
+                            color: Color(0xFF0D34BF),
                           ),
                         ),
-                        Container(
+                      ),
+                      const Spacer(),
+                      Align(
+                        alignment: Alignment.bottomRight,
+                        child: Container(
                           height: 26.0,
                           width: 106.0,
                           padding: const EdgeInsets.only(top: 5.0),
+                          margin: const EdgeInsets.only(
+                            right: 9.0,
+                            bottom: 10.0,
+                          ),
                           decoration: BoxDecoration(
                             color: kCenterAvailableIndicatorColor,
                             borderRadius: BorderRadius.circular(3.0),
@@ -222,8 +236,8 @@ class _HomePageState extends State<HomePage> {
                             ),
                           ),
                         ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
                 ],
               ),
