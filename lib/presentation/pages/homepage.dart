@@ -82,38 +82,9 @@ class _HomePageState extends State<HomePage> {
             child: Row(children: []),
           ),
           const Padding(padding: EdgeInsets.only(top: 34.0)),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              TextButton(
-                onPressed: () {},
-                style: ButtonStyle(
-                  padding:
-                      MaterialStateProperty.all<EdgeInsets>(EdgeInsets.zero),
-                ),
-                child: Text(
-                  'Most Popular',
-                  style: TextStyles.bold(
-                    color: kPrimaryColor,
-                    fontSize: 20.0,
-                  ),
-                ),
-              ),
-              TextButton(
-                onPressed: () {},
-                style: ButtonStyle(
-                  padding:
-                      MaterialStateProperty.all<EdgeInsets>(EdgeInsets.zero),
-                ),
-                child: Text(
-                  'view all',
-                  style: TextStyles.regular(
-                    color: kPrimaryColor,
-                    fontSize: 14.0,
-                  ),
-                ),
-              ),
-            ],
+          _buildTextButtons(
+            leftText: 'Most Popular',
+            rightText: 'view all',
           ),
           const Padding(padding: EdgeInsets.only(bottom: 16.0)),
           //Available Hotel Horizontal listView
@@ -174,8 +145,52 @@ class _HomePageState extends State<HomePage> {
               ],
             ),
           ),
+          const Padding(
+            padding: EdgeInsets.only(bottom: 24.0),
+          ),
+          _buildTextButtons(
+            leftText: 'Near you',
+            rightText: 'view all',
+          ),
         ],
       ),
+    );
+  }
+
+  Widget _buildTextButtons({
+    required String leftText,
+    required String rightText,
+  }) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        TextButton(
+          onPressed: () {},
+          style: ButtonStyle(
+            padding: MaterialStateProperty.all<EdgeInsets>(EdgeInsets.zero),
+          ),
+          child: Text(
+            leftText,
+            style: TextStyles.bold(
+              color: kPrimaryColor,
+              fontSize: 20.0,
+            ),
+          ),
+        ),
+        TextButton(
+          onPressed: () {},
+          style: ButtonStyle(
+            padding: MaterialStateProperty.all<EdgeInsets>(EdgeInsets.zero),
+          ),
+          child: Text(
+            rightText,
+            style: TextStyles.regular(
+              color: kPrimaryColor,
+              fontSize: 14.0,
+            ),
+          ),
+        ),
+      ],
     );
   }
 }
