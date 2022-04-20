@@ -214,50 +214,57 @@ class _ExplorePageState extends State<ExplorePage> {
       ),
       child: Stack(
         children: [
-          Image.asset(
-            'images/event_center.png',
-            fit: BoxFit.contain,
+          Positioned.fill(
+            child: Image.asset(
+              'images/event_center.png',
+              fit: BoxFit.contain,
+            ),
           ),
-          //Position this widget to bottom of the stack
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              FittedBox(
-                fit: BoxFit.contain,
-                child: Text(
-                  'Living Spring  Hotel',
-                  style: TextStyles.bold(
-                    color: kWhiteShadeColor,
-                    fontSize: 20.0,
-                  ),
-                ),
-              ),
-              Row(
-                children: [
-                  Text(
-                    'Lekki, Lagos',
-                    textScaleFactor: 0.9,
-                    style: TextStyles.medium(
-                      color: kWhiteShadeColor,
-                      fontSize: 14.0,
-                    ),
-                  ),
-                  const Spacer(),
-                  const Icon(
-                    Icons.star,
-                    size: 15.0,
-                    color: kSecondaryColor,
-                  ),
-                  Text(
-                    '5.0',
+          Positioned(
+            bottom: 0,
+            left: 0,
+            right: 0,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                FittedBox(
+                  fit: BoxFit.contain,
+                  child: Text(
+                    'Living Spring  Hotel',
                     style: TextStyles.bold(
                       color: kWhiteShadeColor,
-                      fontSize: 14.0,
+                      fontSize: 20.0,
                     ),
                   ),
-                ],
-              ),
-            ],
+                ),
+                Row(
+                  children: [
+                    Text(
+                      'Lekki, Lagos',
+                      textScaleFactor: 0.9,
+                      style: TextStyles.medium(
+                        color: kWhiteShadeColor,
+                        fontSize: 14.0,
+                      ),
+                    ),
+                    const Spacer(),
+                    const Icon(
+                      Icons.star,
+                      size: 15.0,
+                      color: kSecondaryColor,
+                    ),
+                    Text(
+                      '5.0',
+                      style: TextStyles.bold(
+                        color: kWhiteShadeColor,
+                        fontSize: 14.0,
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
           ),
         ],
       ),
