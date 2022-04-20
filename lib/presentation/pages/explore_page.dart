@@ -75,7 +75,7 @@ class _ExplorePageState extends State<ExplorePage> {
               fontSize: 20.0,
             ),
           ),
-         const Padding(padding: EdgeInsets.only(bottom: 11.0)),
+          const Padding(padding: EdgeInsets.only(bottom: 11.0)),
           SizedBox(
             height: 144.0,
             child: ListView(
@@ -95,13 +95,38 @@ class _ExplorePageState extends State<ExplorePage> {
               fontSize: 20.0,
             ),
           ),
-         const  Padding(padding: EdgeInsets.only(bottom: 11.0)),
+          const Padding(padding: EdgeInsets.only(bottom: 11.0)),
           SizedBox(
-            height: size.height * 0.38,
-            width: size.height * 0.9,
+            height: size.height * 0.37,
             child: Row(
               children: [
-                _buildTrendingCenters(size),
+                Expanded(
+                  flex: 6,
+                  child: _buildTrendingCenters(
+                    size,
+                  ),
+                ),
+                const Padding(padding: EdgeInsets.only(right: 24.0)),
+                Expanded(
+                  flex: 4,
+                  child: Column(
+                    children: [
+                      Expanded(
+                        flex: 6,
+                        child: _buildTrendingCenters(
+                          size,
+                        ),
+                      ),
+                      const Padding(padding: EdgeInsets.only(bottom: 24.0)),
+                      Expanded(
+                        flex: 4,
+                        child: _buildTrendingCenters(
+                          size,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
               ],
             ),
           )
@@ -175,9 +200,7 @@ class _ExplorePageState extends State<ExplorePage> {
   Widget _buildTrendingCenters(Size size) {
     return Container(
       height: size.height * 0.37,
-      width: 200.0,
       padding: const EdgeInsets.all(5.0),
-      margin: const EdgeInsets.only(right: 24.0),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10.0),
         gradient: LinearGradient(
@@ -191,49 +214,46 @@ class _ExplorePageState extends State<ExplorePage> {
       ),
       child: Stack(
         children: [
-          Image.asset('images/event_center.png'),
-          Positioned(
-            bottom: 10.0,
-            left: 10.0,
-            right: 10.0,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  'Living Spring  Hotel',
-                  style: TextStyles.bold(
-                    color: kWhiteShadeColor,
-                    fontSize: 16.0,
+          Image.asset(
+            'images/event_center.png',
+            fit: BoxFit.contain,
+          ),
+          Column(
+            children: [
+              Text(
+                'Living Spring  Hotel',
+                style: TextStyles.bold(
+                  color: kWhiteShadeColor,
+                  fontSize: 16.0,
+                ),
+              ),
+              Row(
+                children: [
+                  Text(
+                    'Lekki, Lagos',
+                    style: TextStyles.medium(
+                      color: kWhiteShadeColor,
+                      fontSize: 14.0,
+                    ),
                   ),
-                ),
-                Row(
-                  children: [
-                    Text(
-                      'Lekki, Lagos',
-                      style: TextStyles.medium(
-                        color: kWhiteShadeColor,
-                        fontSize: 14.0,
-                      ),
+                  const SizedBox(
+                    width: 20.0,
+                  ),
+                  const Icon(
+                    Icons.star,
+                    size: 15.0,
+                    color: kSecondaryColor,
+                  ),
+                  Text(
+                    '5.0',
+                    style: TextStyles.bold(
+                      color: kWhiteShadeColor,
+                      fontSize: 14.0,
                     ),
-                    const SizedBox(
-                      width: 20.0,
-                    ),
-                    const Icon(
-                      Icons.star,
-                      size: 15.0,
-                      color: kSecondaryColor,
-                    ),
-                    Text(
-                      '5.0',
-                      style: TextStyles.bold(
-                        color: kWhiteShadeColor,
-                        fontSize: 14.0,
-                      ),
-                    ),
-                  ],
-                ),
-              ],
-            ),
+                  ),
+                ],
+              ),
+            ],
           ),
         ],
       ),
