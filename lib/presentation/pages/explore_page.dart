@@ -129,7 +129,8 @@ class _ExplorePageState extends State<ExplorePage> {
                 ),
               ],
             ),
-          )
+          ),
+          const Padding(padding: EdgeInsets.only(bottom: 16.0)),
         ],
       ),
     );
