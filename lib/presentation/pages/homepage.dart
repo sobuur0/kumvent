@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:kumvent/constants/app_styles.dart';
 import 'package:kumvent/constants/colours.dart';
+import 'package:kumvent/presentation/pages/explore_page.dart';
 import 'package:kumvent/presentation/widgets/near_you_widget.dart';
+import 'package:kumvent/presentation/widgets/search_field.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -35,7 +37,6 @@ class _HomePageState extends State<HomePage> {
           ),
           title: Row(
             children: [
-              const Padding(padding: EdgeInsets.only(left: 20.0)),
               const Icon(
                 Icons.location_on,
                 color: kErrorColor,
@@ -48,13 +49,15 @@ class _HomePageState extends State<HomePage> {
                   fontSize: 16.0,
                 ),
               ),
-              const Spacer(),
-              CircleAvatar(
-                radius: 20.0,
-                child: Image.asset('images/profile_pic.png'),
-              ),
             ],
           ),
+          actions: [
+            CircleAvatar(
+              radius: 20.0,
+              child: Image.asset('images/profile_pic.png'),
+            ),
+            const Padding(padding: EdgeInsets.only(right: 16.0)),
+          ],
         ),
         body: ListView(
           padding: const EdgeInsets.only(left: 16.0, right: 16.0),
@@ -81,43 +84,24 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
             const Padding(padding: EdgeInsets.only(bottom: 23.0)),
-            TextField(
-              decoration: InputDecoration(
-                filled: true,
-                fillColor: const Color(0xFFEDECEC),
-                hintText: 'Search Centres',
-                hintStyle: TextStyles.regular(
-                  color: const Color(0xFFA6A4A4),
-                  fontSize: 14.0,
-                ),
-                prefixIcon: const Icon(
-                  Icons.search,
-                  color: Color(0xFFA6A4A4),
-                ),
-                enabledBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(5.0),
-                  borderSide: const BorderSide(
-                    color: Color(0xFFEDECEC),
-                    width: 0.0,
-                  ),
-                ),
-                focusedBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(5.0),
-                  borderSide: const BorderSide(
-                    color: kPrimaryColor,
-                    width: 1.0,
-                  ),
-                ),
-              ),
-            ),
+            const SearchField(),
             const Padding(padding: EdgeInsets.only(bottom: 34.0)),
             _buildTextButtons(
               leftText: 'Most Popular',
+              leftOnpressed: () {
+                //This is temporarily used to check for progress on the explore page
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => const ExplorePage(),
+                  ),
+                );
+              },
               rightText: 'view all',
+              rightOnpressed: () {},
             ),
             const Padding(padding: EdgeInsets.only(bottom: 14.0)),
             SizedBox(
-              height: size.height * 0.235,
+              height: size.height * 0.3,
               child: ListView(
                 scrollDirection: Axis.horizontal,
                 children: [
@@ -129,7 +113,9 @@ class _HomePageState extends State<HomePage> {
             const Padding(padding: EdgeInsets.only(bottom: 22.0)),
             _buildTextButtons(
               leftText: 'Near you',
+              leftOnpressed: () {},
               rightText: 'view all',
+              rightOnpressed: () {},
             ),
             const Padding(padding: EdgeInsets.only(bottom: 14.0)),
             NearYouWidget(
@@ -145,10 +131,10 @@ class _HomePageState extends State<HomePage> {
               centerName: 'Orlando Conference Hall',
               centerLocation: 'Ita-Oniyan, Ondo',
               centerRating: '5.0',
-              shadowColor:  Color(0xFFF3F1F1),
+              shadowColor: Color(0xFFF3F1F1),
               centerStatus: 'Not Available',
             ),
-            const Padding(padding: EdgeInsets.only(bottom: 16.0)),
+            const Padding(padding: EdgeInsets.only(bottom: 10.0)),
           ],
         ),
       ),
@@ -162,7 +148,7 @@ class _HomePageState extends State<HomePage> {
         vertical: 5.0,
       ),
       margin: const EdgeInsets.only(right: 32.0),
-      height: size.height * 0.22,
+      height: size.height * 0.3,
       width: 204,
       decoration: BoxDecoration(
         color: Colors.white,
@@ -215,43 +201,47 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
           const Padding(padding: EdgeInsets.only(bottom: 5.0)),
-          Row(
-            children: [
-              const Icon(
-                Icons.location_on,
-                color: kSecondaryColor,
-              ),
-              Text(
-                'Sagamu, Ogun',
-                style: TextStyles.medium(
-                  color: kEventCenterLocationColor,
-                  fontSize: 12.0,
+          Expanded(
+            child: Row(
+              children: [
+                const Icon(
+                  Icons.location_on,
+                  color: kSecondaryColor,
+                  size: 15.0,
                 ),
-              ),
-              const Spacer(),
-              Text(
-                '\$123',
-                style: TextStyles.bold(
-                  color: kPrimaryColor,
-                  fontSize: 16.0,
+                Text(
+                  'Sagamu, Ogun',
+                  style: TextStyles.medium(
+                    color: kEventCenterLocationColor,
+                    fontSize: 12.0,
+                  ),
                 ),
-              ),
-            ],
-          )
+                const Spacer(),
+                Text(
+                  '\$123',
+                  style: TextStyles.bold(
+                    color: kPrimaryColor,
+                    fontSize: 16.0,
+                  ),
+                ),
+              ],
+            ),
+          ),
         ],
       ),
     );
   }
 
-  Widget _buildTextButtons({
-    required String leftText,
-    required String rightText,
-  }) {
+  Widget _buildTextButtons(
+      {required String leftText,
+      required String rightText,
+      required VoidCallback leftOnpressed,
+      required VoidCallback rightOnpressed}) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         TextButton(
-          onPressed: () {},
+          onPressed: leftOnpressed,
           style: ButtonStyle(
             padding: MaterialStateProperty.all<EdgeInsets>(EdgeInsets.zero),
           ),
@@ -264,7 +254,7 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
         TextButton(
-          onPressed: () {},
+          onPressed: rightOnpressed,
           style: ButtonStyle(
             padding: MaterialStateProperty.all<EdgeInsets>(EdgeInsets.zero),
           ),

@@ -146,6 +146,9 @@ class _SignUpPageState extends State<SignUpPage> {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 IconContainer(
+                  height: 56.0,
+                  width: 56.0,
+                  color: kIconContainerColor,
                   onTap: () {},
                   child: const Icon(
                     Icons.apple,
@@ -153,6 +156,9 @@ class _SignUpPageState extends State<SignUpPage> {
                   ),
                 ),
                 IconContainer(
+                  height: 56.0,
+                  width: 56.0,
+                  color: kIconContainerColor,
                   onTap: () {},
                   child: const Icon(
                     Icons.facebook,
@@ -161,6 +167,9 @@ class _SignUpPageState extends State<SignUpPage> {
                   ),
                 ),
                 IconContainer(
+                  height: 56.0,
+                  width: 56.0,
+                  color: kIconContainerColor,
                   onTap: () {},
                   child: const Image(
                     image: AssetImage('images/google.png'),
