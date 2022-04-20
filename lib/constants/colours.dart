@@ -17,3 +17,4 @@ const kCenterAvailableTextColor = Color(0xFF028F18);
 const kCenterAvailableIndicatorColor = Color(0xFFD0FFD5);
 const kCenterNotAvailableTextColor = Color(0xFFEC2813);
 const kCenterNotAvailableIndicatorColor = Color(0xFFFFD5D0);
+const kWhiteShadeColor = Color(0xFFF6F6F6);
