@@ -112,7 +112,7 @@ class _ExplorePageState extends State<ExplorePage> {
                   child: Column(
                     children: [
                       Expanded(
-                        flex: 6,
+                        flex: 5,
                         child: _buildTrendingCenters(
                           size,
                         ),
@@ -218,27 +218,31 @@ class _ExplorePageState extends State<ExplorePage> {
             'images/event_center.png',
             fit: BoxFit.contain,
           ),
+          //Position this widget to bottom of the stack
           Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                'Living Spring  Hotel',
-                style: TextStyles.bold(
-                  color: kWhiteShadeColor,
-                  fontSize: 16.0,
+              FittedBox(
+                fit: BoxFit.contain,
+                child: Text(
+                  'Living Spring  Hotel',
+                  style: TextStyles.bold(
+                    color: kWhiteShadeColor,
+                    fontSize: 20.0,
+                  ),
                 ),
               ),
               Row(
                 children: [
                   Text(
                     'Lekki, Lagos',
+                    textScaleFactor: 0.9,
                     style: TextStyles.medium(
                       color: kWhiteShadeColor,
                       fontSize: 14.0,
                     ),
                   ),
-                  const SizedBox(
-                    width: 20.0,
-                  ),
+                  const Spacer(),
                   const Icon(
                     Icons.star,
                     size: 15.0,
