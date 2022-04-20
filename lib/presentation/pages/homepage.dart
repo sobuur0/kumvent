@@ -37,7 +37,6 @@ class _HomePageState extends State<HomePage> {
           ),
           title: Row(
             children: [
-              const Padding(padding: EdgeInsets.only(left: 20.0)),
               const Icon(
                 Icons.location_on,
                 color: kErrorColor,
@@ -102,7 +101,7 @@ class _HomePageState extends State<HomePage> {
             ),
             const Padding(padding: EdgeInsets.only(bottom: 14.0)),
             SizedBox(
-              height: size.height * 0.235,
+              height: size.height * 0.3,
               child: ListView(
                 scrollDirection: Axis.horizontal,
                 children: [
@@ -149,7 +148,7 @@ class _HomePageState extends State<HomePage> {
         vertical: 5.0,
       ),
       margin: const EdgeInsets.only(right: 32.0),
-      height: size.height * 0.22,
+      height: size.height * 0.3,
       width: 204,
       decoration: BoxDecoration(
         color: Colors.white,
@@ -202,29 +201,32 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
           const Padding(padding: EdgeInsets.only(bottom: 5.0)),
-          Row(
-            children: [
-              const Icon(
-                Icons.location_on,
-                color: kSecondaryColor,
-              ),
-              Text(
-                'Sagamu, Ogun',
-                style: TextStyles.medium(
-                  color: kEventCenterLocationColor,
-                  fontSize: 12.0,
+          Expanded(
+            child: Row(
+              children: [
+                const Icon(
+                  Icons.location_on,
+                  color: kSecondaryColor,
+                  size: 15.0,
                 ),
-              ),
-              const Spacer(),
-              Text(
-                '\$123',
-                style: TextStyles.bold(
-                  color: kPrimaryColor,
-                  fontSize: 16.0,
+                Text(
+                  'Sagamu, Ogun',
+                  style: TextStyles.medium(
+                    color: kEventCenterLocationColor,
+                    fontSize: 12.0,
+                  ),
                 ),
-              ),
-            ],
-          )
+                const Spacer(),
+                Text(
+                  '\$123',
+                  style: TextStyles.bold(
+                    color: kPrimaryColor,
+                    fontSize: 16.0,
+                  ),
+                ),
+              ],
+            ),
+          ),
         ],
       ),
     );
