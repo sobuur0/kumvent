@@ -24,7 +24,7 @@ class _SignInPageState extends State<SignInPage> {
 
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
+    final Size size = MediaQuery.of(context).size;
 
     return Scaffold(
       appBar: AppBar(
@@ -46,7 +46,7 @@ class _SignInPageState extends State<SignInPage> {
         padding: const EdgeInsets.all(
           16.0,
         ),
-        children: [
+        children: <Widget>[
           const Padding(padding: EdgeInsets.only(top: 30.0)),
           Text(
             'Let\'s Sign you in.',
@@ -81,8 +81,9 @@ class _SignInPageState extends State<SignInPage> {
           GestureDetector(
             onTap: () {
               Navigator.of(context).push(
+                // ignore: always_specify_types
                 MaterialPageRoute(
-                    builder: (context) => const ForgotPasswordPage()),
+                    builder: (BuildContext context) => const ForgotPasswordPage()),
               );
             },
             child: Text(
@@ -100,8 +101,9 @@ class _SignInPageState extends State<SignInPage> {
             buttonHeight: 56.0,
             onPressed: () {
               Navigator.of(context).push(
+                // ignore: always_specify_types
                 MaterialPageRoute(
-                  builder: (context) => const HomePage(),
+                  builder: (BuildContext context) => const HomePage(),
                 ),
               );
             },
@@ -110,7 +112,7 @@ class _SignInPageState extends State<SignInPage> {
           const Padding(padding: EdgeInsets.only(bottom: 46.0)),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
+            children: <Widget>[
               Expanded(
                 child: Divider(
                   thickness: 1.0,
@@ -131,7 +133,7 @@ class _SignInPageState extends State<SignInPage> {
           const Padding(padding: EdgeInsets.only(bottom: 25.0)),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
+            children: <Widget>[
               IconContainer(
                 height: 56.0,
                 width: 56.0,
@@ -168,7 +170,7 @@ class _SignInPageState extends State<SignInPage> {
           Center(
             child: Text.rich(
               TextSpan(
-                children: [
+                children: <TextSpan>[
                   TextSpan(
                     text: 'Don\'t have an account? ',
                     style: TextStyles.medium(
@@ -180,8 +182,9 @@ class _SignInPageState extends State<SignInPage> {
                     text: 'SignUp',
                     recognizer: TapGestureRecognizer()
                       ..onTap = () => Navigator.of(context).push(
+                            // ignore: always_specify_types
                             MaterialPageRoute(
-                              builder: (context) => const SignUpPage(),
+                              builder: (BuildContext context) => const SignUpPage(),
                             ),
                           ),
                     style: TextStyles.semiBold(

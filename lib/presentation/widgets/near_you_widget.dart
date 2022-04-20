@@ -28,7 +28,7 @@ class NearYouWidget extends StatelessWidget {
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(8.0),
-        boxShadow: [
+        boxShadow: <BoxShadow>[
           BoxShadow(
             color: shadowColor,
             blurRadius: 32.0,
@@ -37,19 +37,19 @@ class NearYouWidget extends StatelessWidget {
         ],
       ),
       child: Stack(
-        children: [
+        children: <Widget>[
           Row(
-            children: [
+            children: <Widget>[
               Padding(
                 padding: const EdgeInsets.fromLTRB(18.0, 12.0, 14.0, 12.0),
                 child: Image.asset(image),
               ),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
+                children: <Widget>[
                   const Padding(padding: EdgeInsets.only(top: 14.0)),
                   Row(
-                    children: [
+                    children: <Widget>[
                       Text(
                         centerName,
                         style: TextStyles.bold(
@@ -68,7 +68,7 @@ class NearYouWidget extends StatelessWidget {
                   ),
                   const Padding(padding: EdgeInsets.only(bottom: 10.0)),
                   Row(
-                    children: [
+                    children: <Widget>[
                       const Icon(
                         Icons.star,
                         color: kSecondaryColor,
@@ -88,7 +88,7 @@ class NearYouWidget extends StatelessWidget {
           ),
           Column(
             mainAxisAlignment: MainAxisAlignment.end,
-            children: [
+            children: <Widget>[
               centerStatus == 'Center Available'
                   ? const Align(
                       alignment: Alignment.topRight,

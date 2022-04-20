@@ -33,7 +33,7 @@ class _ExplorePageState extends State<ExplorePage> {
             fontSize: 24.0,
           ),
         ),
-        actions: [
+        actions: <Widget> [
           CircleAvatar(
             radius: 20.0,
             child: Image.asset('images/profile_pic.png'),
@@ -47,10 +47,10 @@ class _ExplorePageState extends State<ExplorePage> {
           right: 16.0,
           top: 20.0,
         ),
-        children: [
+        children: <Widget>[
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
+            children: <Widget>[
               const Expanded(child: SearchField()),
               const SizedBox(
                 width: 19.0,
@@ -80,7 +80,7 @@ class _ExplorePageState extends State<ExplorePage> {
             height: 144.0,
             child: ListView(
               scrollDirection: Axis.horizontal,
-              children: [
+              children: <Widget>[
                 _buildPopularSearch(),
                 _buildPopularSearch(),
                 _buildPopularSearch(),
@@ -99,7 +99,7 @@ class _ExplorePageState extends State<ExplorePage> {
           SizedBox(
             height: size.height * 0.37,
             child: Row(
-              children: [
+              children: <Widget>[
                 Expanded(
                   flex: 6,
                   child: _buildTrendingCenters(
@@ -110,7 +110,7 @@ class _ExplorePageState extends State<ExplorePage> {
                 Expanded(
                   flex: 4,
                   child: Column(
-                    children: [
+                    children: <Widget>[
                       Expanded(
                         flex: 5,
                         child: _buildTrendingCenters(
@@ -145,18 +145,18 @@ class _ExplorePageState extends State<ExplorePage> {
         gradient: LinearGradient(
           begin: const AlignmentDirectional(1.0, -1.0),
           end: const AlignmentDirectional(1.0, 1.0),
-          colors: [
+          colors: <Color>[
             const Color(0xFF3E282880).withOpacity(0.50),
             const Color(0xFF000000).withOpacity(1),
           ],
         ),
       ),
       child: Stack(
-        children: [
+        children: <Widget>[
           Image.asset('images/event_center.png'),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
+            children: <Widget>[
               const Padding(padding: EdgeInsets.only(top: 84.0)),
               Text(
                 'Living Spring  Hotel',
@@ -166,7 +166,7 @@ class _ExplorePageState extends State<ExplorePage> {
                 ),
               ),
               Row(
-                children: [
+                children: <Widget>[
                   Text(
                     'Lekki, Lagos',
                     style: TextStyles.medium(
@@ -207,14 +207,14 @@ class _ExplorePageState extends State<ExplorePage> {
         gradient: LinearGradient(
           begin: const AlignmentDirectional(1.0, -1.0),
           end: const AlignmentDirectional(1.0, 1.0),
-          colors: [
+          colors: <Color>[
             const Color(0xFF3E282880).withOpacity(0.50),
             const Color(0xFF000000).withOpacity(1),
           ],
         ),
       ),
       child: Stack(
-        children: [
+        children: <Widget>[
           Positioned.fill(
             child: Image.asset(
               'images/event_center.png',
@@ -228,7 +228,7 @@ class _ExplorePageState extends State<ExplorePage> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.end,
-              children: [
+              children: <Widget>[
                 FittedBox(
                   fit: BoxFit.contain,
                   child: Text(
@@ -240,7 +240,7 @@ class _ExplorePageState extends State<ExplorePage> {
                   ),
                 ),
                 Row(
-                  children: [
+                  children: <Widget>[
                     Text(
                       'Lekki, Lagos',
                       textScaleFactor: 0.9,

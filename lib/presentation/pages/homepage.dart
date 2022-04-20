@@ -15,7 +15,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
+    final Size size = MediaQuery.of(context).size;
 
     return SafeArea(
       child: Scaffold(
@@ -23,20 +23,20 @@ class _HomePageState extends State<HomePage> {
           backgroundColor: kPrimaryColor,
           child: ListView(
             padding: EdgeInsets.zero,
-            children: const [],
+            children: const <Widget>[],
           ),
         ),
         appBar: AppBar(
           centerTitle: true,
           leading: Builder(
-            builder: (context) => IconButton(
+            builder: (BuildContext context) => IconButton(
               icon: const Icon(Icons.menu),
               color: kTextPrimaryColor,
               onPressed: () => Scaffold.of(context).openDrawer(),
             ),
           ),
           title: Row(
-            children: [
+            children: <Widget>[
               const Icon(
                 Icons.location_on,
                 color: kErrorColor,
@@ -51,7 +51,7 @@ class _HomePageState extends State<HomePage> {
               ),
             ],
           ),
-          actions: [
+          actions: <Widget>[
             CircleAvatar(
               radius: 20.0,
               child: Image.asset('images/profile_pic.png'),
@@ -61,11 +61,11 @@ class _HomePageState extends State<HomePage> {
         ),
         body: ListView(
           padding: const EdgeInsets.only(left: 16.0, right: 16.0),
-          children: [
+          children: <Widget>[
             const Padding(padding: EdgeInsets.only(top: 25.0)),
             Text.rich(
               TextSpan(
-                children: [
+                children: <TextSpan>[
                   TextSpan(
                     text: 'Let\'s help you find your\nperfect ',
                     style: TextStyles.semiBold(
@@ -91,8 +91,9 @@ class _HomePageState extends State<HomePage> {
               leftOnpressed: () {
                 //This is temporarily used to check for progress on the explore page
                 Navigator.of(context).push(
+                  // ignore: always_specify_types
                   MaterialPageRoute(
-                    builder: (context) => const ExplorePage(),
+                    builder: (BuildContext context) => const ExplorePage(),
                   ),
                 );
               },
@@ -104,7 +105,7 @@ class _HomePageState extends State<HomePage> {
               height: size.height * 0.3,
               child: ListView(
                 scrollDirection: Axis.horizontal,
-                children: [
+                children: <Widget>[
                   _buildPopularEventCenters(size),
                   _buildPopularEventCenters(size),
                 ],
@@ -153,7 +154,7 @@ class _HomePageState extends State<HomePage> {
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(8.0),
-        boxShadow: const [
+        boxShadow: const <BoxShadow>[
           BoxShadow(
             color: Color(0xFFF3F1F1),
             blurRadius: 32.0,
@@ -163,7 +164,7 @@ class _HomePageState extends State<HomePage> {
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
+        children: <Widget>[
           Container(
             decoration: BoxDecoration(
               //TODO: replace with correct color
@@ -173,7 +174,7 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
             child: Stack(
-              children: [
+              children: <Widget>[
                 Image.asset(
                   'images/event_center.png',
                   height: 120,
@@ -203,7 +204,7 @@ class _HomePageState extends State<HomePage> {
           const Padding(padding: EdgeInsets.only(bottom: 5.0)),
           Expanded(
             child: Row(
-              children: [
+              children: <Widget>[
                 const Icon(
                   Icons.location_on,
                   color: kSecondaryColor,
@@ -239,7 +240,7 @@ class _HomePageState extends State<HomePage> {
       required VoidCallback rightOnpressed}) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
+      children: <Widget>[
         TextButton(
           onPressed: leftOnpressed,
           style: ButtonStyle(
@@ -279,7 +280,7 @@ class _HomePageState extends State<HomePage> {
         borderRadius: BorderRadius.circular(10.0),
       ),
       child: Row(
-        children: [
+        children: <Widget>[
           const Icon(
             Icons.star,
             color: kSecondaryColor,

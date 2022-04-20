@@ -15,7 +15,7 @@ class CheckEmailPage extends StatefulWidget {
 class _CheckEmailPageState extends State<CheckEmailPage> {
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
+    final Size size = MediaQuery.of(context).size;
 
     return Scaffold(
       appBar: AppBar(
@@ -37,7 +37,7 @@ class _CheckEmailPageState extends State<CheckEmailPage> {
         padding: const EdgeInsets.symmetric(
           horizontal: 16.0,
         ),
-        children: [
+        children: <Widget>[
           const Padding(padding: EdgeInsets.only(top: 46.0)),
           Text(
             'Yay! Check your email',
@@ -81,7 +81,7 @@ class _CheckEmailPageState extends State<CheckEmailPage> {
           const Padding(padding: EdgeInsets.only(bottom: 80.0)),
           Text.rich(
             TextSpan(
-              children: [
+              children: <TextSpan>[
                 TextSpan(
                   text:
                       'Did not receive the email? Check your spam filter\nor ',

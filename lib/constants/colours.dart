@@ -1,6 +1,8 @@
+// ignore_for_file: always_specify_types
+
 import 'package:flutter/material.dart';
 
-const kPrimaryColor = Color(0xFF061A60);
+const  kPrimaryColor = Color(0xFF061A60);
 const kSecondaryColor = Color(0xFFEC2813);
 const kNeutralColor = Color(0xFF1A2731);
 const kSuccessColor = Color(0xFFD1FFD0);
