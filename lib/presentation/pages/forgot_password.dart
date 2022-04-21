@@ -69,7 +69,8 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
             onPressed: () {
               Navigator.of(context).push(
                 // ignore: always_specify_types
-                MaterialPageRoute(builder: (BuildContext context) => const CheckEmailPage()),
+                MaterialPageRoute(
+                    builder: (BuildContext context) => const CheckEmailPage()),
               );
             },
             title: 'Submit',

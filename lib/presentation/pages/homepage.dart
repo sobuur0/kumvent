@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:kumvent/constants/app_styles.dart';
 import 'package:kumvent/constants/colours.dart';
 import 'package:kumvent/presentation/pages/explore_page.dart';
+import 'package:kumvent/presentation/pages/success_page.dart';
 import 'package:kumvent/presentation/widgets/near_you_widget.dart';
 import 'package:kumvent/presentation/widgets/search_field.dart';
 
@@ -93,7 +94,7 @@ class _HomePageState extends State<HomePage> {
                 Navigator.of(context).push(
                   // ignore: always_specify_types
                   MaterialPageRoute(
-                    builder: (BuildContext context) => const ExplorePage(),
+                    builder: (BuildContext context) => const SuccessPage(),
                   ),
                 );
               },
@@ -102,7 +103,7 @@ class _HomePageState extends State<HomePage> {
             ),
             const Padding(padding: EdgeInsets.only(bottom: 14.0)),
             SizedBox(
-              height: size.height * 0.3,
+              height: size.height * 0.25,
               child: ListView(
                 scrollDirection: Axis.horizontal,
                 children: <Widget>[
@@ -149,7 +150,7 @@ class _HomePageState extends State<HomePage> {
         vertical: 5.0,
       ),
       margin: const EdgeInsets.only(right: 32.0),
-      height: size.height * 0.3,
+      height: size.height * 0.2,
       width: 204,
       decoration: BoxDecoration(
         color: Colors.white,
