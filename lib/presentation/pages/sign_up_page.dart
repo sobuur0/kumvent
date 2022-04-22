@@ -1,5 +1,3 @@
-// ignore_for_file: use_full_hex_values_for_flutter_colors
-
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:kumvent/constants/app_styles.dart';
@@ -55,7 +53,7 @@ class _SignUpPageState extends State<SignUpPage> {
               textController: _passwordController,
               trailing: Icon(
                 Icons.visibility,
-                color: const Color(0xFF991A2731).withOpacity(0.6),
+                color: const Color(0xFF1A2731).withOpacity(0.6),
               ),
             ),
             const Padding(padding: EdgeInsets.only(bottom: 20.0)),
@@ -195,7 +193,8 @@ class _SignUpPageState extends State<SignUpPage> {
                         ..onTap = () => Navigator.of(context).push(
                               // ignore: always_specify_types
                               MaterialPageRoute(
-                                builder: (BuildContext context) => const SignInPage(),
+                                builder: (BuildContext context) =>
+                                    const SignInPage(),
                               ),
                             ),
                       style: TextStyles.semiBold(

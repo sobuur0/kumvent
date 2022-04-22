@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:kumvent/constants/app_styles.dart';
 import 'package:kumvent/constants/colours.dart';
 import 'package:kumvent/presentation/pages/explore_page.dart';
-import 'package:kumvent/presentation/pages/success_page.dart';
-import 'package:kumvent/presentation/widgets/enable_location_dialog.dart';
 import 'package:kumvent/presentation/widgets/near_you_widget.dart';
 import 'package:kumvent/presentation/widgets/search_field.dart';
 
@@ -92,16 +90,11 @@ class _HomePageState extends State<HomePage> {
               leftText: 'Most Popular',
               leftOnpressed: () {
                 //This is temporarily used to check for progress on the explore page
-                // Navigator.of(context).push(
-                //   MaterialPageRoute(
-                //     builder: (BuildContext context) => const SuccessPage(),
-                //   ),
-                // );
-                showDialog(
-                  context: context,
-                  builder: (BuildContext context) {
-                    return const EnableLocationDialog();
-                  },
+                Navigator.of(context).push(
+                  // ignore: always_specify_types
+                  MaterialPageRoute(
+                    builder: (BuildContext context) => const ExplorePage(),
+                  ),
                 );
               },
               rightText: 'view all',
@@ -109,7 +102,7 @@ class _HomePageState extends State<HomePage> {
             ),
             const Padding(padding: EdgeInsets.only(bottom: 14.0)),
             SizedBox(
-              height: size.height * 0.25,
+              height: size.height * 0.3,
               child: ListView(
                 scrollDirection: Axis.horizontal,
                 children: <Widget>[
@@ -156,7 +149,7 @@ class _HomePageState extends State<HomePage> {
         vertical: 5.0,
       ),
       margin: const EdgeInsets.only(right: 32.0),
-      height: size.height * 0.2,
+      height: size.height * 0.3,
       width: 204,
       decoration: BoxDecoration(
         color: Colors.white,
