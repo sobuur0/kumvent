@@ -17,7 +17,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
 
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
+    final Size size = MediaQuery.of(context).size;
 
     return Scaffold(
       appBar: AppBar(
@@ -39,7 +39,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
         padding: const EdgeInsets.symmetric(
           horizontal: 16.0,
         ),
-        children: [
+        children: <Widget>[
           const Padding(padding: EdgeInsets.only(top: 60.0)),
           Text(
             'Forgot Password?',
@@ -68,7 +68,8 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
             buttonHeight: 56.0,
             onPressed: () {
               Navigator.of(context).push(
-                MaterialPageRoute(builder: (context) => const CheckEmailPage()),
+                // ignore: always_specify_types
+                MaterialPageRoute(builder: (BuildContext context) => const CheckEmailPage()),
               );
             },
             title: 'Submit',

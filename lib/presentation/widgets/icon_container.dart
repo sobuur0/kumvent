@@ -1,13 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:kumvent/constants/colours.dart';
 
 class IconContainer extends StatelessWidget {
   final Widget child;
   final VoidCallback onTap;
+  final double height;
+  final double width;
+  final Color color;
 
   const IconContainer({
     required this.child,
     required this.onTap,
+    required this.height,
+    required this.width,
+    required this.color,
     Key? key,
   }) : super(key: key);
 
@@ -16,10 +21,10 @@ class IconContainer extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        height: 56.0,
-        width: 56.0,
+        height: height,
+        width: width,
         decoration: ShapeDecoration(
-          color: kIconContainerColor,
+          color: color,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(10.0),
           ),

@@ -33,13 +33,13 @@ class _SignUpPageState extends State<SignUpPage> {
 
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
+    final Size size = MediaQuery.of(context).size;
 
     return SafeArea(
       child: Scaffold(
         body: ListView(
           padding: const EdgeInsets.all(16.0),
-          children: [
+          children: <Widget>[
             const Padding(padding: EdgeInsets.only(top: 40.0)),
             Text(
               'Create a New Account',
@@ -69,7 +69,7 @@ class _SignUpPageState extends State<SignUpPage> {
             ),
             const Padding(padding: EdgeInsets.only(bottom: 20.0)),
             Row(
-              children: [
+              children: <Widget>[
                 SizedBox(
                   height: 24.0,
                   width: 24.0,
@@ -85,7 +85,7 @@ class _SignUpPageState extends State<SignUpPage> {
                 Expanded(
                   child: Text.rich(
                     TextSpan(
-                      children: [
+                      children: <TextSpan>[
                         // ignore: todo
                         //TODO: tell shina to give the correct fontFamily to these texts
                         TextSpan(
@@ -132,7 +132,7 @@ class _SignUpPageState extends State<SignUpPage> {
             const Padding(padding: EdgeInsets.only(bottom: 30.0)),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
+              children: <Widget>[
                 Expanded(
                   child: Divider(
                     thickness: 1.0,
@@ -153,8 +153,11 @@ class _SignUpPageState extends State<SignUpPage> {
             const Padding(padding: EdgeInsets.only(bottom: 25.0)),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
+              children: <Widget>[
                 IconContainer(
+                  height: 56.0,
+                  width: 56.0,
+                  color: kIconContainerColor,
                   onTap: () {},
                   child: const Icon(
                     Icons.apple,
@@ -162,6 +165,9 @@ class _SignUpPageState extends State<SignUpPage> {
                   ),
                 ),
                 IconContainer(
+                  height: 56.0,
+                  width: 56.0,
+                  color: kIconContainerColor,
                   onTap: () {},
                   child: const Icon(
                     Icons.facebook,
@@ -170,6 +176,9 @@ class _SignUpPageState extends State<SignUpPage> {
                   ),
                 ),
                 IconContainer(
+                  height: 56.0,
+                  width: 56.0,
+                  color: kIconContainerColor,
                   onTap: () {},
                   child: const Image(
                     image: AssetImage('images/google.png'),
@@ -181,7 +190,7 @@ class _SignUpPageState extends State<SignUpPage> {
             Center(
               child: Text.rich(
                 TextSpan(
-                  children: [
+                  children: <TextSpan>[
                     TextSpan(
                       text: 'Have an account? ',
                       style: TextStyles.medium(
@@ -193,8 +202,9 @@ class _SignUpPageState extends State<SignUpPage> {
                       text: 'Login',
                       recognizer: TapGestureRecognizer()
                         ..onTap = () => Navigator.of(context).push(
+                              // ignore: always_specify_types
                               MaterialPageRoute(
-                                builder: (context) => const SignInPage(),
+                                builder: (BuildContext context) => const SignInPage(),
                               ),
                             ),
                       style: TextStyles.semiBold(

@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:kumvent/constants/app_styles.dart';
 import 'package:kumvent/constants/colours.dart';
 import 'package:kumvent/presentation/pages/forgot_password.dart';
+import 'package:kumvent/presentation/pages/homepage.dart';
 import 'package:kumvent/presentation/pages/sign_up_page.dart';
 import 'package:kumvent/presentation/widgets/action_button.dart';
 import 'package:kumvent/presentation/widgets/icon_container.dart';
@@ -30,7 +31,7 @@ class _SignInPageState extends State<SignInPage> {
 
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
+    final Size size = MediaQuery.of(context).size;
 
     return Scaffold(
       appBar: AppBar(
@@ -49,11 +50,11 @@ class _SignInPageState extends State<SignInPage> {
         ),
       ),
       body: ListView(
-        padding: const EdgeInsets.symmetric(
-          horizontal: 16.0,
+        padding: const EdgeInsets.all(
+          16.0,
         ),
-        children: [
-          const Padding(padding: EdgeInsets.only(top: 47.0)),
+        children: <Widget>[
+          const Padding(padding: EdgeInsets.only(top: 30.0)),
           Text(
             'Let\'s Sign you in.',
             style: TextStyles.bold(
@@ -87,8 +88,9 @@ class _SignInPageState extends State<SignInPage> {
           GestureDetector(
             onTap: () {
               Navigator.of(context).push(
+                // ignore: always_specify_types
                 MaterialPageRoute(
-                    builder: (context) => const ForgotPasswordPage()),
+                    builder: (BuildContext context) => const ForgotPasswordPage()),
               );
             },
             child: Text(
@@ -104,13 +106,20 @@ class _SignInPageState extends State<SignInPage> {
           ActionButton(
             buttonWidth: size.width,
             buttonHeight: 56.0,
-            onPressed: () {},
+            onPressed: () {
+              Navigator.of(context).push(
+                // ignore: always_specify_types
+                MaterialPageRoute(
+                  builder: (BuildContext context) => const HomePage(),
+                ),
+              );
+            },
             title: 'Sign In',
           ),
           const Padding(padding: EdgeInsets.only(bottom: 46.0)),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
+            children: <Widget>[
               Expanded(
                 child: Divider(
                   thickness: 1.0,
@@ -131,8 +140,11 @@ class _SignInPageState extends State<SignInPage> {
           const Padding(padding: EdgeInsets.only(bottom: 25.0)),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
+            children: <Widget>[
               IconContainer(
+                height: 56.0,
+                width: 56.0,
+                color: kIconContainerColor,
                 onTap: () {},
                 child: const Icon(
                   Icons.apple,
@@ -140,6 +152,9 @@ class _SignInPageState extends State<SignInPage> {
                 ),
               ),
               IconContainer(
+                height: 56.0,
+                width: 56.0,
+                color: kIconContainerColor,
                 onTap: () {},
                 child: const Icon(
                   Icons.facebook,
@@ -148,6 +163,9 @@ class _SignInPageState extends State<SignInPage> {
                 ),
               ),
               IconContainer(
+                height: 56.0,
+                width: 56.0,
+                color: kIconContainerColor,
                 onTap: () {},
                 child: const Image(
                   image: AssetImage('images/google.png'),
@@ -159,7 +177,7 @@ class _SignInPageState extends State<SignInPage> {
           Center(
             child: Text.rich(
               TextSpan(
-                children: [
+                children: <TextSpan>[
                   TextSpan(
                     text: 'Don\'t have an account? ',
                     style: TextStyles.medium(
@@ -171,8 +189,9 @@ class _SignInPageState extends State<SignInPage> {
                     text: 'SignUp',
                     recognizer: TapGestureRecognizer()
                       ..onTap = () => Navigator.of(context).push(
+                            // ignore: always_specify_types
                             MaterialPageRoute(
-                              builder: (context) => const SignUpPage(),
+                              builder: (BuildContext context) => const SignUpPage(),
                             ),
                           ),
                     style: TextStyles.semiBold(

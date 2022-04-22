@@ -21,11 +21,11 @@ class TextFormListTile extends StatefulWidget {
 class _TextFormListTileState extends State<TextFormListTile> {
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
+    final Size size = MediaQuery.of(context).size;
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
+      children: <Widget>[
         Text(
           widget.text,
           style: TextStyles.semiBold(
