@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:kumvent/constants/colours.dart';
+import 'package:kumvent/presentation/pages/onboarding_page.dart';
 import 'package:kumvent/presentation/pages/sign_up_page.dart';
 
 class SplashPage extends StatefulWidget {
@@ -17,7 +18,7 @@ class _SplashPageState extends State<SplashPage> {
   //The solash screen method
   void splash() {
     Timer(const Duration(seconds: 5), () {
-      Navigator.pushReplacementNamed(context, SignUpPage.routeName);
+      Navigator.pushReplacementNamed(context, OnboardingPage.routeName);
     });
   }
 

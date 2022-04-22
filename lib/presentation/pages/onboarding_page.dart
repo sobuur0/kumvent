@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:kumvent/constants/app_styles.dart';
 import 'package:kumvent/constants/colours.dart';
 import 'package:kumvent/presentation/pages/sign_up_page.dart';
-import 'package:kumvent/presentation/widgets/onboarding_contents.dart';
+import 'package:kumvent/models/onboarding_contents.dart';
 
 class OnboardingPage extends StatefulWidget {
   const OnboardingPage({Key? key}) : super(key: key);
   static String routeName = '/onboard';
+
   @override
   State<OnboardingPage> createState() => _OnboardingPageState();
 }
@@ -28,11 +30,9 @@ class _OnboardingPageState extends State<OnboardingPage> {
               child: TextButton(
                 onPressed: () =>
                     Navigator.pushNamed(context, SignUpPage.routeName),
-                child: const Text(
-                  'Skip Tour',
-                  style: TextStyle(
-                      fontWeight: FontWeight.w500, color: Colors.black),
-                ),
+                child: Text('Skip Tour',
+                    style: TextStyles.medium(
+                        color: kLeadingIconColor, fontSize: 16)),
               ),
             ),
             SizedBox(
@@ -81,16 +81,13 @@ class _OnboardingPageState extends State<OnboardingPage> {
                         contents[index].title,
                         textAlign: TextAlign.center,
                         textScaleFactor: 0.7,
-                        style: const TextStyle(
-                          fontSize: 24,
-                          fontWeight: FontWeight.bold,
-                        ),
+                        style: TextStyles.bold(
+                            color: kLeadingIconColor, fontSize: 24),
                       ),
                       Text(
                         contents[index].desc,
-                        style: const TextStyle(
-                          fontSize: 14,
-                        ),
+                        style: TextStyles.medium(
+                            color: kLeadingIconColor, fontSize: 16),
                       ),
                     ],
                   );
@@ -112,7 +109,13 @@ class _OnboardingPageState extends State<OnboardingPage> {
                           Navigator.pushNamed(context, SignUpPage.routeName);
                           Curves.easeIn;
                         },
-                        child: Text('Get Started'),
+                        child: Text(
+                          'Get Started',
+                          style: TextStyles.bold(
+                            color: Colors.white,
+                            fontSize: 20.0,
+                          ),
+                        ),
                         style: ElevatedButton.styleFrom(
                           primary: kPrimaryColor,
                         ),
