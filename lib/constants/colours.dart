@@ -1,8 +1,7 @@
 // ignore_for_file: always_specify_types
-
 import 'package:flutter/material.dart';
 
-const  kPrimaryColor = Color(0xFF061A60);
+const kPrimaryColor = Color(0xFF061A60);
 const kSecondaryColor = Color(0xFFEC2813);
 const kNeutralColor = Color(0xFF1A2731);
 const kSuccessColor = Color(0xFFD1FFD0);
@@ -20,5 +19,5 @@ const kCenterAvailableIndicatorColor = Color(0xFFD0FFD5);
 const kCenterNotAvailableTextColor = Color(0xFFEC2813);
 const kCenterNotAvailableIndicatorColor = Color(0xFFFFD5D0);
 const kWhiteShadeColor = Color(0xFFF6F6F6);
-
-
+const kNotificationIconColor = Color(0XFF0D34BF);
+const kNotificationCheckText = Color(0XFF636262);

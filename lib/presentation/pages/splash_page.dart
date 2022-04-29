@@ -1,9 +1,10 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:kumvent/constants/app_styles.dart';
 import 'package:kumvent/constants/colours.dart';
 import 'package:kumvent/presentation/pages/onboarding_page.dart';
-import 'package:kumvent/presentation/pages/sign_up_page.dart';
+//import 'package:kumvent/presentation/pages/sign_up_page.dart';
 
 class SplashPage extends StatefulWidget {
   static String routeName = '/splashScren';
@@ -42,15 +43,12 @@ class _SplashPageState extends State<SplashPage> {
             width: 100,
           ),
           const Spacer(),
-          const Align(
+          Align(
             alignment: Alignment.bottomCenter,
             child: Text(
               //The font family for the texts has not been given
               "KUMVENT",
-              style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 40.0,
-                  fontWeight: FontWeight.w700),
+              style: TextStyles.bold(color: Colors.white, fontSize: 40),
             ),
           ),
         ],

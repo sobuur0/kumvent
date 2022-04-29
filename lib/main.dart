@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:kumvent/constants/route_constants.dart';
-import 'package:kumvent/presentation/pages/sign_in_page.dart';
-import 'package:kumvent/presentation/pages/splash_page.dart';
+import 'package:kumvent/presentation/pages/favorites_page.dart';
+import 'package:kumvent/presentation/pages/notification_page.dart';
+//import 'package:kumvent/presentation/pages/notification_page.dart';
+//import 'package:kumvent/presentation/pages/splash_page.dart';
+//import 'package:kumvent/presentation/pages/sign_in_page.dart';
+//import 'package:kumvent/presentation/pages/splash_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -20,11 +24,11 @@ class MyApp extends StatelessWidget {
           theme: ThemeData(
             scaffoldBackgroundColor: Colors.white,
             appBarTheme: const AppBarTheme(
-              elevation: 0,
+              elevation: 0.0,
               color: Colors.white,
             ),
           ),
-          initialRoute: SplashPage.routeName,
+          initialRoute: FavoritesPage.routeName,
           routes: routes,
         );
       },

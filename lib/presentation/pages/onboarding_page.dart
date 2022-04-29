@@ -62,7 +62,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
                           child: Center(
                             child: CircleAvatar(
                               radius: 110,
-                              backgroundColor: Color(0xffD1D8F2),
+                              backgroundColor: const Color(0xffD1D8F2),
                               child: Center(
                                 child: Image.asset(
                                   contents[index].image,
@@ -123,11 +123,11 @@ class _OnboardingPageState extends State<OnboardingPage> {
                     : InkWell(
                         onTap: () {
                           _pageController.nextPage(
-                              duration: Duration(milliseconds: 200),
+                              duration: const Duration(milliseconds: 200),
                               curve: Curves.easeIn);
                         },
                         child: const CircleAvatar(
-                          child: Icon(Icons.arrow_forward),
+                          child: Icon(Icons.east),
                           radius: 20,
                           backgroundColor: kPrimaryColor,
                         ),
@@ -148,7 +148,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
       decoration: BoxDecoration(
         color: _currentPage == index
             ? kPrimaryColor //Color(0xff0D34BF)
-            : Color(0xff0D34BF).withOpacity(0.15),
+            : const Color(0xff0D34BF).withOpacity(0.15),
       ),
       margin: const EdgeInsets.only(right: 3),
       height: 5,
