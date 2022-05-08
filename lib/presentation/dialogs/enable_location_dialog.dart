@@ -60,7 +60,7 @@ class EnableLocationDialog extends StatelessWidget {
               child: Text(
                 'Not Now',
                 style: TextStyles.semiBold(
-                  color: Color(0xFF728CE9),
+                  color: const Color(0xFF728CE9),
                   fontSize: 12.0,
                 ),
               ),
