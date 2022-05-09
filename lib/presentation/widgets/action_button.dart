@@ -20,7 +20,7 @@ class ActionButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
-        primary: kPrimaryColor,
+        primary: title == 'Done' ? const Color(0xFF0D34BF) : kPrimaryColor,
         fixedSize: Size(
           buttonWidth,
           buttonHeight,
