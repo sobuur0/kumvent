@@ -82,49 +82,15 @@ class NotificationsPage extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            'Wed, 20 Apr 2022',
-                            textScaleFactor: 0.75,
-                            style: TextStyles.regular(
-                              color: kNotificationCheckText,
-                              fontSize: 12.0,
-                            ),
-                          ),
-                          Text(
-                            'Check In',
-                            textScaleFactor: 0.8,
-                            style: TextStyles.medium(
-                              color: kNotificationCheckText,
-                              fontSize: 12.0,
-                            ),
-                          ),
-                        ],
+                      _checkInAndOutTime(
+                        subtitle: 'Wed, 20 Apr 2022',
+                        title: 'Check In',
                       ),
                       const Padding(padding: EdgeInsets.only(right: 35.0)),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            'Wed, 20 Apr 2022',
-                            textScaleFactor: 0.75,
-                            style: TextStyles.regular(
-                              color: kNotificationCheckText,
-                              fontSize: 12.0,
-                            ),
-                          ),
-                          Text(
-                            'Check Out',
-                            textScaleFactor: 0.8,
-                            style: TextStyles.medium(
-                              color: kNotificationCheckText,
-                              fontSize: 12.0,
-                            ),
-                          ),
-                        ],
-                      )
+                      _checkInAndOutTime(
+                        subtitle: 'Sat, 23 Apr 2022',
+                        title: 'Check Out',
+                      ),
                     ],
                   )
                 ],
@@ -204,6 +170,33 @@ class NotificationsPage extends StatelessWidget {
           ),
         ],
       ),
+    );
+  }
+
+  Widget _checkInAndOutTime({
+    required String subtitle,
+    required String title,
+  }) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          subtitle,
+          textScaleFactor: 0.75,
+          style: TextStyles.regular(
+            color: kNotificationCheckText,
+            fontSize: 12.0,
+          ),
+        ),
+        Text(
+          title,
+          textScaleFactor: 0.8,
+          style: TextStyles.medium(
+            color: kNotificationCheckText,
+            fontSize: 12.0,
+          ),
+        ),
+      ],
     );
   }
 }
