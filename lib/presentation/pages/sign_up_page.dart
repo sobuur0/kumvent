@@ -9,6 +9,7 @@ import 'package:kumvent/presentation/widgets/icon_container.dart';
 import 'package:kumvent/presentation/widgets/text_form_list_tile.dart';
 
 class SignUpPage extends StatefulWidget {
+  static String routeName = '/signUpPage';
   const SignUpPage({Key? key}) : super(key: key);
 
   @override
@@ -20,6 +21,14 @@ class _SignUpPageState extends State<SignUpPage> {
   final TextEditingController _emailAddressController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   late bool _isChecked = false;
+
+  @override
+  void dispose() {
+    _nameController.dispose();
+    _emailAddressController.dispose();
+    _passwordController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
