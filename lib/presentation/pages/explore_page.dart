@@ -146,7 +146,7 @@ class _ExplorePageState extends State<ExplorePage> {
           begin: const AlignmentDirectional(1.0, -1.0),
           end: const AlignmentDirectional(1.0, 1.0),
           colors: <Color>[
-            const Color(0xFF3E282880).withOpacity(0.50),
+            const Color(0xFF3E2828).withOpacity(0.50),
             const Color(0xFF000000).withOpacity(1),
           ],
         ),
@@ -208,7 +208,7 @@ class _ExplorePageState extends State<ExplorePage> {
           begin: const AlignmentDirectional(1.0, -1.0),
           end: const AlignmentDirectional(1.0, 1.0),
           colors: <Color>[
-            const Color(0xFF3E282880).withOpacity(0.50),
+            const Color(0xFF3E2828).withOpacity(0.50),
             const Color(0xFF000000).withOpacity(1),
           ],
         ),
