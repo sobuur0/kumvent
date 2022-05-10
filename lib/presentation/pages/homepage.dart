@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:kumvent/constants/app_styles.dart';
 import 'package:kumvent/constants/colours.dart';
 import 'package:kumvent/presentation/pages/explore_page.dart';
-import 'package:kumvent/presentation/pages/notification_page.dart';
 import 'package:kumvent/presentation/pages/profille_page.dart';
 import 'package:kumvent/presentation/widgets/near_you_widget.dart';
 import 'package:kumvent/presentation/widgets/search_field.dart';
@@ -98,11 +97,7 @@ class _HomePageState extends State<HomePage> {
               leftOnpressed: () {
                 //This is temporarily used to check for progress on the explore page
                 Navigator.of(context).push(
-                  // ignore: always_specify_types
-                  MaterialPageRoute(
-                    builder: (BuildContext context) => const NotificationsPage(),
-                  ),
-                );
+                    MaterialPageRoute(builder: (context) => ExplorePage()));
               },
               rightText: 'view all',
               rightOnpressed: () {},
