@@ -138,7 +138,7 @@ class _HomePageState extends State<HomePage> {
               centerName: 'Orlando Conference Hall',
               centerLocation: 'Ita-Oniyan, Ondo',
               centerRating: '5.0',
-              shadowColor: Color(0xFFF3F1F1),
+              shadowColor: Color(0xFFFFFFFF),
               centerStatus: 'Not Available',
             ),
             const Padding(padding: EdgeInsets.only(bottom: 10.0)),
