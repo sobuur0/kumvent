@@ -237,7 +237,7 @@ class _FilterBottomSheetState extends State<FilterBottomSheet> {
                 const Padding(padding: EdgeInsets.only(right: 6.0)),
               ],
             ),
-          )
+          ),
         ],
       ),
     );

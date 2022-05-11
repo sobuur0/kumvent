@@ -96,8 +96,6 @@ class _HomePageState extends State<HomePage> {
               leftText: 'Most Popular',
               leftOnpressed: () {
                 //This is temporarily used to check for progress on the explore page
-                Navigator.of(context).push(
-                    MaterialPageRoute(builder: (context) => ExplorePage()));
               },
               rightText: 'view all',
               rightOnpressed: () {},
@@ -235,11 +233,12 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  Widget _buildTextButtons(
-      {required String leftText,
-      required String rightText,
-      required VoidCallback leftOnpressed,
-      required VoidCallback rightOnpressed}) {
+  Widget _buildTextButtons({
+    required String leftText,
+    required String rightText,
+    required VoidCallback leftOnpressed,
+    required VoidCallback rightOnpressed,
+  }) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: <Widget>[
