@@ -247,34 +247,31 @@ class _FilterBottomSheetState extends State<FilterBottomSheet> {
     required bool isPicked,
     required String rating,
   }) {
-    return GestureDetector(
-      onTap: () {},
-      child: Container(
-        height: 32.0,
-        padding: EdgeInsets.symmetric(
-          vertical: 6.0,
-          horizontal: isPicked == true ? 12.0 : 8.0,
-        ),
-        decoration: BoxDecoration(
-          color: isPicked == true ? kTextPrimaryColor : kWhiteShadeColor,
-          borderRadius: BorderRadius.circular(5.0),
-        ),
-        child: Row(
-          children: [
-            Text(
-              rating,
-              style: TextStyles.bold(
-                color: isPicked == true ? kWhiteShadeColor : Colors.black,
-                fontSize: 16.0,
-              ),
+    return Container(
+      height: 32.0,
+      padding: EdgeInsets.symmetric(
+        vertical: 6.0,
+        horizontal: isPicked == true ? 12.0 : 8.0,
+      ),
+      decoration: BoxDecoration(
+        color: isPicked == true ? kTextPrimaryColor : kWhiteShadeColor,
+        borderRadius: BorderRadius.circular(5.0),
+      ),
+      child: Row(
+        children: [
+          Text(
+            rating,
+            style: TextStyles.bold(
+              color: isPicked == true ? kWhiteShadeColor : Colors.black,
+              fontSize: 16.0,
             ),
-            const Padding(padding: EdgeInsets.only(right: 10.0)),
-            const Icon(
-              Icons.star,
-              color: kSecondaryColor,
-            )
-          ],
-        ),
+          ),
+          const Padding(padding: EdgeInsets.only(right: 10.0)),
+          const Icon(
+            Icons.star,
+            color: kSecondaryColor,
+          )
+        ],
       ),
     );
   }

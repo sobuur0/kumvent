@@ -1,4 +1,3 @@
-// ignore_for_file: always_specify_types
 import 'package:flutter/material.dart';
 
 const kPrimaryColor = Color(0xFF061A60);
@@ -23,3 +22,4 @@ const kNotificationIconColor = Color(0XFF0D34BF);
 const kNotificationCheckText = Color(0XFF636262);
 const kFilterBottomSheetDividerColor = Color(0xFFB1C2FF);
 const kFilterBottomSheetLabelColor = Color(0xFF8F8F8F);
+const kProfileCardColor = Color(0xFFEDECEC);
