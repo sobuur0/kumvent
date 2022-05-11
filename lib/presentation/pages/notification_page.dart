@@ -42,7 +42,7 @@ class NotificationsPage extends StatelessWidget {
     );
   }
 
-  Widget _buildMiddleNotificationCard() {
+  _buildMiddleNotificationCard() {
     return Container(
       margin: const EdgeInsets.only(top: 40.0, bottom: 40.0),
       padding: const EdgeInsets.fromLTRB(16.0, 22.0, 20.0, 23.0),
