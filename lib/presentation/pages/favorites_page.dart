@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:kumvent/constants/app_styles.dart';
 import 'package:kumvent/constants/colours.dart';
+import 'package:kumvent/presentation/widgets/favorite_widget.dart';
 
 class FavoritesPage extends StatelessWidget {
   const FavoritesPage({Key? key}) : super(key: key);
   static String routeName = '/fav_page';
+
+  final String image = 'images/atlantis_center.png';
 
   @override
   Widget build(BuildContext context) {
@@ -20,45 +23,60 @@ class FavoritesPage extends StatelessWidget {
           color: kLeadingIconColor,
         ),
       ),
-      body: Padding(
-        padding: const EdgeInsets.only(top: 27),
-        child: Column(
-          children: [
-            Container(
-              width: double.infinity,
-              height: 96,
-              padding: const EdgeInsets.all(12.0),
-              margin: const EdgeInsets.only(left: 16, right: 16),
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: const BorderRadius.all(
-                  Radius.circular(10.0),
-                ),
-                boxShadow: [
-                  BoxShadow(
-                      color: Colors.grey.shade300,
-                      offset: const Offset(0.45, 0.5),
-                      blurRadius: 20,
-                      spreadRadius: 0.15),
-                ],
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.only(top: 20, right: 16, left: 16),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              FavoriteWidget(
+                image: image,
+                centerName: 'Atlantis Event Center',
+                centerLocation: 'Lekki, Lagos',
+                centerRating: '4.9',
+                shadowColor: const Color(0xFF171717).withOpacity(0.25),
+                centerStatus: 'Payment Completed',
               ),
-              child: Row(
-                children: [
-                  Image.asset('images/favorite.png'),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: const [
-                      Text(
-                        'Atlantis Event Center',
-                      ),
-                      Text('Lekki, Logos'),
-                      Text('4.9'),
-                    ],
-                  ),
-                ],
+              const Padding(padding: EdgeInsets.only(top: 28.0)),
+              Text(
+                'History',
+                style:
+                    TextStyles.bold(color: kLeadingIconColor, fontSize: 20.0),
               ),
-            ),
-          ],
+              FavoriteWidget(
+                image: image,
+                centerName: 'WOCDIF Event center',
+                centerLocation: '2, Oke Onitea Area, Osogbo',
+                centerRating: '4.9',
+                shadowColor: const Color(0xFFF3F1F1),
+                centerStatus: '',
+              ),
+              FavoriteWidget(
+                image: image,
+                centerName: '02 Arena',
+                centerLocation: '5, Gwagwalada Province, FCT, Abuja',
+                centerRating: '4.9',
+                shadowColor: const Color(0xFFF3F1F1),
+                centerStatus: '',
+              ),
+              FavoriteWidget(
+                image: image,
+                centerName: 'Stateline Event Center',
+                centerLocation: '2, Stateline Junction FUTA',
+                centerRating: '4.9',
+                shadowColor: const Color(0xFFF3F1F1),
+                centerStatus: '',
+              ),
+              FavoriteWidget(
+                image: image,
+                centerName: 'Babalayepe Event center',
+                centerLocation: '435, Arowosaye Str. Lekki',
+                centerRating: '4.9',
+                shadowColor: const Color(0xFFF3F1F1),
+                centerStatus: '',
+              ),
+            ],
+          ),
         ),
       ),
     );
