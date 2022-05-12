@@ -20,12 +20,12 @@ class ProfilePage extends StatelessWidget {
       ),
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 10),
+          padding: const EdgeInsets.symmetric(horizontal: 20),
           child: SingleChildScrollView(
             physics: const BouncingScrollPhysics(),
             child: Column(
               children: [
-                const SizedBox(),
+                const Padding(padding: EdgeInsets.only(bottom: 8.0)),
                 Center(
                   child: Image.asset(
                     'images/profile_image.png',
@@ -45,62 +45,39 @@ class ProfilePage extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(
-                  height: 40,
+                  height: 56.0,
                 ),
                 ProfileCard(
                   leadingIcon: Icons.person,
-                  trailingIcon: Icons.arrow_forward_ios,
                   title: 'Edit profile',
                   onPressed: () {},
                 ),
-                const SizedBox(
-                  height: 15.0,
-                ),
                 ProfileCard(
                   leadingIcon: Icons.history,
-                  trailingIcon: Icons.arrow_forward_ios,
                   title: 'History',
                   onPressed: () {},
                 ),
-                const SizedBox(
-                  height: 15.0,
-                ),
                 ProfileCard(
                   leadingIcon: Icons.feedback_outlined,
-                  trailingIcon: Icons.arrow_forward_ios,
                   title: 'About App',
                   onPressed: () {},
                 ),
-                const SizedBox(
-                  height: 15.0,
-                ),
                 ProfileCard(
                   leadingIcon: Icons.payment_outlined,
-                  trailingIcon: Icons.arrow_forward_ios,
                   title: 'Payment',
                   onPressed: () {},
                 ),
-                const SizedBox(
-                  height: 15.0,
-                ),
                 ProfileCard(
                   leadingIcon: Icons.help,
-                  trailingIcon: Icons.arrow_forward_ios,
                   title: 'Help Center',
                   onPressed: () {},
                 ),
-                const SizedBox(
-                  height: 15.0,
-                ),
                 ProfileCard(
                   leadingIcon: Icons.logout,
-                  trailingIcon: Icons.arrow_forward_ios,
                   title: 'Logout',
                   onPressed: () {},
                 ),
-                const SizedBox(
-                  height: 20.0,
-                ),
+                const Padding(padding: EdgeInsets.only(bottom: 8.0)),
                 const Text(
                   'Version 0.4.465',
                   style: TextStyle(

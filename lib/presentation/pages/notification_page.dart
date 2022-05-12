@@ -19,16 +19,20 @@ class NotificationsPage extends StatelessWidget {
         ),
       ),
       body: ListView(
+        padding: const EdgeInsets.symmetric(
+          horizontal: 16.0,
+          vertical: 30.0,
+        ),
         children: [
-          Padding(
-            padding: const EdgeInsets.only(bottom: 23),
-            child: Text(
-              'Notifications',
-              style: TextStyles.bold(
-                color: kLeadingIconColor,
-                fontSize: 24,
-              ),
+          Text(
+            'Notifications',
+            style: TextStyles.bold(
+              color: kLeadingIconColor,
+              fontSize: 24,
             ),
+          ),
+          const Padding(
+            padding: EdgeInsets.only(bottom: 23.0),
           ),
           _buiildNotificationCard(),
           _buildMiddleNotificationCard(),
@@ -40,158 +44,159 @@ class NotificationsPage extends StatelessWidget {
 
   _buildMiddleNotificationCard() {
     return Container(
-      margin: const EdgeInsets.all(10),
+      margin: const EdgeInsets.only(top: 40.0, bottom: 40.0),
+      padding: const EdgeInsets.fromLTRB(16.0, 22.0, 20.0, 23.0),
       decoration: BoxDecoration(
         borderRadius: const BorderRadius.all(Radius.circular(10)),
         color: Colors.white,
         boxShadow: [
           BoxShadow(
-              color: Colors.grey.shade500,
-              offset: const Offset(0.45, 0.5),
-              blurRadius: 10,
-              spreadRadius: 0.15),
+            color: Colors.grey.shade500,
+            offset: const Offset(0.45, 0.5),
+            blurRadius: 10,
+            spreadRadius: 0.15,
+          ),
         ],
       ),
-      child: Padding(
-        padding: const EdgeInsets.all(15.0),
-        child: Column(
-          children: [
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Container(
-                  width: 91,
-                  height: 96,
-                  child: Image.asset('images/notification.png'),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Image.asset('images/center_point_inn.png'),
+              const Padding(padding: EdgeInsets.only(right: 11.0)),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Padding(padding: EdgeInsets.only(top: 13.0)),
+                  Text(
+                    'Center Point Holiday inn',
+                    textScaleFactor: 0.85,
+                    style: TextStyles.bold(
+                      color: kTextPrimaryColor,
+                      fontSize: 16.0,
+                    ),
+                  ),
+                  const Padding(padding: EdgeInsets.only(bottom: 10.0)),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      Text(
-                        'Center Point Holiday inn',
-                        style: TextStyles.bold(
-                            color: kLeadingIconColor, fontSize: 16),
+                      _checkInAndOutTime(
+                        subtitle: 'Wed, 20 Apr 2022',
+                        title: 'Check In',
                       ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            'Wed, 20 Apr 2022',
-                            style: TextStyles.regular(
-                              color: kNotificationCheckText,
-                              fontSize: 12,
-                            ),
-                          ),
-                          Text(
-                            'Sat, 23 Apr 2022',
-                            style: TextStyles.semiBold(
-                                color: kNotificationCheckText, fontSize: 12),
-                          ),
-                        ],
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            'Check In',
-                            style: TextStyles.medium(
-                                color: kNotificationCheckText, fontSize: 12),
-                          ),
-                          Text(
-                            'Check Out',
-                            style: TextStyles.medium(
-                                color: kNotificationCheckText, fontSize: 12),
-                          ),
-                        ],
+                      const Padding(padding: EdgeInsets.only(right: 35.0)),
+                      _checkInAndOutTime(
+                        subtitle: 'Sat, 23 Apr 2022',
+                        title: 'Check Out',
                       ),
                     ],
-                  ),
-                ),
-              ],
-            ),
-            const SizedBox(
-              height: 26,
-            ),
-            Container(
-              width: double.infinity,
-              height: 40,
-              decoration: const BoxDecoration(
-                  color: kPrimaryColor,
-                  borderRadius: BorderRadius.all(Radius.circular(10))),
-              child: Center(
-                child: Text(
-                  'Check In Now',
-                  style: TextStyles.semiBold(
-                    color: Colors.white,
-                    fontSize: 14,
-                  ),
+                  )
+                ],
+              ),
+            ],
+          ),
+          const Padding(padding: EdgeInsets.only(bottom: 20.0)),
+          Container(
+            height: 40,
+            decoration: const BoxDecoration(
+                color: kPrimaryColor,
+                borderRadius: BorderRadius.all(Radius.circular(10))),
+            child: Center(
+              child: Text(
+                'Check In Now',
+                style: TextStyles.semiBold(
+                  color: Colors.white,
+                  fontSize: 14,
                 ),
               ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
 
   Widget _buiildNotificationCard() {
     return Container(
-      margin: const EdgeInsets.all(10),
-      width: double.infinity,
-      height: 163,
+      padding: const EdgeInsets.fromLTRB(24.0, 28.0, 7.0, 23.0),
       decoration: const BoxDecoration(
         color: kIconContainerColor,
         borderRadius: BorderRadius.all(
           Radius.circular(10.0),
         ),
       ),
-      child: Padding(
-        padding: const EdgeInsets.all(20.0),
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const Icon(
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const Padding(
+            padding: EdgeInsets.only(top: 8.0),
+            child: Icon(
               Icons.notifications_outlined,
               color: kNotificationIconColor,
             ),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(bottom: 4, left: 20),
-                  child: Text(
-                    'Ramadhan Greetings Promo!',
-                    style:
-                        TextStyles.bold(color: kLeadingIconColor, fontSize: 16),
-                  ),
+          ),
+          const Padding(padding: EdgeInsets.only(left: 26.0)),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                'Ramadhan Greetings Promo!',
+                style: TextStyles.bold(
+                  color: kLeadingIconColor,
+                  fontSize: 16,
                 ),
-                Padding(
-                  padding: const EdgeInsets.only(left: 20, bottom: 13),
-                  child: Text(
-                    '28 Mar',
-                    style: TextStyles.medium(
-                        color: kLeadingIconColor, fontSize: 12),
-                  ),
+              ),
+              const Padding(padding: EdgeInsets.only(bottom: 4.0)),
+              Text(
+                '28 Mar',
+                style: TextStyles.medium(
+                  color: kLeadingIconColor,
+                  fontSize: 12,
                 ),
-                Padding(
-                  padding: const EdgeInsets.only(left: 20),
-                  child: Text(
-                    'Welcoming the holy month of Ramadhan a discount for\nyou up to #2,200 that you can use for all payment\nmethod',
-                    maxLines: 3,
-                    textScaleFactor: 0.8,
-                    style: TextStyles.semiBold(
-                      color: kLeadingIconColor,
-                      fontSize: 12,
-                    ),
-                  ),
+              ),
+              const Padding(padding: EdgeInsets.only(bottom: 13.0)),
+              Text(
+                'Welcoming the holy month of Ramadhan a discount for\nyou up to #2,200 that you can use for all payment\nmethod',
+                maxLines: 3,
+                textScaleFactor: 0.75,
+                style: TextStyles.semiBold(
+                  color: kLeadingIconColor,
+                  fontSize: 12,
                 ),
-              ],
-            ),
-          ],
-        ),
+              ),
+            ],
+          ),
+        ],
       ),
+    );
+  }
+
+  Widget _checkInAndOutTime({
+    required String subtitle,
+    required String title,
+  }) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          subtitle,
+          textScaleFactor: 0.75,
+          style: TextStyles.regular(
+            color: kNotificationCheckText,
+            fontSize: 12.0,
+          ),
+        ),
+        Text(
+          title,
+          textScaleFactor: 0.8,
+          style: TextStyles.medium(
+            color: kNotificationCheckText,
+            fontSize: 12.0,
+          ),
+        ),
+      ],
     );
   }
 }

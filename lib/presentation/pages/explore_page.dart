@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:kumvent/constants/app_styles.dart';
 import 'package:kumvent/constants/colours.dart';
+import 'package:kumvent/presentation/dialogs/filter_bottomsheet.dart';
 import 'package:kumvent/presentation/widgets/icon_container.dart';
 import 'package:kumvent/presentation/widgets/search_field.dart';
 
@@ -33,7 +34,7 @@ class _ExplorePageState extends State<ExplorePage> {
             fontSize: 24.0,
           ),
         ),
-        actions: <Widget> [
+        actions: <Widget>[
           CircleAvatar(
             radius: 20.0,
             child: Image.asset('images/profile_pic.png'),
@@ -60,7 +61,19 @@ class _ExplorePageState extends State<ExplorePage> {
                   AssetImage('images/filter.png'),
                   color: Colors.white,
                 ),
-                onTap: () {},
+                onTap: () {
+                  showModalBottomSheet(
+                    shape: const RoundedRectangleBorder(
+                      borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(50.0),
+                        topRight: Radius.circular(50.0),
+                      ),
+                    ),
+                    backgroundColor: Colors.white,
+                    context: context,
+                    builder: (context) => const FilterBottomSheet(),
+                  );
+                },
                 height: 48.0,
                 width: 48.0,
                 color: kPrimaryColor,
@@ -146,7 +159,7 @@ class _ExplorePageState extends State<ExplorePage> {
           begin: const AlignmentDirectional(1.0, -1.0),
           end: const AlignmentDirectional(1.0, 1.0),
           colors: <Color>[
-            const Color(0xFF3E282880).withOpacity(0.50),
+            const Color(0xFF3E2828).withOpacity(0.50),
             const Color(0xFF000000).withOpacity(1),
           ],
         ),
@@ -208,7 +221,7 @@ class _ExplorePageState extends State<ExplorePage> {
           begin: const AlignmentDirectional(1.0, -1.0),
           end: const AlignmentDirectional(1.0, 1.0),
           colors: <Color>[
-            const Color(0xFF3E282880).withOpacity(0.50),
+            const Color(0xFF3E2828).withOpacity(0.50),
             const Color(0xFF000000).withOpacity(1),
           ],
         ),

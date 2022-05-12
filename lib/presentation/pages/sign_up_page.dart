@@ -2,7 +2,6 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:kumvent/constants/app_styles.dart';
 import 'package:kumvent/constants/colours.dart';
-import 'package:kumvent/presentation/dialogs/booked_event_center_dialog.dart';
 import 'package:kumvent/presentation/pages/sign_in_page.dart';
 import 'package:kumvent/presentation/widgets/action_button.dart';
 import 'package:kumvent/presentation/widgets/icon_container.dart';
