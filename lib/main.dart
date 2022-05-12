@@ -2,16 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:kumvent/constants/colours.dart';
 import 'package:kumvent/constants/route_constants.dart';
-<<<<<<< HEAD
-import 'package:kumvent/presentation/pages/checkout_page.dart';
 import 'package:kumvent/presentation/pages/splash_page.dart';
-//import 'package:kumvent/presentation/pages/notification_page.dart';
-//import 'package:kumvent/presentation/pages/splash_page.dart';
-//import 'package:kumvent/presentation/pages/sign_in_page.dart';
-//import 'package:kumvent/presentation/pages/splash_page.dart';
-=======
-import 'package:kumvent/presentation/pages/splash_page.dart';
->>>>>>> main
 
 void main() {
   runApp(const MyApp());
@@ -37,11 +28,7 @@ class MyApp extends StatelessWidget {
               trackHeight: 3.0,
             ),
           ),
-<<<<<<< HEAD
-          initialRoute: CheckoutPage.routeName,
-=======
           initialRoute: SplashPage.routeName,
->>>>>>> main
           routes: routes,
         );
       },
