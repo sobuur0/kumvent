@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:kumvent/constants/route_constants.dart';
+import 'package:kumvent/presentation/pages/checkout_page.dart';
 import 'package:kumvent/presentation/pages/favorites_page.dart';
 import 'package:kumvent/presentation/pages/notification_page.dart';
 //import 'package:kumvent/presentation/pages/notification_page.dart';
@@ -28,7 +29,7 @@ class MyApp extends StatelessWidget {
               color: Colors.white,
             ),
           ),
-          initialRoute: FavoritesPage.routeName,
+          initialRoute: CheckoutPage.routeName,
           routes: routes,
         );
       },

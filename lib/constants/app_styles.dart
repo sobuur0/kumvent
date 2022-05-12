@@ -5,10 +5,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 ///Utility class for all styles used in the app
 class TextStyles {
   static TextStyle _defaultTextStyle(
-      Color color,
-      double size,
-      FontWeight fontWeight,
-      ) {
+    Color color,
+    double size,
+    FontWeight fontWeight,
+  ) {
     return GoogleFonts.quicksand(
       textStyle: TextStyle(
         color: color,
