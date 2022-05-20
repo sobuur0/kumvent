@@ -90,7 +90,8 @@ class _SignInPageState extends State<SignInPage> {
               Navigator.of(context).push(
                 // ignore: always_specify_types
                 MaterialPageRoute(
-                    builder: (BuildContext context) => const ForgotPasswordPage()),
+                    builder: (BuildContext context) =>
+                        const ForgotPasswordPage()),
               );
             },
             child: Text(
@@ -191,7 +192,8 @@ class _SignInPageState extends State<SignInPage> {
                       ..onTap = () => Navigator.of(context).push(
                             // ignore: always_specify_types
                             MaterialPageRoute(
-                              builder: (BuildContext context) => const SignUpPage(),
+                              builder: (BuildContext context) =>
+                                  const SignUpPage(),
                             ),
                           ),
                     style: TextStyles.semiBold(
