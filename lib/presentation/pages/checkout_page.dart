@@ -1,4 +1,3 @@
-import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:kumvent/constants/app_styles.dart';
@@ -115,8 +114,8 @@ class _CheckoutPageState extends State<CheckoutPage> {
                 ],
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.only(top: 16),
+            const Padding(
+              padding: EdgeInsets.only(top: 16),
             ),
             TextFormListTile(
               text: 'Card Number',
@@ -127,14 +126,14 @@ class _CheckoutPageState extends State<CheckoutPage> {
                 width: 24,
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.only(top: 16),
+            const Padding(
+              padding: EdgeInsets.only(top: 16),
             ),
             TextFormListTile(
                 text: 'Card Holder Name',
                 textController: _cardHolderNameController),
-            Padding(
-              padding: const EdgeInsets.only(top: 16),
+            const Padding(
+              padding: EdgeInsets.only(top: 16),
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -146,7 +145,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
                     text: 'CVV Code', textController: _cardCvvCodeController),
               ],
             ),
-            Padding(padding: const EdgeInsets.only(top: 24)),
+            const Padding(padding: EdgeInsets.only(top: 24)),
             ActionButton(
                 buttonWidth: double.infinity,
                 buttonHeight: 48,

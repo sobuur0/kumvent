@@ -27,7 +27,7 @@ class _SplashPageState extends State<SplashPage> {
   void initState() {
     super.initState();
     splash();
-  }
+  } 
 
   @override
   Widget build(BuildContext context) {

@@ -166,6 +166,7 @@ class _HomePageState extends State<HomePage> {
         children: <Widget>[
           Container(
             decoration: BoxDecoration(
+              //TODO: replace with correct color
               color: Colors.grey,
               borderRadius: BorderRadius.circular(
                 8.0,
