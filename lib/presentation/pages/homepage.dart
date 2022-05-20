@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:kumvent/constants/app_styles.dart';
 import 'package:kumvent/constants/colours.dart';
-import 'package:kumvent/presentation/pages/explore_page.dart';
 import 'package:kumvent/presentation/pages/profille_page.dart';
 import 'package:kumvent/presentation/widgets/near_you_widget.dart';
 import 'package:kumvent/presentation/widgets/search_field.dart';
@@ -167,7 +166,6 @@ class _HomePageState extends State<HomePage> {
         children: <Widget>[
           Container(
             decoration: BoxDecoration(
-              //TODO: replace with correct color
               color: Colors.grey,
               borderRadius: BorderRadius.circular(
                 8.0,
