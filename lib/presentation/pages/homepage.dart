@@ -19,22 +19,8 @@ class _HomePageState extends State<HomePage> {
 
     return SafeArea(
       child: Scaffold(
-        drawer: Drawer(
-          backgroundColor: kPrimaryColor,
-          child: ListView(
-            padding: EdgeInsets.zero,
-            children: const <Widget>[],
-          ),
-        ),
         appBar: AppBar(
           centerTitle: true,
-          leading: Builder(
-            builder: (BuildContext context) => IconButton(
-              icon: const Icon(Icons.menu),
-              color: kTextPrimaryColor,
-              onPressed: () => Scaffold.of(context).openDrawer(),
-            ),
-          ),
           title: Row(
             children: <Widget>[
               const Icon(
@@ -166,7 +152,6 @@ class _HomePageState extends State<HomePage> {
         children: <Widget>[
           Container(
             decoration: BoxDecoration(
-              //TODO: replace with correct color
               color: Colors.grey,
               borderRadius: BorderRadius.circular(
                 8.0,

@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:kumvent/constants/app_styles.dart';
 import 'package:kumvent/constants/colours.dart';
@@ -36,7 +35,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
             SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               child: Row(
-                children: [
+                children: const [
                   BuildCardWidget(
                     cardHolderName: 'Abiona Kazeem',
                     cardNumber: '****  ****  **** 2354',
@@ -44,7 +43,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
                     expDate: '12/2022',
                     bgColor: kcardBackgroundColor,
                   ),
-                  const SizedBox(
+                  SizedBox(
                     width: 16,
                   ),
                   BuildCardWidget(
@@ -52,7 +51,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
                     cardNumber: '****  ****  **** 2354',
                     cardType: 'Visa Card',
                     expDate: '12/2022',
-                    bgColor: const Color(0XFF1105A6),
+                    bgColor: Color(0XFF1105A6),
                   ),
                 ],
               ),
@@ -60,8 +59,10 @@ class _CheckoutPageState extends State<CheckoutPage> {
             const Padding(padding: EdgeInsets.only(top: 64)),
             Text(
               'Payment Method',
-              style:
-                  TextStyles.bold(color: const Color(0xff000000), fontSize: 20),
+              style: TextStyles.bold(
+                color: const Color(0xff000000),
+                fontSize: 20,
+              ),
             ),
             Container(
               width: double.infinity,
@@ -97,19 +98,25 @@ class _CheckoutPageState extends State<CheckoutPage> {
                       Text(
                         'Mastercard',
                         style: TextStyles.bold(
-                            color: kLeadingIconColor, fontSize: 14),
+                          color: kLeadingIconColor,
+                          fontSize: 14,
+                        ),
                       ),
                     ],
                   ),
                   Text(
                     'Debit Card',
-                    style:
-                        TextStyles.bold(color: kGreyShadeColor, fontSize: 14),
+                    style: TextStyles.bold(
+                      color: kGreyShadeColor,
+                      fontSize: 14,
+                    ),
                   ),
                   Text(
                     'Paypal',
-                    style:
-                        TextStyles.bold(color: kGreyShadeColor, fontSize: 14),
+                    style: TextStyles.bold(
+                      color: kGreyShadeColor,
+                      fontSize: 14,
+                    ),
                   ),
                 ],
               ),
@@ -130,8 +137,9 @@ class _CheckoutPageState extends State<CheckoutPage> {
               padding: EdgeInsets.only(top: 16),
             ),
             TextFormListTile(
-                text: 'Card Holder Name',
-                textController: _cardHolderNameController),
+              text: 'Card Holder Name',
+              textController: _cardHolderNameController,
+            ),
             const Padding(
               padding: EdgeInsets.only(top: 16),
             ),
@@ -139,18 +147,22 @@ class _CheckoutPageState extends State<CheckoutPage> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 ExpiryDateAndCvvWidget(
-                    text: 'Expiration Date',
-                    textController: _cardExpiryDateController),
+                  text: 'Expiration Date',
+                  textController: _cardExpiryDateController,
+                ),
                 ExpiryDateAndCvvWidget(
-                    text: 'CVV Code', textController: _cardCvvCodeController),
+                  text: 'CVV Code',
+                  textController: _cardCvvCodeController,
+                ),
               ],
             ),
             const Padding(padding: EdgeInsets.only(top: 24)),
             ActionButton(
-                buttonWidth: double.infinity,
-                buttonHeight: 48,
-                onPressed: () {},
-                title: 'Confirm Payment'),
+              buttonWidth: double.infinity,
+              buttonHeight: 48,
+              onPressed: () {},
+              title: 'Confirm Payment',
+            ),
           ],
         ),
       ),

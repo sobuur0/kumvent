@@ -47,7 +47,9 @@ class NotificationsPage extends StatelessWidget {
       margin: const EdgeInsets.only(top: 40.0, bottom: 40.0),
       padding: const EdgeInsets.fromLTRB(16.0, 22.0, 20.0, 23.0),
       decoration: BoxDecoration(
-        borderRadius: const BorderRadius.all(Radius.circular(10)),
+        borderRadius: const BorderRadius.all(
+          Radius.circular(10),
+        ),
         color: Colors.white,
         boxShadow: [
           BoxShadow(
@@ -101,8 +103,11 @@ class NotificationsPage extends StatelessWidget {
           Container(
             height: 40,
             decoration: const BoxDecoration(
-                color: kPrimaryColor,
-                borderRadius: BorderRadius.all(Radius.circular(10))),
+              color: kPrimaryColor,
+              borderRadius: BorderRadius.all(
+                Radius.circular(10),
+              ),
+            ),
             child: Center(
               child: Text(
                 'Check In Now',

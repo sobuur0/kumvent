@@ -19,7 +19,10 @@ class _SplashPageState extends State<SplashPage> {
   //The solash screen method
   void splash() {
     Timer(const Duration(seconds: 5), () {
-      Navigator.pushReplacementNamed(context, OnboardingPage.routeName);
+      Navigator.pushReplacementNamed(
+        context,
+        OnboardingPage.routeName,
+      );
     });
   }
 
@@ -27,7 +30,7 @@ class _SplashPageState extends State<SplashPage> {
   void initState() {
     super.initState();
     splash();
-  } 
+  }
 
   @override
   Widget build(BuildContext context) {

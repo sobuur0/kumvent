@@ -4,7 +4,7 @@ import 'package:kumvent/constants/app_styles.dart';
 import '../../constants/colours.dart';
 
 class BuildCardWidget extends StatelessWidget {
-  BuildCardWidget({
+  const BuildCardWidget({
     required this.cardType,
     required this.cardNumber,
     required this.cardHolderName,
@@ -13,11 +13,11 @@ class BuildCardWidget extends StatelessWidget {
     Key? key,
   }) : super(key: key);
 
-  String cardType = '';
-  String cardNumber = '';
-  String cardHolderName = '';
-  String expDate = '';
-  Color? bgColor = kcardBackgroundColor;
+  final String cardType;
+  final String cardNumber;
+  final String cardHolderName;
+  final String expDate;
+  final Color? bgColor;
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +39,10 @@ class BuildCardWidget extends StatelessWidget {
                 left: 50,
                 child: Text(
                   cardType,
-                  style: TextStyles.bold(color: kWhiteShadeColor, fontSize: 16),
+                  style: TextStyles.bold(
+                    color: kWhiteShadeColor,
+                    fontSize: 16,
+                  ),
                 ),
               ),
               Positioned(
@@ -47,7 +50,10 @@ class BuildCardWidget extends StatelessWidget {
                 top: 79,
                 child: Text(
                   cardNumber,
-                  style: TextStyles.bold(color: kWhiteShadeColor, fontSize: 14),
+                  style: TextStyles.bold(
+                    color: kWhiteShadeColor,
+                    fontSize: 14,
+                  ),
                 ),
               ),
               Positioned(
@@ -55,7 +61,10 @@ class BuildCardWidget extends StatelessWidget {
                 left: 50,
                 child: Text(
                   cardHolderName,
-                  style: TextStyles.bold(color: kGreyShadeColor, fontSize: 12),
+                  style: TextStyles.bold(
+                    color: kGreyShadeColor,
+                    fontSize: 12,
+                  ),
                 ),
               ),
               const Positioned(
@@ -74,7 +83,10 @@ class BuildCardWidget extends StatelessWidget {
                 right: 60,
                 child: Text(
                   expDate,
-                  style: TextStyles.bold(color: kGreyShadeColor, fontSize: 12),
+                  style: TextStyles.bold(
+                    color: kGreyShadeColor,
+                    fontSize: 12,
+                  ),
                 ),
               ),
             ],
