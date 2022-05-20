@@ -58,6 +58,7 @@ class FavoriteWidget extends StatelessWidget {
                     children: <Widget>[
                       Text(
                         centerName,
+                        textScaleFactor: 0.8,
                         style: TextStyles.bold(
                           color: kNeutralColor,
                           fontSize: 16.0,
@@ -67,6 +68,7 @@ class FavoriteWidget extends StatelessWidget {
                   ),
                   Text(
                     centerLocation,
+                    textScaleFactor: 0.6,
                     style: TextStyles.medium(
                       color: kNeutralColor,
                       fontSize: 14.0,
@@ -97,7 +99,7 @@ class FavoriteWidget extends StatelessWidget {
                       child: Padding(
                         padding: EdgeInsets.only(
                           top: 25.0,
-                          right: 29.0,
+                          right: 25.0,
                         ),
                         child: Icon(
                           Icons.bookmark_remove_outlined,
@@ -106,30 +108,32 @@ class FavoriteWidget extends StatelessWidget {
                       ),
                     ),
               const Spacer(),
-              Align(
-                alignment: Alignment.bottomRight,
-                child: Container(
-                  height: 26.0,
-                  width: 106.0,
-                  padding: const EdgeInsets.only(top: 5.0),
-                  margin: const EdgeInsets.only(
-                    right: 9.0,
-                    bottom: 16.0,
-                  ),
-                  decoration: BoxDecoration(
-                    color: centerStatus == paymentAvailable
-                        ? kCenterAvailableIndicatorColor
-                        : null,
-                    borderRadius: BorderRadius.circular(3.0),
-                  ),
-                  child: Text(
-                    centerStatus!,
-                    textAlign: TextAlign.center,
-                    style: TextStyles.semiBold(
+              Expanded(
+                child: Align(
+                  alignment: Alignment.bottomRight,
+                  child: Container(
+                    height: 26.0,
+                    width: 106.0,
+                    padding: const EdgeInsets.only(top: 5.0),
+                    margin: const EdgeInsets.only(
+                      right: 9.0,
+                      bottom: 16.0,
+                    ),
+                    decoration: BoxDecoration(
                       color: centerStatus == paymentAvailable
-                          ? kCenterAvailableTextColor
-                          : kCenterNotAvailableTextColor,
-                      fontSize: 12.0,
+                          ? kCenterAvailableIndicatorColor
+                          : null,
+                      borderRadius: BorderRadius.circular(3.0),
+                    ),
+                    child: Text(
+                      centerStatus!,
+                      textAlign: TextAlign.center,
+                      style: TextStyles.semiBold(
+                        color: centerStatus == paymentAvailable
+                            ? kCenterAvailableTextColor
+                            : kCenterNotAvailableTextColor,
+                        fontSize: 12.0,
+                      ),
                     ),
                   ),
                 ),

@@ -20,6 +20,10 @@ const kCenterNotAvailableIndicatorColor = Color(0xFFFFD5D0);
 const kWhiteShadeColor = Color(0xFFF6F6F6);
 const kNotificationIconColor = Color(0XFF0D34BF);
 const kNotificationCheckText = Color(0XFF636262);
+
+const kcardBackgroundColor = Color(0XFF030336);
+const kGreyShadeColor = Color(0XFF87898B);
+
 const kFilterBottomSheetDividerColor = Color(0xFFB1C2FF);
 const kFilterBottomSheetLabelColor = Color(0xFF8F8F8F);
 const kProfileCardColor = Color(0xFFEDECEC);

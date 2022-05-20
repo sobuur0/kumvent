@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kumvent/presentation/pages/checkout_page.dart';
 import 'package:kumvent/presentation/pages/favorites_page.dart';
 import 'package:kumvent/presentation/pages/notification_page.dart';
 import 'package:kumvent/presentation/pages/onboarding_page.dart';
@@ -13,4 +14,5 @@ Map<String, WidgetBuilder> routes = {
   ProfilePage.routeName: (context) => const ProfilePage(),
   NotificationsPage.routeName: (context) => const NotificationsPage(),
   FavoritesPage.routeName: (context) => const FavoritesPage(),
+  CheckoutPage.routeName: (context) => const CheckoutPage(),
 };
