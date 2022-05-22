@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:kumvent/constants/app_styles.dart';
 import 'package:kumvent/constants/colours.dart';
+import 'package:kumvent/presentation/pages/event_center_overview_page.dart';
 import 'package:kumvent/presentation/pages/profille_page.dart';
 import 'package:kumvent/presentation/widgets/near_you_widget.dart';
 import 'package:kumvent/presentation/widgets/search_field.dart';
@@ -50,169 +51,185 @@ class _HomePageState extends State<HomePage> {
             const Padding(padding: EdgeInsets.only(right: 16.0)),
           ],
         ),
-        body: ListView(
-          padding: const EdgeInsets.only(left: 16.0, right: 16.0),
-          children: <Widget>[
-            const Padding(padding: EdgeInsets.only(top: 25.0)),
-            Text.rich(
-              TextSpan(
-                children: <TextSpan>[
+        body: SafeArea(
+          child: SingleChildScrollView(
+            physics: const BouncingScrollPhysics(),
+            padding: const EdgeInsets.only(left: 16.0, right: 16.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                const Padding(padding: EdgeInsets.only(top: 25.0)),
+                Text.rich(
                   TextSpan(
-                    text: 'Let\'s help you find your\nperfect ',
-                    style: TextStyles.semiBold(
-                      color: kTextPrimaryColor,
-                      fontSize: 20.0,
-                    ),
+                    children: <TextSpan>[
+                      TextSpan(
+                        text: 'Let\'s help you find your\nperfect ',
+                        style: TextStyles.semiBold(
+                          color: kTextPrimaryColor,
+                          fontSize: 20.0,
+                        ),
+                      ),
+                      TextSpan(
+                        text: 'Event Center',
+                        style: TextStyles.bold(
+                          color: kTextPrimaryColor,
+                          fontSize: 24.0,
+                        ),
+                      ),
+                    ],
                   ),
-                  TextSpan(
-                    text: 'Event Center',
-                    style: TextStyles.bold(
-                      color: kTextPrimaryColor,
-                      fontSize: 24.0,
-                    ),
+                ),
+                const Padding(padding: EdgeInsets.only(bottom: 23.0)),
+                const SearchField(),
+                const Padding(padding: EdgeInsets.only(bottom: 34.0)),
+                _buildTextButtons(
+                  leftText: 'Most Popular',
+                  leftOnpressed: () {
+                    //This is temporarily used to check for progress on the explore page
+                  },
+                  rightText: 'view all',
+                  rightOnpressed: () {},
+                ),
+                const Padding(padding: EdgeInsets.only(bottom: 14.0)),
+                SizedBox(
+                  height: size.height * 0.3,
+                  child: ListView(
+                    scrollDirection: Axis.horizontal,
+                    children: <Widget>[
+                      _buildPopularEventCenters(size),
+                      _buildPopularEventCenters(size),
+                    ],
                   ),
-                ],
-              ),
+                ),
+                const Padding(padding: EdgeInsets.only(bottom: 22.0)),
+                _buildTextButtons(
+                  leftText: 'Near you',
+                  leftOnpressed: () {},
+                  rightText: 'view all',
+                  rightOnpressed: () {},
+                ),
+                const Padding(padding: EdgeInsets.only(bottom: 14.0)),
+                NearYouWidget(
+                  image: 'images/atlantis_center.png',
+                  centerName: 'Atlantis Event center',
+                  centerLocation: 'Ita-Oniyan, Ondo',
+                  centerRating: '4.9',
+                  shadowColor: const Color(0xFF171717).withOpacity(0.25),
+                  centerStatus: 'Center Available',
+                ),
+                const NearYouWidget(
+                  image: 'images/orlando_hall.png',
+                  centerName: 'Orlando Conference Hall',
+                  centerLocation: 'Ita-Oniyan, Ondo',
+                  centerRating: '5.0',
+                  shadowColor: Color(0xFFFFFFFF),
+                  centerStatus: 'Not Available',
+                ),
+                const Padding(padding: EdgeInsets.only(bottom: 10.0)),
+              ],
             ),
-            const Padding(padding: EdgeInsets.only(bottom: 23.0)),
-            const SearchField(),
-            const Padding(padding: EdgeInsets.only(bottom: 34.0)),
-            _buildTextButtons(
-              leftText: 'Most Popular',
-              leftOnpressed: () {
-                //This is temporarily used to check for progress on the explore page
-              },
-              rightText: 'view all',
-              rightOnpressed: () {},
-            ),
-            const Padding(padding: EdgeInsets.only(bottom: 14.0)),
-            SizedBox(
-              height: size.height * 0.3,
-              child: ListView(
-                scrollDirection: Axis.horizontal,
-                children: <Widget>[
-                  _buildPopularEventCenters(size),
-                  _buildPopularEventCenters(size),
-                ],
-              ),
-            ),
-            const Padding(padding: EdgeInsets.only(bottom: 22.0)),
-            _buildTextButtons(
-              leftText: 'Near you',
-              leftOnpressed: () {},
-              rightText: 'view all',
-              rightOnpressed: () {},
-            ),
-            const Padding(padding: EdgeInsets.only(bottom: 14.0)),
-            NearYouWidget(
-              image: 'images/atlantis_center.png',
-              centerName: 'Atlantis Event center',
-              centerLocation: 'Ita-Oniyan, Ondo',
-              centerRating: '4.9',
-              shadowColor: const Color(0xFF171717).withOpacity(0.25),
-              centerStatus: 'Center Available',
-            ),
-            const NearYouWidget(
-              image: 'images/orlando_hall.png',
-              centerName: 'Orlando Conference Hall',
-              centerLocation: 'Ita-Oniyan, Ondo',
-              centerRating: '5.0',
-              shadowColor: Color(0xFFFFFFFF),
-              centerStatus: 'Not Available',
-            ),
-            const Padding(padding: EdgeInsets.only(bottom: 10.0)),
-          ],
+          ),
         ),
       ),
     );
   }
 
   Widget _buildPopularEventCenters(Size size) {
-    return Container(
-      padding: const EdgeInsets.symmetric(
-        horizontal: 11.0,
-        vertical: 5.0,
-      ),
-      margin: const EdgeInsets.only(right: 32.0),
-      height: size.height * 0.3,
-      width: 204,
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(8.0),
-        boxShadow: const <BoxShadow>[
-          BoxShadow(
-            color: Color(0xFFF3F1F1),
-            blurRadius: 32.0,
-            offset: Offset(0.0, 8.0),
-          )
-        ],
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          Container(
-            decoration: BoxDecoration(
-              color: Colors.grey,
-              borderRadius: BorderRadius.circular(
-                8.0,
+    return InkWell(
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => const EventCenterOverviewPage(),
+          ),
+        );
+      },
+      child: Container(
+        padding: const EdgeInsets.symmetric(
+          horizontal: 11.0,
+          vertical: 5.0,
+        ),
+        margin: const EdgeInsets.only(right: 32.0),
+        height: size.height * 0.3,
+        width: 204,
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(8.0),
+          boxShadow: const <BoxShadow>[
+            BoxShadow(
+              color: Color(0xFFF3F1F1),
+              blurRadius: 32.0,
+              offset: Offset(0.0, 8.0),
+            )
+          ],
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Container(
+              decoration: BoxDecoration(
+                color: Colors.grey,
+                borderRadius: BorderRadius.circular(
+                  8.0,
+                ),
+              ),
+              child: Stack(
+                children: <Widget>[
+                  Image.asset(
+                    'images/event_center.png',
+                    height: 120,
+                    width: 182,
+                  ),
+                  Align(
+                    alignment: Alignment.topRight,
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 6.0,
+                        vertical: 4.0,
+                      ),
+                      child: _eventRating(),
+                    ),
+                  ),
+                ],
               ),
             ),
-            child: Stack(
-              children: <Widget>[
-                Image.asset(
-                  'images/event_center.png',
-                  height: 120,
-                  width: 182,
-                ),
-                Align(
-                  alignment: Alignment.topRight,
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 6.0,
-                      vertical: 4.0,
+            const Padding(padding: EdgeInsets.only(bottom: 10.0)),
+            Text(
+              'JM Royal Event Center',
+              style: TextStyles.bold(
+                color: kTextPrimaryColor,
+                fontSize: 14.0,
+              ),
+            ),
+            const Padding(padding: EdgeInsets.only(bottom: 5.0)),
+            Expanded(
+              child: Row(
+                children: <Widget>[
+                  const Icon(
+                    Icons.location_on,
+                    color: kSecondaryColor,
+                    size: 15.0,
+                  ),
+                  Text(
+                    'Sagamu, Ogun',
+                    style: TextStyles.medium(
+                      color: kEventCenterLocationColor,
+                      fontSize: 12.0,
                     ),
-                    child: _eventRating(),
                   ),
-                ),
-              ],
-            ),
-          ),
-          const Padding(padding: EdgeInsets.only(bottom: 10.0)),
-          Text(
-            'JM Royal Event Center',
-            style: TextStyles.bold(
-              color: kTextPrimaryColor,
-              fontSize: 14.0,
-            ),
-          ),
-          const Padding(padding: EdgeInsets.only(bottom: 5.0)),
-          Expanded(
-            child: Row(
-              children: <Widget>[
-                const Icon(
-                  Icons.location_on,
-                  color: kSecondaryColor,
-                  size: 15.0,
-                ),
-                Text(
-                  'Sagamu, Ogun',
-                  style: TextStyles.medium(
-                    color: kEventCenterLocationColor,
-                    fontSize: 12.0,
+                  const Spacer(),
+                  Text(
+                    '\$123',
+                    style: TextStyles.bold(
+                      color: kPrimaryColor,
+                      fontSize: 16.0,
+                    ),
                   ),
-                ),
-                const Spacer(),
-                Text(
-                  '\$123',
-                  style: TextStyles.bold(
-                    color: kPrimaryColor,
-                    fontSize: 16.0,
-                  ),
-                ),
-              ],
+                ],
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

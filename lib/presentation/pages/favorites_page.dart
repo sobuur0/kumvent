@@ -18,9 +18,14 @@ class FavoritesPage extends StatelessWidget {
           style: TextStyles.bold(color: kNeutralColor, fontSize: 24),
         ),
         centerTitle: true,
-        leading: const Icon(
-          Icons.arrow_back,
-          color: kLeadingIconColor,
+        leading: IconButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          icon: const Icon(
+            Icons.arrow_back,
+            color: kLeadingIconColor,
+          ),
         ),
       ),
       body: SingleChildScrollView(

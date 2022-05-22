@@ -27,3 +27,4 @@ const kGreyShadeColor = Color(0XFF87898B);
 const kFilterBottomSheetDividerColor = Color(0xFFB1C2FF);
 const kFilterBottomSheetLabelColor = Color(0xFF8F8F8F);
 const kProfileCardColor = Color(0xFFEDECEC);
+const kTabBarTitleColor = Color(0xFFC4C4C4);
