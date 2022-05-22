@@ -146,6 +146,7 @@ class _SignInPageState extends State<SignInPage> {
                 height: 56.0,
                 width: 56.0,
                 color: kIconContainerColor,
+                borderRadius: 10.0,
                 onTap: () {},
                 child: const Icon(
                   Icons.apple,
@@ -156,6 +157,7 @@ class _SignInPageState extends State<SignInPage> {
                 height: 56.0,
                 width: 56.0,
                 color: kIconContainerColor,
+                borderRadius: 10.0,
                 onTap: () {},
                 child: const Icon(
                   Icons.facebook,
@@ -167,6 +169,7 @@ class _SignInPageState extends State<SignInPage> {
                 height: 56.0,
                 width: 56.0,
                 color: kIconContainerColor,
+                borderRadius: 10.0,
                 onTap: () {},
                 child: const Image(
                   image: AssetImage('images/google.png'),

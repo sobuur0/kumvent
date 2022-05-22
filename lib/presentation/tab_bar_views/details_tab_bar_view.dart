@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:kumvent/constants/colours.dart';
+import 'package:kumvent/presentation/widgets/icon_container.dart';
 
 import '../../constants/app_styles.dart';
 
@@ -40,25 +41,22 @@ class _DetailsTabBarViewState extends State<DetailsTabBarView> {
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Container(
+            IconContainer(
+              child: const Icon(
+                Icons.access_time,
+                color: kPrimaryColor,
+              ),
               height: 40.0,
               width: 40.0,
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(10.0),
-                boxShadow: [
-                  BoxShadow(
-                    blurRadius: 4.0,
-                    color: const Color(0xFF0E3EE5).withOpacity(0.1),
-                    offset: const Offset(0.0, 2.0),
-                  )
-                ],
-              ),
-              child: Image.asset(
-                'images/days_open.png',
-                height: 15.0,
-                width: 15.0,
-              ),
+              color: Colors.white,
+              borderRadius: 20.0,
+              boxShadow: [
+                BoxShadow(
+                  blurRadius: 4.0,
+                  color: const Color(0xFF0E3EE5).withOpacity(0.1),
+                  offset: const Offset(0.0, 2.0),
+                )
+              ],
             ),
             const Padding(padding: EdgeInsets.only(right: 8.0)),
             Text(
@@ -92,7 +90,13 @@ class _DetailsTabBarViewState extends State<DetailsTabBarView> {
             ),
             ElevatedButton(
               onPressed: () {},
-              child: const Text('Book Now'),
+              child: Text(
+                'Book Now',
+                style: TextStyles.bold(
+                  color: kPrimaryColor,
+                  fontSize: 16.0,
+                ),
+              ),
             ),
           ],
         ),
