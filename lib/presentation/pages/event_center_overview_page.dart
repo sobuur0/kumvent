@@ -48,7 +48,7 @@ class _EventCenterOverviewPageState extends State<EventCenterOverviewPage>
         body: Column(
           children: [
             SizedBox(
-              height: size.height * 0.4,
+              height: size.height * 0.37,
               child: Stack(
                 children: [
                   Image.asset('images/event_center.png'),
@@ -137,7 +137,7 @@ class _EventCenterOverviewPageState extends State<EventCenterOverviewPage>
               endIndent: 16.0,
             ),
             SizedBox(
-              height: size.height * 0.48,
+              height: size.height * 0.51,
               child: TabBarView(
                 controller: _tabController,
                 physics: const NeverScrollableScrollPhysics(),

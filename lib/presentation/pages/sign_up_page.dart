@@ -157,6 +157,8 @@ class _SignUpPageState extends State<SignUpPage> {
                   width: 56.0,
                   color: kIconContainerColor,
                   borderRadius: 10.0,
+                  borderColor: kIconContainerColor,
+                  borderWidth: 0.0,
                   onTap: () {},
                   child: const Icon(
                     Icons.apple,
@@ -168,6 +170,8 @@ class _SignUpPageState extends State<SignUpPage> {
                   width: 56.0,
                   color: kIconContainerColor,
                   borderRadius: 10.0,
+                  borderColor: kIconContainerColor,
+                  borderWidth: 0.0,
                   onTap: () {},
                   child: const Icon(
                     Icons.facebook,
@@ -180,6 +184,8 @@ class _SignUpPageState extends State<SignUpPage> {
                   width: 56.0,
                   color: kIconContainerColor,
                   borderRadius: 10.0,
+                  borderColor: kIconContainerColor,
+                  borderWidth: 0.0,
                   onTap: () {},
                   child: const Image(
                     image: AssetImage('images/google.png'),

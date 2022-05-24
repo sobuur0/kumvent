@@ -8,6 +8,8 @@ class IconContainer extends StatelessWidget {
   final Color color;
   final double borderRadius;
   final List<BoxShadow>? boxShadow;
+  final Color borderColor;
+  final double borderWidth;
 
   const IconContainer({
     required this.child,
@@ -17,6 +19,8 @@ class IconContainer extends StatelessWidget {
     required this.color,
     required this.borderRadius,
     this.boxShadow,
+    required this.borderColor,
+    required this.borderWidth,
     Key? key,
   }) : super(key: key);
 
@@ -30,6 +34,10 @@ class IconContainer extends StatelessWidget {
         decoration: BoxDecoration(
           color: color,
           boxShadow: boxShadow,
+          border: Border.all(
+            color: borderColor,
+            width: borderWidth,
+          ),
           borderRadius: BorderRadius.circular(borderRadius),
         ),
         child: child,

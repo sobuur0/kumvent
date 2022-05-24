@@ -78,6 +78,8 @@ class _ExplorePageState extends State<ExplorePage> {
                 width: 48.0,
                 color: kPrimaryColor,
                 borderRadius: 10.0,
+                borderColor: kPrimaryColor,
+                  borderWidth: 0.0,
               ),
             ],
           ),

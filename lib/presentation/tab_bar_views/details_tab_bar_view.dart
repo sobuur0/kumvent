@@ -17,7 +17,7 @@ class _DetailsTabBarViewState extends State<DetailsTabBarView> {
   @override
   Widget build(BuildContext context) {
     return ListView(
-      padding: const EdgeInsets.fromLTRB(16.0, 15.0, 16.0, 0.0),
+      padding: const EdgeInsets.fromLTRB(16.0, 15.0, 16.0, 4.0),
       children: [
         Text(
           'Our conference room serves as an ideal setting for a\nconference, seminar,'
@@ -50,6 +50,8 @@ class _DetailsTabBarViewState extends State<DetailsTabBarView> {
               width: 40.0,
               color: Colors.white,
               borderRadius: 20.0,
+              borderColor: kPrimaryColor,
+              borderWidth: 0.0,
               boxShadow: [
                 BoxShadow(
                   blurRadius: 4.0,
@@ -84,8 +86,8 @@ class _DetailsTabBarViewState extends State<DetailsTabBarView> {
             Text(
               _eventCenterPrice,
               style: TextStyles.bold(
-                color: Colors.black,
-                fontSize: 18.0,
+                color: kNeutralColor,
+                fontSize: 20.0,
               ),
             ),
             ElevatedButton(
@@ -96,6 +98,12 @@ class _DetailsTabBarViewState extends State<DetailsTabBarView> {
                   color: kPrimaryColor,
                   fontSize: 16.0,
                 ),
+              ),
+              style: ElevatedButton.styleFrom(
+                padding: const EdgeInsets.symmetric(
+                    vertical: 14.0, horizontal: 26.0),
+                primary: const Color(0xFFC3CDF3),
+                fixedSize: const Size.fromHeight(48.0),
               ),
             ),
           ],
