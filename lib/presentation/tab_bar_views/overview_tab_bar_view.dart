@@ -129,7 +129,7 @@ class _OverviewTabBarViewState extends State<OverviewTabBarView> {
           width: 40.0,
           color: Colors.white,
           borderRadius: 20.0,
-          borderColor: kPrimaryColor,
+          borderColor: Colors.white,
           borderWidth: 0.0,
           boxShadow: [
             BoxShadow(

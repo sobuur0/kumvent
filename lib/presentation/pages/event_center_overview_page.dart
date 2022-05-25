@@ -16,12 +16,13 @@ class EventCenterOverviewPage extends StatefulWidget {
 class _EventCenterOverviewPageState extends State<EventCenterOverviewPage>
     with TickerProviderStateMixin {
   late TabController _tabController;
+  int _activeIndex = 0;
 
   @override
   void initState() {
     super.initState();
 
-    _tabController = TabController(length: 3, vsync: this, initialIndex: 1);
+    _tabController = TabController(length: 3, vsync: this);
   }
 
   @override
@@ -137,7 +138,9 @@ class _EventCenterOverviewPageState extends State<EventCenterOverviewPage>
               endIndent: 16.0,
             ),
             SizedBox(
-              height: size.height * 0.51,
+              height: _getTabBarIndex() == 2
+                  ? size.height * 0.43
+                  : size.height * 0.5,
               child: TabBarView(
                 controller: _tabController,
                 physics: const NeverScrollableScrollPhysics(),
@@ -150,7 +153,78 @@ class _EventCenterOverviewPageState extends State<EventCenterOverviewPage>
             )
           ],
         ),
+        bottomNavigationBar: Visibility(
+          visible: _getTabBarIndex() == 2 ? true : false,
+          child: Container(
+            padding:
+                const EdgeInsets.symmetric(vertical: 17.0, horizontal: 22.0),
+            decoration: const BoxDecoration(
+              color: kTabBarTitleColor,
+            ),
+            child: Row(
+              children: [
+                CircleAvatar(
+                  radius: 16.0,
+                  child: Image.asset('images/profile_pic.png'),
+                ),
+                const Padding(padding: EdgeInsets.only(right: 18.0)),
+                Expanded(
+                  child: SizedBox(
+                    height: 36.0,
+                    child: TextField(
+                      readOnly: true,
+                      decoration: InputDecoration(
+                        fillColor: Colors.white,
+                        filled: true,
+                        suffix: const Icon(
+                          Icons.emoji_emotions,
+                          color: kNeutralColor,
+                        ),
+                        suffixIcon: const Icon(
+                          Icons.emoji_emotions,
+                          color: kNeutralColor,
+                        ),
+                        enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(5.0),
+                          borderSide: const BorderSide(
+                            color: Colors.white,
+                            width: 0.0,
+                          ),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(5.0),
+                          borderSide: const BorderSide(
+                            color: kPrimaryColor,
+                            width: 1.0,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+                const Padding(padding: EdgeInsets.only(right: 18.0)),
+                const Icon(
+                  Icons.send,
+                  color: kNeutralColor,
+                )
+              ],
+            ),
+          ),
+        ),
       ),
     );
+  }
+
+  int _getTabBarIndex() {
+    _tabController.addListener(
+      () {
+        if (_tabController.indexIsChanging) {
+          setState(() {
+            _activeIndex = _tabController.index;
+          });
+        }
+      },
+    );
+    return _activeIndex;
   }
 }

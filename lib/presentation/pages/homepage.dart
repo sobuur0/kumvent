@@ -22,6 +22,7 @@ class _HomePageState extends State<HomePage> {
       child: Scaffold(
         appBar: AppBar(
           centerTitle: true,
+          automaticallyImplyLeading: false,
           title: Row(
             children: <Widget>[
               const Icon(

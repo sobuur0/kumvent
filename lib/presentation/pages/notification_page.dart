@@ -10,18 +10,12 @@ class NotificationsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: InkWell(
-          onTap: () => Navigator.pop(context),
-          child: const Icon(
-            Icons.arrow_back,
-            color: kLeadingIconColor,
-          ),
-        ),
+        automaticallyImplyLeading: false,
       ),
       body: ListView(
         padding: const EdgeInsets.symmetric(
           horizontal: 16.0,
-          vertical: 30.0,
+          vertical: 0.0,
         ),
         children: [
           Text(

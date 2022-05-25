@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:kumvent/constants/app_styles.dart';
 import 'package:kumvent/constants/colours.dart';
 import 'package:kumvent/presentation/widgets/action_button.dart';
-import 'package:kumvent/presentation/widgets/app_bar_text.dart';
 import 'package:kumvent/presentation/widgets/text_form_list_tile.dart';
 
 import '../widgets/build_card_widget.dart';
@@ -26,7 +25,25 @@ class _CheckoutPageState extends State<CheckoutPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appBarText(title: 'Checkout'),
+      appBar: AppBar(
+        centerTitle: true,
+        leading: IconButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          icon: const Icon(
+            Icons.arrow_back,
+            color: kLeadingIconColor,
+          ),
+        ),
+        title: Text(
+          'Checkout',
+          style: TextStyles.bold(
+            color: kTextPrimaryColor,
+            fontSize: 24.0,
+          ),
+        ),
+      ),
       body: Padding(
         padding: const EdgeInsets.only(left: 16.0, right: 16.0),
         child: ListView(
