@@ -27,3 +27,4 @@ const kFilterBottomSheetLabelColor = Color(0xFF8F8F8F);
 const kProfileCardColor = Color(0xFFEDECEC);
 const kTabBarTitleColor = Color(0xFFC4C4C4);
 const kLightBlueColor = Color(0xFFA1B6FF);
+const kReviewStarRatingsColor = Color(0xFFFDCC0D);

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:kumvent/constants/app_styles.dart';
 import 'package:kumvent/constants/colours.dart';
 import 'package:kumvent/presentation/pages/sign_up_page.dart';
-import 'package:kumvent/models/onboarding_contents.dart';
+import 'package:kumvent/models/data/onboarding_contents.dart';
 
 class OnboardingPage extends StatefulWidget {
   const OnboardingPage({Key? key}) : super(key: key);

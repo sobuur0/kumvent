@@ -4,6 +4,7 @@ import 'package:kumvent/constants/colours.dart';
 import 'package:kumvent/presentation/tab_bar_views/details_tab_bar_view.dart';
 import 'package:kumvent/presentation/tab_bar_views/overview_tab_bar_view.dart';
 import 'package:kumvent/presentation/tab_bar_views/review_tab_bar_view.dart';
+import 'package:kumvent/presentation/widgets/star_ratings.dart';
 
 class EventCenterOverviewPage extends StatefulWidget {
   const EventCenterOverviewPage({Key? key}) : super(key: key);
@@ -17,6 +18,7 @@ class _EventCenterOverviewPageState extends State<EventCenterOverviewPage>
     with TickerProviderStateMixin {
   late TabController _tabController;
   int _activeIndex = 0;
+  final children = <Widget>[];
 
   @override
   void initState() {
@@ -67,38 +69,7 @@ class _EventCenterOverviewPageState extends State<EventCenterOverviewPage>
                   Positioned(
                     top: size.height * 0.32,
                     left: 15.0,
-                    child: Row(
-                      children: [
-                        const Icon(
-                          Icons.star,
-                          color: kSecondaryColor,
-                        ),
-                        const Icon(
-                          Icons.star,
-                          color: kSecondaryColor,
-                        ),
-                        const Icon(
-                          Icons.star,
-                          color: kSecondaryColor,
-                        ),
-                        const Icon(
-                          Icons.star,
-                          color: kSecondaryColor,
-                        ),
-                        const Icon(
-                          Icons.star,
-                          color: kSecondaryColor,
-                        ),
-                        const Padding(padding: EdgeInsets.only(right: 12.0)),
-                        Text(
-                          '4.9',
-                          style: TextStyles.bold(
-                            color: Colors.white,
-                            fontSize: 14.0,
-                          ),
-                        ),
-                      ],
-                    ),
+                    child: _eventStarRatings(),
                   )
                 ],
               ),
@@ -212,6 +183,24 @@ class _EventCenterOverviewPageState extends State<EventCenterOverviewPage>
           ),
         ),
       ),
+    );
+  }
+
+  Widget _eventStarRatings() {
+    return Row(
+      children: [
+        const StarRatings(
+          color: kSecondaryColor,
+        ),
+        const Padding(padding: EdgeInsets.only(right: 12.0)),
+        Text(
+          '4.9',
+          style: TextStyles.bold(
+            color: Colors.white,
+            fontSize: 14.0,
+          ),
+        ),
+      ],
     );
   }
 

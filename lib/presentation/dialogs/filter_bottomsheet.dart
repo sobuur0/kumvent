@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:kumvent/constants/app_styles.dart';
 import 'package:kumvent/constants/colours.dart';
-import 'package:kumvent/models/states.dart';
+import 'package:kumvent/models/data/states.dart';
 
 class FilterBottomSheet extends StatefulWidget {
   const FilterBottomSheet({Key? key}) : super(key: key);
