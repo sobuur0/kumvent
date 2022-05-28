@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:kumvent/constants/app_styles.dart';
 import 'package:kumvent/constants/colours.dart';
+import 'package:kumvent/presentation/pages/view_event_center_picture.dart';
 import 'package:kumvent/presentation/widgets/icon_container.dart';
 
 class OverviewTabBarView extends StatefulWidget {
@@ -171,21 +172,32 @@ class _OverviewTabBarViewState extends State<OverviewTabBarView> {
   Widget _morePhotosContainer({
     required String assetName,
   }) {
-    return Container(
-      margin: const EdgeInsets.only(right: 16.0),
-      width: 136.0,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(8.0),
-        color: Colors.blue,
-        border: Border.all(
-          color: Colors.red,
-          width: 2.0,
+    return GestureDetector(
+      onTap: () {
+        Navigator.of(context).push(
+          MaterialPageRoute(
+            builder: (context) => ViewEventCenterPicture(
+              imageUrl: assetName,
+            ),
+          ),
+        );
+      },
+      child: Container(
+        margin: const EdgeInsets.only(right: 16.0),
+        width: 136.0,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(8.0),
+          color: Colors.blue,
+          border: Border.all(
+            color: Colors.red,
+            width: 2.0,
+          ),
         ),
-      ),
-      child: Image.asset(
-        assetName,
-        filterQuality: FilterQuality.high,
-        fit: BoxFit.fill,
+        child: Image.asset(
+          assetName,
+          filterQuality: FilterQuality.high,
+          fit: BoxFit.fill,
+        ),
       ),
     );
   }

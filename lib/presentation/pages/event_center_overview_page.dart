@@ -7,7 +7,16 @@ import 'package:kumvent/presentation/tab_bar_views/review_tab_bar_view.dart';
 import 'package:kumvent/presentation/widgets/star_ratings.dart';
 
 class EventCenterOverviewPage extends StatefulWidget {
-  const EventCenterOverviewPage({Key? key}) : super(key: key);
+  final String imgUrl;
+  final String eventCenterName;
+  final String rating;
+
+  const EventCenterOverviewPage({
+    Key? key,
+    required this.imgUrl,
+    required this.eventCenterName,
+    required this.rating,
+  }) : super(key: key);
 
   @override
   State<EventCenterOverviewPage> createState() =>
@@ -50,16 +59,20 @@ class _EventCenterOverviewPageState extends State<EventCenterOverviewPage>
         ),
         body: Column(
           children: [
-            SizedBox(
-              height: size.height * 0.37,
+            Container(
+              height: size.height * 0.32,
+              color: Colors.transparent,
               child: Stack(
                 children: [
-                  Image.asset('images/event_center.png'),
+                  Image.asset(
+                    widget.imgUrl,
+                    filterQuality: FilterQuality.high,
+                  ),
                   Positioned(
-                    top: size.height * 0.27,
+                    top: size.height * 0.2,
                     left: 15.0,
                     child: Text(
-                      'Maple Hotel Conference Room',
+                      widget.eventCenterName,
                       style: TextStyles.bold(
                         color: Colors.white,
                         fontSize: 20.0,
@@ -67,7 +80,7 @@ class _EventCenterOverviewPageState extends State<EventCenterOverviewPage>
                     ),
                   ),
                   Positioned(
-                    top: size.height * 0.32,
+                    top: size.height * 0.24,
                     left: 15.0,
                     child: _eventStarRatings(),
                   )
@@ -110,8 +123,8 @@ class _EventCenterOverviewPageState extends State<EventCenterOverviewPage>
             ),
             SizedBox(
               height: _getTabBarIndex() == 2
-                  ? size.height * 0.43
-                  : size.height * 0.5,
+                  ? size.height * 0.48
+                  : size.height * 0.54,
               child: TabBarView(
                 controller: _tabController,
                 physics: const NeverScrollableScrollPhysics(),
@@ -194,7 +207,7 @@ class _EventCenterOverviewPageState extends State<EventCenterOverviewPage>
         ),
         const Padding(padding: EdgeInsets.only(right: 12.0)),
         Text(
-          '4.9',
+          widget.rating,
           style: TextStyles.bold(
             color: Colors.white,
             fontSize: 14.0,

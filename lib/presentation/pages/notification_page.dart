@@ -60,7 +60,12 @@ class NotificationsPage extends StatelessWidget {
           Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Image.asset('images/center_point_inn.png'),
+              Image.asset(
+                'images/event_center.png',
+                height: 91.0,
+                width: 96.0,
+                filterQuality: FilterQuality.high,
+              ),
               const Padding(padding: EdgeInsets.only(right: 11.0)),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,

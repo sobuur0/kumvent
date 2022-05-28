@@ -93,12 +93,26 @@ class _HomePageState extends State<HomePage> {
                 ),
                 const Padding(padding: EdgeInsets.only(bottom: 14.0)),
                 SizedBox(
-                  height: size.height * 0.3,
+                  height: size.height * 0.24,
                   child: ListView(
                     scrollDirection: Axis.horizontal,
                     children: <Widget>[
-                      _buildPopularEventCenters(size),
-                      _buildPopularEventCenters(size),
+                      _buildPopularEventCenters(
+                        size,
+                        imgUrl: 'images/jmroyal_main.jpg',
+                        eventCenterName: 'JM Royal Event Center',
+                        rating: '4.8',
+                        location: 'Sagamu, Ogun',
+                        price: '\$250',
+                      ),
+                      _buildPopularEventCenters(
+                        size,
+                        imgUrl: 'images/living_spring_main.jpg',
+                        eventCenterName: 'Living Spring Homes',
+                        rating: '4.9',
+                        location: 'Oshogbo, Osun',
+                        price: '\$123',
+                      ),
                     ],
                   ),
                 ),
@@ -111,7 +125,7 @@ class _HomePageState extends State<HomePage> {
                 ),
                 const Padding(padding: EdgeInsets.only(bottom: 14.0)),
                 NearYouWidget(
-                  image: 'images/atlantis_center.png',
+                  image: 'images/atlantis_center.jpg',
                   centerName: 'Atlantis Event center',
                   centerLocation: 'Ita-Oniyan, Ondo',
                   centerRating: '4.9',
@@ -119,7 +133,7 @@ class _HomePageState extends State<HomePage> {
                   centerStatus: 'Center Available',
                 ),
                 const NearYouWidget(
-                  image: 'images/orlando_hall.png',
+                  image: 'images/orlando.jpg',
                   centerName: 'Orlando Conference Hall',
                   centerLocation: 'Ita-Oniyan, Ondo',
                   centerRating: '5.0',
@@ -135,13 +149,24 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  Widget _buildPopularEventCenters(Size size) {
+  Widget _buildPopularEventCenters(
+    Size size, {
+    required String imgUrl,
+    required String eventCenterName,
+    required String rating,
+    required String location,
+    required String price,
+  }) {
     return InkWell(
       onTap: () {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => const EventCenterOverviewPage(),
+            builder: (context) => EventCenterOverviewPage(
+              imgUrl: imgUrl,
+              eventCenterName: eventCenterName,
+              rating: rating,
+            ),
           ),
         );
       },
@@ -151,7 +176,7 @@ class _HomePageState extends State<HomePage> {
           vertical: 5.0,
         ),
         margin: const EdgeInsets.only(right: 32.0),
-        height: size.height * 0.3,
+        height: size.height * 0.24,
         width: 204,
         decoration: BoxDecoration(
           color: Colors.white,
@@ -176,10 +201,12 @@ class _HomePageState extends State<HomePage> {
               ),
               child: Stack(
                 children: <Widget>[
-                  Image.asset(
-                    'images/event_center.png',
-                    height: 120,
-                    width: 182,
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(8.0),
+                    child: Image.asset(
+                      imgUrl,
+                      fit: BoxFit.cover,
+                    ),
                   ),
                   Align(
                     alignment: Alignment.topRight,
@@ -188,7 +215,7 @@ class _HomePageState extends State<HomePage> {
                         horizontal: 6.0,
                         vertical: 4.0,
                       ),
-                      child: _eventRating(),
+                      child: _eventRating(rating: rating),
                     ),
                   ),
                 ],
@@ -196,38 +223,36 @@ class _HomePageState extends State<HomePage> {
             ),
             const Padding(padding: EdgeInsets.only(bottom: 10.0)),
             Text(
-              'JM Royal Event Center',
+              eventCenterName,
               style: TextStyles.bold(
                 color: kTextPrimaryColor,
                 fontSize: 14.0,
               ),
             ),
             const Padding(padding: EdgeInsets.only(bottom: 5.0)),
-            Expanded(
-              child: Row(
-                children: <Widget>[
-                  const Icon(
-                    Icons.location_on,
-                    color: kSecondaryColor,
-                    size: 15.0,
+            Row(
+              children: <Widget>[
+                const Icon(
+                  Icons.location_on,
+                  color: kSecondaryColor,
+                  size: 15.0,
+                ),
+                Text(
+                  location,
+                  style: TextStyles.medium(
+                    color: kEventCenterLocationColor,
+                    fontSize: 12.0,
                   ),
-                  Text(
-                    'Sagamu, Ogun',
-                    style: TextStyles.medium(
-                      color: kEventCenterLocationColor,
-                      fontSize: 12.0,
-                    ),
+                ),
+                const Spacer(),
+                Text(
+                  price,
+                  style: TextStyles.bold(
+                    color: kPrimaryColor,
+                    fontSize: 16.0,
                   ),
-                  const Spacer(),
-                  Text(
-                    '\$123',
-                    style: TextStyles.bold(
-                      color: kPrimaryColor,
-                      fontSize: 16.0,
-                    ),
-                  ),
-                ],
-              ),
+                ),
+              ],
             ),
           ],
         ),
@@ -274,7 +299,9 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  Widget _eventRating() {
+  Widget _eventRating({
+    required String rating,
+  }) {
     return Container(
       height: 30.0,
       width: 48.0,
@@ -289,7 +316,7 @@ class _HomePageState extends State<HomePage> {
             color: kSecondaryColor,
           ),
           Text(
-            '4.8',
+            rating,
             style: TextStyles.bold(
               color: Colors.white,
               fontSize: 12.0,
