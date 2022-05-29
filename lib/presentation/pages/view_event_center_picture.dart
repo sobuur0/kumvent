@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class ViewEventCenterPicture extends StatefulWidget {
   final String imageUrl;
-  
+
   const ViewEventCenterPicture({
     Key? key,
     required this.imageUrl,
@@ -32,13 +32,11 @@ class _ViewEventCenterPictureState extends State<ViewEventCenterPicture> {
             ),
           ),
         ),
-        body: SizedBox(
+        body: Image.asset(
+          widget.imageUrl,
+          filterQuality: FilterQuality.high,
+          fit: BoxFit.fill,
           height: size.height,
-          child: Image.asset(
-            widget.imageUrl,
-            filterQuality: FilterQuality.high,
-            fit: BoxFit.fill,
-          ),
         ),
       ),
     );

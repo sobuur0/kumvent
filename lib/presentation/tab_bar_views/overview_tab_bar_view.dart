@@ -96,10 +96,10 @@ class _OverviewTabBarViewState extends State<OverviewTabBarView> {
             child: ListView(
               scrollDirection: Axis.horizontal,
               children: [
-                _morePhotosContainer(assetName: 'images/event_center.png'),
-                _morePhotosContainer(assetName: 'images/event_center.png'),
-                _morePhotosContainer(assetName: 'images/event_center.png'),
-                _morePhotosContainer(assetName: 'images/event_center.png'),
+                _morePhotosContainer(assetName: 'images/more1.jpg'),
+                _morePhotosContainer(assetName: 'images/more2.jpg'),
+                _morePhotosContainer(assetName: 'images/more3.jpg'),
+                _morePhotosContainer(assetName: 'images/more4.jpg'),
               ],
             ),
           ),
@@ -187,16 +187,19 @@ class _OverviewTabBarViewState extends State<OverviewTabBarView> {
         width: 136.0,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(8.0),
-          color: Colors.blue,
+          color: Colors.transparent,
           border: Border.all(
-            color: Colors.red,
+            color: Colors.transparent,
             width: 2.0,
           ),
         ),
-        child: Image.asset(
-          assetName,
-          filterQuality: FilterQuality.high,
-          fit: BoxFit.fill,
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(8.0),
+          child: Image.asset(
+            assetName,
+            filterQuality: FilterQuality.high,
+            fit: BoxFit.fill,
+          ),
         ),
       ),
     );

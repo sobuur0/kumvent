@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:kumvent/constants/app_styles.dart';
 import 'package:kumvent/constants/colours.dart';
+import 'package:kumvent/presentation/pages/booking_details_page.dart';
 import 'package:kumvent/presentation/widgets/icon_container.dart';
-
-import '../../constants/app_styles.dart';
 
 class DetailsTabBarView extends StatefulWidget {
   const DetailsTabBarView({Key? key}) : super(key: key);
@@ -91,7 +91,15 @@ class _DetailsTabBarViewState extends State<DetailsTabBarView> {
               ),
             ),
             ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => const BookingDetailsPage(
+                      eventCenterImageUrl: 'images/jmroyal_main.jpg',
+                    ),
+                  ),
+                );
+              },
               child: Text(
                 'Book Now',
                 style: TextStyles.bold(
