@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:kumvent/constants/app_styles.dart';
 import 'package:kumvent/constants/colours.dart';
+import 'package:kumvent/presentation/pages/success_page.dart';
 import 'package:kumvent/presentation/widgets/action_button.dart';
 import 'package:kumvent/presentation/widgets/text_form_list_tile.dart';
 
@@ -21,8 +22,6 @@ class _CheckoutPageState extends State<CheckoutPage> {
   final TextEditingController _cardExpiryDateController =
       TextEditingController();
   final TextEditingController _cardCvvCodeController = TextEditingController();
-
-  
 
   @override
   Widget build(BuildContext context) {
@@ -179,7 +178,13 @@ class _CheckoutPageState extends State<CheckoutPage> {
             ActionButton(
               buttonWidth: double.infinity,
               buttonHeight: 48,
-              onPressed: () {},
+              onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => const SuccessPage(),
+                  ),
+                );
+              },
               title: 'Confirm Payment',
             ),
           ],

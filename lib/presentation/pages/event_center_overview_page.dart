@@ -128,10 +128,13 @@ class _EventCenterOverviewPageState extends State<EventCenterOverviewPage>
               child: TabBarView(
                 controller: _tabController,
                 physics: const NeverScrollableScrollPhysics(),
-                children: const <Widget>[
-                  OverviewTabBarView(),
-                  DetailsTabBarView(),
-                  ReviewTabBarView(),
+                children: <Widget>[
+                  const OverviewTabBarView(),
+                  DetailsTabBarView(
+                    eventCenterImage: widget.imgUrl,
+                    eventCenterName: widget.eventCenterName,
+                  ),
+                  const ReviewTabBarView(),
                 ],
               ),
             )

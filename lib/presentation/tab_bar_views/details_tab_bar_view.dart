@@ -5,14 +5,16 @@ import 'package:kumvent/presentation/pages/booking_details_page.dart';
 import 'package:kumvent/presentation/widgets/icon_container.dart';
 
 class DetailsTabBarView extends StatefulWidget {
-  const DetailsTabBarView({Key? key}) : super(key: key);
+  final String eventCenterImage;
+  final String eventCenterName;
+  const DetailsTabBarView({Key? key, required this.eventCenterImage, required this.eventCenterName,}) : super(key: key);
 
   @override
   State<DetailsTabBarView> createState() => _DetailsTabBarViewState();
 }
 
 class _DetailsTabBarViewState extends State<DetailsTabBarView> {
-  final String _eventCenterPrice = '#160,000';
+  final String _eventCenterPrice = '\$250';
 
   @override
   Widget build(BuildContext context) {
@@ -94,8 +96,9 @@ class _DetailsTabBarViewState extends State<DetailsTabBarView> {
               onPressed: () {
                 Navigator.of(context).push(
                   MaterialPageRoute(
-                    builder: (context) => const BookingDetailsPage(
-                      eventCenterImageUrl: 'images/jmroyal_main.jpg',
+                    builder: (context) =>  BookingDetailsPage(
+                      eventCenterImageUrl: widget.eventCenterImage,
+                      eventCenterName: widget.eventCenterName,
                     ),
                   ),
                 );
