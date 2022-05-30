@@ -7,7 +7,7 @@ class FavoritesPage extends StatelessWidget {
   const FavoritesPage({Key? key}) : super(key: key);
   static String routeName = '/fav_page';
 
-  final String image = 'images/atlantis_center.png';
+  final String image = 'images/atlantis_center.jpg';
 
   @override
   Widget build(BuildContext context) {
@@ -18,9 +18,14 @@ class FavoritesPage extends StatelessWidget {
           style: TextStyles.bold(color: kNeutralColor, fontSize: 24),
         ),
         centerTitle: true,
-        leading: const Icon(
-          Icons.arrow_back,
-          color: kLeadingIconColor,
+        leading: IconButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          icon: const Icon(
+            Icons.arrow_back,
+            color: kLeadingIconColor,
+          ),
         ),
       ),
       body: SingleChildScrollView(

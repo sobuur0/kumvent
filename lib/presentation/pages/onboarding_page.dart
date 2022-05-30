@@ -28,8 +28,10 @@ class _OnboardingPageState extends State<OnboardingPage> {
             Align(
               alignment: Alignment.centerRight,
               child: TextButton(
-                onPressed: () =>
-                    Navigator.pushNamed(context, SignUpPage.routeName),
+                onPressed: () => Navigator.pushNamed(
+                  context,
+                  SignUpPage.routeName,
+                ),
                 child: Text('Skip Tour',
                     style: TextStyles.medium(
                         color: kLeadingIconColor, fontSize: 16)),
@@ -106,7 +108,10 @@ class _OnboardingPageState extends State<OnboardingPage> {
                 _currentPage + 1 == contents.length
                     ? ElevatedButton(
                         onPressed: () {
-                          Navigator.pushNamed(context, SignUpPage.routeName);
+                          Navigator.pushNamed(
+                            context,
+                            SignUpPage.routeName,
+                          );
                           Curves.easeIn;
                         },
                         child: Text(

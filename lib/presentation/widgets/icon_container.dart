@@ -2,17 +2,25 @@ import 'package:flutter/material.dart';
 
 class IconContainer extends StatelessWidget {
   final Widget child;
-  final VoidCallback onTap;
+  final VoidCallback? onTap;
   final double height;
   final double width;
   final Color color;
+  final double borderRadius;
+  final List<BoxShadow>? boxShadow;
+  final Color borderColor;
+  final double borderWidth;
 
   const IconContainer({
     required this.child,
-    required this.onTap,
+    this.onTap,
     required this.height,
     required this.width,
     required this.color,
+    required this.borderRadius,
+    this.boxShadow,
+    required this.borderColor,
+    required this.borderWidth,
     Key? key,
   }) : super(key: key);
 
@@ -23,11 +31,14 @@ class IconContainer extends StatelessWidget {
       child: Container(
         height: height,
         width: width,
-        decoration: ShapeDecoration(
+        decoration: BoxDecoration(
           color: color,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(10.0),
+          boxShadow: boxShadow,
+          border: Border.all(
+            color: borderColor,
+            width: borderWidth,
           ),
+          borderRadius: BorderRadius.circular(borderRadius),
         ),
         child: child,
       ),

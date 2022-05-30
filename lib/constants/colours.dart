@@ -20,10 +20,13 @@ const kCenterNotAvailableIndicatorColor = Color(0xFFFFD5D0);
 const kWhiteShadeColor = Color(0xFFF6F6F6);
 const kNotificationIconColor = Color(0XFF0D34BF);
 const kNotificationCheckText = Color(0XFF636262);
-
 const kcardBackgroundColor = Color(0XFF030336);
 const kGreyShadeColor = Color(0XFF87898B);
-
 const kFilterBottomSheetDividerColor = Color(0xFFB1C2FF);
 const kFilterBottomSheetLabelColor = Color(0xFF8F8F8F);
 const kProfileCardColor = Color(0xFFEDECEC);
+const kTabBarTitleColor = Color(0xFFC4C4C4);
+const kLightBlueColor = Color(0xFFA1B6FF);
+const kReviewStarRatingsColor = Color(0xFFFDCC0D);
+const kDividerColor = Color(0xFFD0CECE);
+const kEditIconColor = Color(0xFFA6A4A4);

@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:kumvent/constants/app_styles.dart';
 import 'package:kumvent/constants/colours.dart';
 import 'package:kumvent/presentation/pages/forgot_password.dart';
-import 'package:kumvent/presentation/pages/homepage.dart';
+import 'package:kumvent/presentation/pages/home.dart';
 import 'package:kumvent/presentation/pages/sign_up_page.dart';
 import 'package:kumvent/presentation/widgets/action_button.dart';
 import 'package:kumvent/presentation/widgets/icon_container.dart';
@@ -111,7 +111,7 @@ class _SignInPageState extends State<SignInPage> {
               Navigator.of(context).push(
                 // ignore: always_specify_types
                 MaterialPageRoute(
-                  builder: (BuildContext context) => const HomePage(),
+                  builder: (BuildContext context) => const Home(),
                 ),
               );
             },
@@ -146,6 +146,9 @@ class _SignInPageState extends State<SignInPage> {
                 height: 56.0,
                 width: 56.0,
                 color: kIconContainerColor,
+                borderRadius: 10.0,
+                borderColor: kIconContainerColor,
+                borderWidth: 0.0,
                 onTap: () {},
                 child: const Icon(
                   Icons.apple,
@@ -156,6 +159,9 @@ class _SignInPageState extends State<SignInPage> {
                 height: 56.0,
                 width: 56.0,
                 color: kIconContainerColor,
+                borderRadius: 10.0,
+                borderColor: kIconContainerColor,
+                borderWidth: 0.0,
                 onTap: () {},
                 child: const Icon(
                   Icons.facebook,
@@ -167,6 +173,9 @@ class _SignInPageState extends State<SignInPage> {
                 height: 56.0,
                 width: 56.0,
                 color: kIconContainerColor,
+                borderRadius: 10.0,
+                borderColor: kIconContainerColor,
+                borderWidth: 0.0,
                 onTap: () {},
                 child: const Image(
                   image: AssetImage('images/google.png'),
