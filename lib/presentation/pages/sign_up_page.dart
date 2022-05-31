@@ -38,12 +38,17 @@ class _SignUpPageState extends State<SignUpPage> {
         body: ListView(
           padding: const EdgeInsets.all(16.0),
           children: <Widget>[
-            const Padding(padding: EdgeInsets.only(top: 40.0)),
+            Image.asset(
+              'images/onboarding_logo.png',
+              height: 51.0,
+            ),
+            const Padding(padding: EdgeInsets.only(bottom: 24.0)),
             Text(
               'Create a New Account',
+              textAlign: TextAlign.center,
               style: TextStyles.bold(
                 color: kTextPrimaryColor,
-                fontSize: 24.0,
+                fontSize: 20.0,
               ),
             ),
             const Padding(padding: EdgeInsets.only(top: 30.0)),

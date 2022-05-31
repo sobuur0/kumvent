@@ -5,8 +5,8 @@ class OnboardingContents {
 
   OnboardingContents({
     required this.image,
-    this.title = 'Feel the ease of finding an Event \n Center',
-    this.desc = "Wherever you are, I'll be there as long as you\n need me.",
+    this.title = 'Feel the ease of finding an Event Center',
+    this.desc = "Wherever you are, I'll be there as long as you need me.",
   });
 }
 

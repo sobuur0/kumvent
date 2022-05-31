@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:kumvent/constants/app_styles.dart';
 import 'package:kumvent/constants/colours.dart';
-import 'package:kumvent/presentation/pages/homepage.dart';
+import 'package:kumvent/presentation/pages/home.dart';
 import 'package:kumvent/presentation/widgets/action_button.dart';
 import 'package:kumvent/presentation/widgets/success_widget.dart';
 
@@ -70,7 +70,7 @@ class _SuccessPageState extends State<SuccessPage> {
               onPressed: () {
                 Navigator.of(context).pushReplacement(
                   MaterialPageRoute(
-                    builder: (context) => const HomePage(),
+                    builder: (context) => const Home(),
                   ),
                 );
               },

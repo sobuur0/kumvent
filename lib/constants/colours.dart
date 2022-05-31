@@ -30,3 +30,4 @@ const kLightBlueColor = Color(0xFFA1B6FF);
 const kReviewStarRatingsColor = Color(0xFFFDCC0D);
 const kDividerColor = Color(0xFFD0CECE);
 const kEditIconColor = Color(0xFFA6A4A4);
+const kBorderColor = Color(0xFFC4C4C4);
