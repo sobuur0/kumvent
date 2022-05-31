@@ -6,7 +6,7 @@ import 'package:kumvent/presentation/widgets/favorite_widget.dart';
 class FavoritesPage extends StatelessWidget {
   const FavoritesPage({Key? key}) : super(key: key);
   static String routeName = '/fav_page';
-
+  //updating the favorites page
   final String image = 'images/atlantis_center.png';
 
   @override
