@@ -20,13 +20,7 @@ class _ExplorePageState extends State<ExplorePage> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        leading: Builder(
-          builder: (BuildContext context) => IconButton(
-            icon: const Icon(Icons.arrow_back),
-            color: kNeutralColor,
-            onPressed: () => Navigator.pop(context),
-          ),
-        ),
+        automaticallyImplyLeading: false,
         title: Text(
           'Search',
           style: TextStyles.bold(
@@ -77,6 +71,9 @@ class _ExplorePageState extends State<ExplorePage> {
                 height: 48.0,
                 width: 48.0,
                 color: kPrimaryColor,
+                borderRadius: 10.0,
+                borderColor: kPrimaryColor,
+                borderWidth: 0.0,
               ),
             ],
           ),

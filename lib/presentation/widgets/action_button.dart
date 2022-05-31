@@ -20,7 +20,10 @@ class ActionButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
-        primary: title == 'Done' ? const Color(0xFF0D34BF) : kPrimaryColor,
+        primary: kPrimaryColor,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(8.0),
+        ),
         fixedSize: Size(
           buttonWidth,
           buttonHeight,
@@ -31,7 +34,7 @@ class ActionButton extends StatelessWidget {
         title,
         style: TextStyles.semiBold(
           color: Colors.white,
-          fontSize: 20.0,
+          fontSize: 16.0,
         ),
       ),
     );

@@ -19,7 +19,10 @@ class _SplashPageState extends State<SplashPage> {
   //The solash screen method
   void splash() {
     Timer(const Duration(seconds: 5), () {
-      Navigator.pushReplacementNamed(context, OnboardingPage.routeName);
+      Navigator.pushReplacementNamed(
+        context,
+        OnboardingPage.routeName,
+      );
     });
   }
 
@@ -27,32 +30,35 @@ class _SplashPageState extends State<SplashPage> {
   void initState() {
     super.initState();
     splash();
-  } 
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: kPrimaryColor,
       body: SafeArea(
-          child: Column(
-        children: [
-          const Spacer(),
-          Image.asset(
-            'images/splash_logo.png',
-            height: MediaQuery.of(context).size.height * 0.2,
-            width: 100,
-          ),
-          const Spacer(),
-          Align(
-            alignment: Alignment.bottomCenter,
-            child: Text(
-              //The font family for the texts has not been given
-              "KUMVENT",
-              style: TextStyles.bold(color: Colors.white, fontSize: 40),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Image.asset(
+              'images/splash_logo.png',
+              height: MediaQuery.of(context).size.height * 0.2,
+              width: 100,
             ),
-          ),
-        ],
-      )),
+            const Padding(padding: EdgeInsets.only(bottom: 20.0)),
+            Align(
+              alignment: Alignment.bottomCenter,
+              child: Text(
+                "KUMVENT",
+                style: TextStyles.bold(
+                  color: Colors.white,
+                  fontSize: 40,
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }

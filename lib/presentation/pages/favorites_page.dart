@@ -6,9 +6,7 @@ import 'package:kumvent/presentation/widgets/favorite_widget.dart';
 class FavoritesPage extends StatelessWidget {
   const FavoritesPage({Key? key}) : super(key: key);
   static String routeName = '/fav_page';
-  //updating the favorites page
   final String image = 'images/atlantis_center.png';
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,9 +16,14 @@ class FavoritesPage extends StatelessWidget {
           style: TextStyles.bold(color: kNeutralColor, fontSize: 24),
         ),
         centerTitle: true,
-        leading: const Icon(
-          Icons.arrow_back,
-          color: kLeadingIconColor,
+        leading: IconButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          icon: const Icon(
+            Icons.arrow_back,
+            color: kLeadingIconColor,
+          ),
         ),
       ),
       body: SingleChildScrollView(

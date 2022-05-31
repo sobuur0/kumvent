@@ -38,7 +38,7 @@ class _TextFormListTileState extends State<TextFormListTile> {
           controller: widget.textController,
           decoration: InputDecoration(
             filled: true,
-            fillColor: kBackgroundFillColor,
+            fillColor: Colors.white,
             suffixIcon: widget.trailing,
             constraints: BoxConstraints.tight(
               Size(
@@ -49,7 +49,7 @@ class _TextFormListTileState extends State<TextFormListTile> {
             enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(5.0),
               borderSide: const BorderSide(
-                color: kTextViewBorderColor,
+                color: kBorderColor,
                 width: 1.0,
               ),
             ),

@@ -23,20 +23,44 @@ class _OnboardingPageState extends State<OnboardingPage> {
     return Scaffold(
       body: SafeArea(
         child: ListView(
-          padding: const EdgeInsets.symmetric(horizontal: 18.0),
+          padding: const EdgeInsets.symmetric(horizontal: 18.0, vertical: 16.0),
           children: [
-            Align(
-              alignment: Alignment.centerRight,
-              child: TextButton(
-                onPressed: () =>
-                    Navigator.pushNamed(context, SignUpPage.routeName),
-                child: Text('Skip Tour',
-                    style: TextStyles.medium(
-                        color: kLeadingIconColor, fontSize: 16)),
-              ),
+            Stack(
+              children: [
+                Align(
+                  alignment: Alignment.center,
+                  child: Image.asset(
+                    'images/onboarding_logo.png',
+                    height: 51.0,
+                  ),
+                ),
+                Align(
+                  alignment: Alignment.centerRight,
+                  child: Visibility(
+                    visible: _currentPage + 1 == contents.length ? false : true,
+                    child: Padding(
+                      padding: const EdgeInsets.all(0.0),
+                      child: TextButton(
+                        onPressed: () => Navigator.pushNamed(
+                          context,
+                          SignUpPage.routeName,
+                        ),
+                        child: Text(
+                          'Skip',
+                          style: TextStyles.medium(
+                            color: kNeutralColor,
+                            fontSize: 16,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ],
             ),
+            const Padding(padding: EdgeInsets.only(bottom: 20.0)),
             SizedBox(
-              height: size.height * 0.8,
+              height: size.height * 0.75,
               child: PageView.builder(
                 onPageChanged: (value) {
                   setState(() {
@@ -74,20 +98,24 @@ class _OnboardingPageState extends State<OnboardingPage> {
                           ),
                         ),
                       ),
-                      // const SizedBox(
-                      //   height: 25,
-                      // ),
                       Text(
                         contents[index].title,
                         textAlign: TextAlign.center,
                         textScaleFactor: 0.7,
                         style: TextStyles.bold(
-                            color: kLeadingIconColor, fontSize: 24),
+                          color: kLeadingIconColor,
+                          fontSize: 24,
+                        ),
                       ),
+                      const Padding(padding: EdgeInsets.only(bottom: 15.0)),
                       Text(
                         contents[index].desc,
+                        textAlign: TextAlign.center,
+                        textScaleFactor: 0.9,
                         style: TextStyles.medium(
-                            color: kLeadingIconColor, fontSize: 16),
+                          color: kTextPrimaryColor,
+                          fontSize: 16,
+                        ),
                       ),
                     ],
                   );
@@ -106,7 +134,10 @@ class _OnboardingPageState extends State<OnboardingPage> {
                 _currentPage + 1 == contents.length
                     ? ElevatedButton(
                         onPressed: () {
-                          Navigator.pushNamed(context, SignUpPage.routeName);
+                          Navigator.pushNamed(
+                            context,
+                            SignUpPage.routeName,
+                          );
                           Curves.easeIn;
                         },
                         child: Text(
@@ -147,8 +178,8 @@ class _OnboardingPageState extends State<OnboardingPage> {
       ),
       decoration: BoxDecoration(
         color: _currentPage == index
-            ? kPrimaryColor //Color(0xff0D34BF)
-            : const Color(0xff0D34BF).withOpacity(0.15),
+            ? kPrimaryColor
+            : const Color(0xFF0D34BF).withOpacity(0.15),
       ),
       margin: const EdgeInsets.only(right: 3),
       height: 5,

@@ -1,9 +1,8 @@
-
 import 'package:flutter/material.dart';
 import 'package:kumvent/constants/app_styles.dart';
 import 'package:kumvent/constants/colours.dart';
+import 'package:kumvent/presentation/pages/success_page.dart';
 import 'package:kumvent/presentation/widgets/action_button.dart';
-import 'package:kumvent/presentation/widgets/app_bar_text.dart';
 import 'package:kumvent/presentation/widgets/text_form_list_tile.dart';
 
 import '../widgets/build_card_widget.dart';
@@ -27,7 +26,25 @@ class _CheckoutPageState extends State<CheckoutPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appBarText(title: 'Checkout'),
+      appBar: AppBar(
+        centerTitle: true,
+        leading: IconButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          icon: const Icon(
+            Icons.arrow_back,
+            color: kLeadingIconColor,
+          ),
+        ),
+        title: Text(
+          'Checkout',
+          style: TextStyles.bold(
+            color: kTextPrimaryColor,
+            fontSize: 24.0,
+          ),
+        ),
+      ),
       body: Padding(
         padding: const EdgeInsets.only(left: 16.0, right: 16.0),
         child: ListView(
@@ -36,7 +53,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
             SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               child: Row(
-                children: [
+                children: const [
                   BuildCardWidget(
                     cardHolderName: 'Abiona Kazeem',
                     cardNumber: '****  ****  **** 2354',
@@ -44,7 +61,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
                     expDate: '12/2022',
                     bgColor: kcardBackgroundColor,
                   ),
-                  const SizedBox(
+                  SizedBox(
                     width: 16,
                   ),
                   BuildCardWidget(
@@ -52,7 +69,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
                     cardNumber: '****  ****  **** 2354',
                     cardType: 'Visa Card',
                     expDate: '12/2022',
-                    bgColor: const Color(0XFF1105A6),
+                    bgColor: Color(0XFF1105A6),
                   ),
                 ],
               ),
@@ -60,8 +77,10 @@ class _CheckoutPageState extends State<CheckoutPage> {
             const Padding(padding: EdgeInsets.only(top: 64)),
             Text(
               'Payment Method',
-              style:
-                  TextStyles.bold(color: const Color(0xff000000), fontSize: 20),
+              style: TextStyles.bold(
+                color: const Color(0xff000000),
+                fontSize: 20,
+              ),
             ),
             Container(
               width: double.infinity,
@@ -97,19 +116,25 @@ class _CheckoutPageState extends State<CheckoutPage> {
                       Text(
                         'Mastercard',
                         style: TextStyles.bold(
-                            color: kLeadingIconColor, fontSize: 14),
+                          color: kLeadingIconColor,
+                          fontSize: 14,
+                        ),
                       ),
                     ],
                   ),
                   Text(
                     'Debit Card',
-                    style:
-                        TextStyles.bold(color: kGreyShadeColor, fontSize: 14),
+                    style: TextStyles.bold(
+                      color: kGreyShadeColor,
+                      fontSize: 14,
+                    ),
                   ),
                   Text(
                     'Paypal',
-                    style:
-                        TextStyles.bold(color: kGreyShadeColor, fontSize: 14),
+                    style: TextStyles.bold(
+                      color: kGreyShadeColor,
+                      fontSize: 14,
+                    ),
                   ),
                 ],
               ),
@@ -130,8 +155,9 @@ class _CheckoutPageState extends State<CheckoutPage> {
               padding: EdgeInsets.only(top: 16),
             ),
             TextFormListTile(
-                text: 'Card Holder Name',
-                textController: _cardHolderNameController),
+              text: 'Card Holder Name',
+              textController: _cardHolderNameController,
+            ),
             const Padding(
               padding: EdgeInsets.only(top: 16),
             ),
@@ -139,18 +165,28 @@ class _CheckoutPageState extends State<CheckoutPage> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 ExpiryDateAndCvvWidget(
-                    text: 'Expiration Date',
-                    textController: _cardExpiryDateController),
+                  text: 'Expiration Date',
+                  textController: _cardExpiryDateController,
+                ),
                 ExpiryDateAndCvvWidget(
-                    text: 'CVV Code', textController: _cardCvvCodeController),
+                  text: 'CVV Code',
+                  textController: _cardCvvCodeController,
+                ),
               ],
             ),
             const Padding(padding: EdgeInsets.only(top: 24)),
             ActionButton(
-                buttonWidth: double.infinity,
-                buttonHeight: 48,
-                onPressed: () {},
-                title: 'Confirm Payment'),
+              buttonWidth: double.infinity,
+              buttonHeight: 48,
+              onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => const SuccessPage(),
+                  ),
+                );
+              },
+              title: 'Confirm Payment',
+            ),
           ],
         ),
       ),
