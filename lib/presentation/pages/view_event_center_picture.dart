@@ -32,11 +32,12 @@ class _ViewEventCenterPictureState extends State<ViewEventCenterPicture> {
             ),
           ),
         ),
-        body: Image.asset(
-          widget.imageUrl,
-          filterQuality: FilterQuality.high,
-          fit: BoxFit.fill,
-          height: size.height,
+        body: InteractiveViewer(
+          constrained: false,
+          child: Image.asset(
+            widget.imageUrl,
+            filterQuality: FilterQuality.high,
+          ),
         ),
       ),
     );
