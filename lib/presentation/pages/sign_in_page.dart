@@ -1,5 +1,3 @@
-// ignore_for_file: use_full_hex_values_for_flutter_colors
-
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:kumvent/constants/app_styles.dart';
@@ -71,17 +69,17 @@ class _SignInPageState extends State<SignInPage> {
               textController: _passwordController,
               trailing: Icon(
                 Icons.visibility,
-                color: const Color(0xFF991A2731).withOpacity(0.6),
+                color: kNeutralColor.withOpacity(0.6),
               ),
             ),
             const Padding(padding: EdgeInsets.only(bottom: 8.0)),
             GestureDetector(
               onTap: () {
                 Navigator.of(context).push(
-                  // ignore: always_specify_types
                   MaterialPageRoute(
-                      builder: (BuildContext context) =>
-                          const ForgotPasswordPage()),
+                    builder: (BuildContext context) =>
+                        const ForgotPasswordPage(),
+                  ),
                 );
               },
               child: Text(
