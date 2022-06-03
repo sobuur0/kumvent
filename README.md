@@ -22,9 +22,9 @@ A flutter app that can be used to book event center.
 - [] Recommend centers based on location.
 - 
 ## 👨‍💻Contributors
-- .[Abiona Kazeem](https://www.linkedin.com/in/abiona-kazeem).
-- .[Akinwalere John](https://github.com/John-soft).
-- .[AbdulSobuur Ishola](https://github.com/t-bolt).
+- [Abiona Kazeem](https://www.linkedin.com/in/abiona-kazeem)
+- [Akinwalere John](https://github.com/John-soft).
+- [AbdulSobuur Ishola](https://github.com/t-bolt)
 
 
 ## Getting Started
