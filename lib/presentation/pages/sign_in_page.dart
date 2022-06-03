@@ -20,6 +20,8 @@ class _SignInPageState extends State<SignInPage> {
   final TextEditingController _emailAddressController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
 
+  final _formKey = GlobalKey<FormState>();
+
   @override
   void dispose() {
     _emailAddressController.dispose();
@@ -33,177 +35,193 @@ class _SignInPageState extends State<SignInPage> {
 
     return Scaffold(
       body: SafeArea(
-        child: ListView(
-          padding: const EdgeInsets.all(16.0),
-          children: [
-            Image.asset(
-              'images/onboarding_logo.png',
-              height: 51.0,
-            ),
-            const Padding(padding: EdgeInsets.only(bottom: 16.0)),
-            Text(
-              'Let\'s Sign you in.',
-              textAlign: TextAlign.center,
-              style: TextStyles.bold(
-                color: kTextPrimaryColor,
-                fontSize: 20.0,
+        child: Form(
+          key: _formKey,
+          child: ListView(
+            padding: const EdgeInsets.all(16.0),
+            children: [
+              Image.asset(
+                'images/onboarding_logo.png',
+                height: 51.0,
               ),
-            ),
-            const Padding(padding: EdgeInsets.only(bottom: 14.0)),
-            Text(
-              'Welcome back. You\'ve been missed!',
-              textAlign: TextAlign.center,
-              style: TextStyles.medium(
-                color: kTextPrimaryColor,
-                fontSize: 14.0,
-              ),
-            ),
-            const Padding(padding: EdgeInsets.only(bottom: 60.0)),
-            TextFormListTile(
-              text: 'Email Address',
-              textController: _emailAddressController,
-            ),
-            const Padding(padding: EdgeInsets.only(bottom: 20.0)),
-            TextFormListTile(
-              text: 'Password',
-              textController: _passwordController,
-              trailing: Icon(
-                Icons.visibility,
-                color: kNeutralColor.withOpacity(0.6),
-              ),
-            ),
-            const Padding(padding: EdgeInsets.only(bottom: 8.0)),
-            GestureDetector(
-              onTap: () {
-                Navigator.of(context).push(
-                  MaterialPageRoute(
-                    builder: (BuildContext context) =>
-                        const ForgotPasswordPage(),
-                  ),
-                );
-              },
-              child: Text(
-                'Forgot password?',
-                textAlign: TextAlign.end,
-                style: TextStyles.medium(
-                  color: const Color(0xFF636262),
-                  fontSize: 12.0,
-                ),
-              ),
-            ),
-            const Padding(padding: EdgeInsets.only(bottom: 22.0)),
-            ActionButton(
-              buttonWidth: size.width,
-              buttonHeight: 56.0,
-              onPressed: () {
-                Navigator.of(context).push(
-                  // ignore: always_specify_types
-                  MaterialPageRoute(
-                    builder: (BuildContext context) => const Home(),
-                  ),
-                );
-              },
-              title: 'Sign In',
-            ),
-            const Padding(padding: EdgeInsets.only(bottom: 46.0)),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: <Widget>[
-                Expanded(
-                  child: Divider(
-                    thickness: 1.0,
-                    color: Colors.black.withOpacity(0.7),
-                    endIndent: 30.0,
-                  ),
-                ),
-                const Text('Or'),
-                Expanded(
-                  child: Divider(
-                    thickness: 1.0,
-                    color: Colors.black.withOpacity(0.7),
-                    indent: 30.0,
-                  ),
-                ),
-              ],
-            ),
-            const Padding(padding: EdgeInsets.only(bottom: 25.0)),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: <Widget>[
-                IconContainer(
-                  height: 56.0,
-                  width: 56.0,
-                  color: kIconContainerColor,
-                  borderRadius: 10.0,
-                  borderColor: kIconContainerColor,
-                  borderWidth: 0.0,
-                  onTap: () {},
-                  child: const Icon(
-                    Icons.apple,
-                    size: 35.0,
-                  ),
-                ),
-                IconContainer(
-                  height: 56.0,
-                  width: 56.0,
-                  color: kIconContainerColor,
-                  borderRadius: 10.0,
-                  borderColor: kIconContainerColor,
-                  borderWidth: 0.0,
-                  onTap: () {},
-                  child: const Icon(
-                    Icons.facebook,
-                    size: 35.0,
-                    color: Color(0xFF039BE5),
-                  ),
-                ),
-                IconContainer(
-                  height: 56.0,
-                  width: 56.0,
-                  color: kIconContainerColor,
-                  borderRadius: 10.0,
-                  borderColor: kIconContainerColor,
-                  borderWidth: 0.0,
-                  onTap: () {},
-                  child: const Image(
-                    image: AssetImage('images/google.png'),
-                  ),
-                ),
-              ],
-            ),
-            const Padding(padding: EdgeInsets.only(bottom: 30.0)),
-            Center(
-              child: Text.rich(
-                TextSpan(
-                  children: <TextSpan>[
-                    TextSpan(
-                      text: 'Don\'t have an account? ',
-                      style: TextStyles.medium(
-                        color: Colors.black,
-                        fontSize: 14.0,
-                      ),
-                    ),
-                    TextSpan(
-                      text: 'SignUp',
-                      recognizer: TapGestureRecognizer()
-                        ..onTap = () => Navigator.of(context).push(
-                              // ignore: always_specify_types
-                              MaterialPageRoute(
-                                builder: (BuildContext context) =>
-                                    const SignUpPage(),
-                              ),
-                            ),
-                      style: TextStyles.semiBold(
-                        color: kBlueShadeColor,
-                        fontSize: 14.0,
-                      ),
-                    ),
-                  ],
-                ),
+              const Padding(padding: EdgeInsets.only(bottom: 16.0)),
+              Text(
+                'Let\'s Sign you in.',
                 textAlign: TextAlign.center,
+                style: TextStyles.bold(
+                  color: kTextPrimaryColor,
+                  fontSize: 20.0,
+                ),
               ),
-            ),
-          ],
+              const Padding(padding: EdgeInsets.only(bottom: 14.0)),
+              Text(
+                'Welcome back. You\'ve been missed!',
+                textAlign: TextAlign.center,
+                style: TextStyles.medium(
+                  color: kTextPrimaryColor,
+                  fontSize: 14.0,
+                ),
+              ),
+              const Padding(padding: EdgeInsets.only(bottom: 60.0)),
+              TextFormListTile(
+                text: 'Email Address',
+                textController: _emailAddressController,
+                validator: (text) {
+                  if (text == null || text.isEmpty) {
+                    return 'Kindly enter a valid email address';
+                  }
+                  return null;
+                },
+              ),
+              const Padding(padding: EdgeInsets.only(bottom: 20.0)),
+              TextFormListTile(
+                text: 'Password',
+                textController: _passwordController,
+                validator: (text) {
+                  if (text!.isEmpty && text.length < 6) {
+                    return 'Password must be more than 6 characters';
+                  }
+                  return null;
+                },
+                trailing: Icon(
+                  Icons.visibility,
+                  color: kNeutralColor.withOpacity(0.6),
+                ),
+              ),
+              const Padding(padding: EdgeInsets.only(bottom: 8.0)),
+              GestureDetector(
+                onTap: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (BuildContext context) =>
+                          const ForgotPasswordPage(),
+                    ),
+                  );
+                },
+                child: Text(
+                  'Forgot password?',
+                  textAlign: TextAlign.end,
+                  style: TextStyles.medium(
+                    color: const Color(0xFF636262),
+                    fontSize: 12.0,
+                  ),
+                ),
+              ),
+              const Padding(padding: EdgeInsets.only(bottom: 22.0)),
+              ActionButton(
+                buttonWidth: size.width,
+                buttonHeight: 56.0,
+                onPressed: () {
+                  if (_formKey.currentState!.validate()) {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (BuildContext context) => const Home(),
+                      ),
+                    );
+                  }
+                },
+                title: 'Sign In',
+              ),
+              const Padding(padding: EdgeInsets.only(bottom: 46.0)),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  Expanded(
+                    child: Divider(
+                      thickness: 1.0,
+                      color: Colors.black.withOpacity(0.7),
+                      endIndent: 30.0,
+                    ),
+                  ),
+                  const Text('Or'),
+                  Expanded(
+                    child: Divider(
+                      thickness: 1.0,
+                      color: Colors.black.withOpacity(0.7),
+                      indent: 30.0,
+                    ),
+                  ),
+                ],
+              ),
+              const Padding(padding: EdgeInsets.only(bottom: 25.0)),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: <Widget>[
+                  IconContainer(
+                    height: 56.0,
+                    width: 56.0,
+                    color: kIconContainerColor,
+                    borderRadius: 10.0,
+                    borderColor: kIconContainerColor,
+                    borderWidth: 0.0,
+                    onTap: () {},
+                    child: const Icon(
+                      Icons.apple,
+                      size: 35.0,
+                    ),
+                  ),
+                  IconContainer(
+                    height: 56.0,
+                    width: 56.0,
+                    color: kIconContainerColor,
+                    borderRadius: 10.0,
+                    borderColor: kIconContainerColor,
+                    borderWidth: 0.0,
+                    onTap: () {},
+                    child: const Icon(
+                      Icons.facebook,
+                      size: 35.0,
+                      color: Color(0xFF039BE5),
+                    ),
+                  ),
+                  IconContainer(
+                    height: 56.0,
+                    width: 56.0,
+                    color: kIconContainerColor,
+                    borderRadius: 10.0,
+                    borderColor: kIconContainerColor,
+                    borderWidth: 0.0,
+                    onTap: () {},
+                    child: const Image(
+                      image: AssetImage('images/google.png'),
+                    ),
+                  ),
+                ],
+              ),
+              const Padding(padding: EdgeInsets.only(bottom: 30.0)),
+              Center(
+                child: Text.rich(
+                  TextSpan(
+                    children: <TextSpan>[
+                      TextSpan(
+                        text: 'Don\'t have an account? ',
+                        style: TextStyles.medium(
+                          color: Colors.black,
+                          fontSize: 14.0,
+                        ),
+                      ),
+                      TextSpan(
+                        text: 'SignUp',
+                        recognizer: TapGestureRecognizer()
+                          ..onTap = () => Navigator.of(context).push(
+                                // ignore: always_specify_types
+                                MaterialPageRoute(
+                                  builder: (BuildContext context) =>
+                                      const SignUpPage(),
+                                ),
+                              ),
+                        style: TextStyles.semiBold(
+                          color: kBlueShadeColor,
+                          fontSize: 14.0,
+                        ),
+                      ),
+                    ],
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

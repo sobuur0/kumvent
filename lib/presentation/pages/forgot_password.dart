@@ -61,6 +61,12 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
           TextFormListTile(
             textController: _emailAddressController,
             text: 'Email Address',
+            validator: (text) {
+              if (text == null || text.isEmpty) {
+                return 'Kindly enter a valid email address';
+              }
+              return null;
+            },
           ),
           const Padding(padding: EdgeInsets.only(bottom: 48.0)),
           ActionButton(

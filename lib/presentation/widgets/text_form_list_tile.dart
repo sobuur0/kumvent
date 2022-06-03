@@ -6,11 +6,13 @@ class TextFormListTile extends StatefulWidget {
   final String text;
   final TextEditingController textController;
   final Widget? trailing;
+  final String? Function(String?)? validator;
 
   const TextFormListTile({
     required this.text,
     required this.textController,
     this.trailing,
+    required this.validator,
     Key? key,
   }) : super(key: key);
 
@@ -36,6 +38,7 @@ class _TextFormListTileState extends State<TextFormListTile> {
         const Padding(padding: EdgeInsets.only(bottom: 10.0)),
         TextFormField(
           controller: widget.textController,
+          validator: widget.validator,
           decoration: InputDecoration(
             filled: true,
             fillColor: Colors.white,

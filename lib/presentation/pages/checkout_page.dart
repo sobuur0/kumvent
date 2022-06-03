@@ -145,6 +145,12 @@ class _CheckoutPageState extends State<CheckoutPage> {
             TextFormListTile(
               text: 'Card Number',
               textController: _cardNumberController,
+              validator: (text) {
+                if (text == null || text.isEmpty) {
+                  return 'Kindly enter a valid card number';
+                }
+                return null;
+              },
               trailing: Image.asset(
                 'images/mastercard-logo.png',
                 height: 24,
@@ -157,6 +163,12 @@ class _CheckoutPageState extends State<CheckoutPage> {
             TextFormListTile(
               text: 'Card Holder Name',
               textController: _cardHolderNameController,
+              validator: (text) {
+                if (text == null || text.isEmpty) {
+                  return 'Kindly enter your name';
+                }
+                return null;
+              },
             ),
             const Padding(
               padding: EdgeInsets.only(top: 16),

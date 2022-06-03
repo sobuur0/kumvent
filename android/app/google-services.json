@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "277680724449",
+    "project_id": "kumvent",
+    "storage_bucket": "kumvent.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:277680724449:android:ecab7b62f3832f4c865aa0",
+        "android_client_info": {
+          "package_name": "com.example.kumvent"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "277680724449-uul2ra7c8ssfmfdmu4l2qtkut97ef27l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCdh4w2DwGR5KnOSOF0bjbDOfIrF-ogr8A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "277680724449-uul2ra7c8ssfmfdmu4l2qtkut97ef27l.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

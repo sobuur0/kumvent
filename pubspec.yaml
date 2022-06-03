@@ -20,6 +20,8 @@ dependencies:
   google_fonts: ^2.2.0
   lints: ^1.0.1
   progress_indicators: ^1.0.0
+  firebase_core: ^1.17.1
+  firebase_auth: ^3.3.19
 
 dev_dependencies:
 

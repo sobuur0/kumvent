@@ -1,6 +1,32 @@
 # kumvent
 
-An Event Booking application.
+A flutter app that can be used to book event center.
+
+<br> Please ⭐star the repo if you like what you see🤗.
+
+## 💻 Requirements to Run this project.
+--Any Operating system.
+--A working IDE with flutter sdk installed.
+--Knowledge of flutter and dart
+
+## 🤲Build Instructions
+-- locate your 'flutter.gradle file', which is found in the '~/flutter/packages/flutter_tools/gradle' directory and add the following line -- 'static int minSdkVersion = 19' inside the FlutterExtension class. 
+
+
+## ✨ Features
+- [] SignUp/SignIn.
+- [] Book Event Centers.
+- [] Make Payments.
+- [] Favourites.
+- [] Swipe to delete favourites.
+- [] Dark mode.
+- [] Recommend centers based on location.
+
+## 👨‍💻Contributors
+- .[Abiona Kazeem].(https://www.linkedin.com/in/abiona-kazeem).
+- .[Akinwalere John].(https://github.com/John-soft).
+- .[AbdulSobuur Ishola].(https://github.com/t-bolt).
+
 
 ## Getting Started
 
