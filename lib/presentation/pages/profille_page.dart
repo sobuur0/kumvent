@@ -1,6 +1,10 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+import 'package:kumvent/models/user_model.dart';
 import 'package:kumvent/presentation/pages/favorites_page.dart';
+import 'package:kumvent/presentation/pages/sign_in_page.dart';
 import 'package:kumvent/presentation/widgets/profile_card.dart';
 
 class ProfilePage extends StatefulWidget {
@@ -12,7 +16,20 @@ class ProfilePage extends StatefulWidget {
 }
 
 class _ProfilePageState extends State<ProfilePage> {
-  var currentUser = FirebaseAuth.instance.currentUser;
+  User? user = FirebaseAuth.instance.currentUser;
+  UserModel currentUser = UserModel();
+  final FirebaseAuth _auth = FirebaseAuth.instance;
+
+  @override
+  void initState() {
+    FirebaseFirestore.instance
+        .collection("users")
+        .doc(user!.uid)
+        .get()
+        .then((value) => currentUser = UserModel.fromMap(value.data()));
+    setState(() {});
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -41,10 +58,10 @@ class _ProfilePageState extends State<ProfilePage> {
             const SizedBox(
               height: 20,
             ),
-            const Center(
+            Center(
               child: Text(
-                'Sulaimon Aminat',
-                style: TextStyle(
+                '${currentUser.fullName}',
+                style: const TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.w700,
                   color: Color(0xff061A60),
@@ -89,7 +106,11 @@ class _ProfilePageState extends State<ProfilePage> {
             ProfileCard(
               leadingIcon: Icons.logout,
               title: 'Logout',
-              onPressed: () {},
+              onPressed: () {
+                _logoutUser();
+                Fluttertoast.showToast(
+                    msg: 'You have successfully been logged out');
+              },
             ),
             const Padding(padding: EdgeInsets.only(bottom: 8.0)),
             const Center(
@@ -104,6 +125,15 @@ class _ProfilePageState extends State<ProfilePage> {
             const Padding(padding: EdgeInsets.only(bottom: 20.0)),
           ],
         ),
+      ),
+    );
+  }
+
+  Future<void> _logoutUser() async {
+    await _auth.signOut();
+    Navigator.of(context).pushReplacement(
+      MaterialPageRoute(
+        builder: (context) => const SignInPage(),
       ),
     );
   }
