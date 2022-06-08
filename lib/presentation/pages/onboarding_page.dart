@@ -15,6 +15,7 @@ class OnboardingPage extends StatefulWidget {
 class _OnboardingPageState extends State<OnboardingPage> {
   final _pageController = PageController();
   int _currentPage = 0;
+  static const Duration _duration = Duration(milliseconds: 700);
 
   @override
   Widget build(BuildContext context) {
@@ -41,9 +42,10 @@ class _OnboardingPageState extends State<OnboardingPage> {
                     child: Padding(
                       padding: const EdgeInsets.all(0.0),
                       child: TextButton(
-                        onPressed: () => Navigator.pushNamed(
-                          context,
-                          SignUpPage.routeName,
+                        onPressed: () => _pageController.animateToPage(
+                          contents.length - 1,
+                          duration: _duration,
+                          curve: Curves.easeInOut,
                         ),
                         child: Text(
                           'Skip',
@@ -154,8 +156,9 @@ class _OnboardingPageState extends State<OnboardingPage> {
                     : InkWell(
                         onTap: () {
                           _pageController.nextPage(
-                              duration: const Duration(milliseconds: 200),
-                              curve: Curves.easeIn);
+                            duration: const Duration(milliseconds: 200),
+                            curve: Curves.easeIn,
+                          );
                         },
                         child: const CircleAvatar(
                           child: Icon(Icons.east),

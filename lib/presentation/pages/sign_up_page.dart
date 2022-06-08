@@ -1,10 +1,13 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:kumvent/constants/app_styles.dart';
 import 'package:kumvent/constants/colours.dart';
-import 'package:kumvent/presentation/pages/home.dart';
+import 'package:kumvent/models/user_model.dart';
 import 'package:kumvent/presentation/pages/sign_in_page.dart';
-import 'package:kumvent/presentation/widgets/action_button.dart';
+import 'package:kumvent/presentation/widgets/authentication_button.dart';
 import 'package:kumvent/presentation/widgets/icon_container.dart';
 import 'package:kumvent/presentation/widgets/text_form_list_tile.dart';
 
@@ -17,16 +20,26 @@ class SignUpPage extends StatefulWidget {
 }
 
 class _SignUpPageState extends State<SignUpPage> {
-  final TextEditingController _nameController = TextEditingController();
+  final TextEditingController _fullNameController = TextEditingController();
   final TextEditingController _emailAddressController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   late bool _isChecked = false;
+  late bool _isPasswordVisible = true;
+
+  final FocusNode _focusNode = FocusNode();
+
+  final FirebaseAuth _auth = FirebaseAuth.instance;
+  final FirebaseFirestore _firebaseFirestore = FirebaseFirestore.instance;
+  late User? user;
+  final UserModel _userModel = UserModel();
 
   final _formKey = GlobalKey<FormState>();
 
+  bool _isloading = false;
+
   @override
   void dispose() {
-    _nameController.dispose();
+    _fullNameController.dispose();
     _emailAddressController.dispose();
     _passwordController.dispose();
     super.dispose();
@@ -34,8 +47,6 @@ class _SignUpPageState extends State<SignUpPage> {
 
   @override
   Widget build(BuildContext context) {
-    final Size size = MediaQuery.of(context).size;
-
     return SafeArea(
       child: Scaffold(
         body: Form(
@@ -58,11 +69,14 @@ class _SignUpPageState extends State<SignUpPage> {
               ),
               const Padding(padding: EdgeInsets.only(top: 30.0)),
               TextFormListTile(
-                text: 'Name',
-                textController: _nameController,
+                text: 'Full Name',
+                textController: _fullNameController,
+                keyboardType: TextInputType.name,
                 validator: (text) {
                   if (text == null || text.isEmpty) {
                     return 'Kindly enter your name';
+                  } else if (text.length < 6) {
+                    return 'Your name must defiinitely be more than 6 characters';
                   }
                   return null;
                 },
@@ -71,9 +85,13 @@ class _SignUpPageState extends State<SignUpPage> {
               TextFormListTile(
                 text: 'Email Address',
                 textController: _emailAddressController,
+                keyboardType: TextInputType.emailAddress,
                 validator: (text) {
                   if (text == null || text.isEmpty) {
-                    return 'Kindly enter a valid email address';
+                    return 'Kindly enter your email address';
+                  } else if (!RegExp("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+.[a-z]")
+                      .hasMatch(text)) {
+                    return 'Kindly Enter a valid email address';
                   }
                   return null;
                 },
@@ -82,15 +100,26 @@ class _SignUpPageState extends State<SignUpPage> {
               TextFormListTile(
                 text: 'Password',
                 textController: _passwordController,
+                keyboardType: TextInputType.text,
+                obscureText: _isPasswordVisible,
                 validator: (text) {
-                  if (text!.isEmpty && text.length < 6) {
+                  if (text!.isEmpty || text.length < 6) {
                     return 'Password must be more than 6 characters';
                   }
                   return null;
                 },
-                trailing: Icon(
-                  Icons.visibility,
-                  color: const Color(0xFF1A2731).withOpacity(0.6),
+                trailing: IconButton(
+                  onPressed: () {
+                    setState(() {
+                      _isPasswordVisible = !_isPasswordVisible;
+                    });
+                  },
+                  icon: Icon(
+                    !_isPasswordVisible
+                        ? Icons.visibility_off
+                        : Icons.visibility,
+                    color: const Color(0xFF1A2731).withOpacity(0.6),
+                  ),
                 ),
               ),
               const Padding(padding: EdgeInsets.only(bottom: 20.0)),
@@ -149,19 +178,25 @@ class _SignUpPageState extends State<SignUpPage> {
                 ],
               ),
               const Padding(padding: EdgeInsets.only(top: 30.0)),
-              ActionButton(
+              AuthenticationButton(
+                label: _isloading == true
+                    ? '  Setting up your account...'
+                    : 'Create an Account',
+                icon: _isloading == true
+                    ? const CircularProgressIndicator()
+                    : const SizedBox.shrink(),
                 onPressed: () {
+                  _focusNode.requestFocus();
                   if (_formKey.currentState!.validate() && _isChecked == true) {
-                    Navigator.of(context).push(
-                      MaterialPageRoute(
-                        builder: (BuildContext context) => const Home(),
-                      ),
+                    setState(() {
+                      _isloading = true;
+                    });
+                    _registerUser(
+                      _emailAddressController.text.trim(),
+                      _passwordController.text.trim(),
                     );
                   }
                 },
-                buttonWidth: size.width,
-                buttonHeight: 56.0,
-                title: 'Create an Account',
               ),
               const Padding(padding: EdgeInsets.only(bottom: 30.0)),
               Row(
@@ -266,5 +301,52 @@ class _SignUpPageState extends State<SignUpPage> {
         ),
       ),
     );
+  }
+
+  void _registerUser(String email, String password) async {
+    try {
+      await _auth
+          .createUserWithEmailAndPassword(
+            email: email,
+            password: password,
+          )
+          .then(
+            (value) => {
+              sendUserDetailsToFirestore(),
+              Navigator.of(context).pushAndRemoveUntil(
+                (MaterialPageRoute(
+                  builder: (context) => const SignInPage(),
+                )),
+                (route) => false,
+              ),
+            },
+          );
+
+      setState(() {
+        _isloading = false;
+      });
+    } catch (e) {
+      Fluttertoast.showToast(msg: e.toString().trim());
+      setState(() {
+        _isloading = false;
+      });
+    }
+  }
+
+  sendUserDetailsToFirestore() async {
+    user = _auth.currentUser;
+
+    _userModel.email = user!.email;
+    _userModel.fullName = _fullNameController.text.trim();
+    _userModel.uid = user!.uid;
+
+    await _firebaseFirestore
+        .collection('users')
+        .doc(user!.uid)
+        .set(_userModel.toMap());
+
+    Fluttertoast.showToast(
+        msg:
+            'Yaaayy!!!!\nYour account has been created successfully!!\n Kindly signIn to start a Meaningful Experience');
   }
 }

@@ -1,11 +1,13 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:kumvent/constants/app_styles.dart';
 import 'package:kumvent/constants/colours.dart';
 import 'package:kumvent/presentation/pages/forgot_password.dart';
 import 'package:kumvent/presentation/pages/home.dart';
 import 'package:kumvent/presentation/pages/sign_up_page.dart';
-import 'package:kumvent/presentation/widgets/action_button.dart';
+import 'package:kumvent/presentation/widgets/authentication_button.dart';
 import 'package:kumvent/presentation/widgets/icon_container.dart';
 import 'package:kumvent/presentation/widgets/text_form_list_tile.dart';
 
@@ -20,7 +22,15 @@ class _SignInPageState extends State<SignInPage> {
   final TextEditingController _emailAddressController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
 
+  late bool _isLoading = false;
+
   final _formKey = GlobalKey<FormState>();
+
+  final FirebaseAuth _auth = FirebaseAuth.instance;
+
+  bool _isPasswordVisible = true;
+
+  final FocusNode _focusNode = FocusNode();
 
   @override
   void dispose() {
@@ -31,7 +41,6 @@ class _SignInPageState extends State<SignInPage> {
 
   @override
   Widget build(BuildContext context) {
-    final Size size = MediaQuery.of(context).size;
 
     return Scaffold(
       body: SafeArea(
@@ -66,9 +75,13 @@ class _SignInPageState extends State<SignInPage> {
               TextFormListTile(
                 text: 'Email Address',
                 textController: _emailAddressController,
+                keyboardType: TextInputType.emailAddress,
                 validator: (text) {
                   if (text == null || text.isEmpty) {
-                    return 'Kindly enter a valid email address';
+                    return 'Kindly enter your email address';
+                  } else if (!RegExp("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+.[a-z]")
+                      .hasMatch(text)) {
+                    return 'Kindly Enter a valid email address';
                   }
                   return null;
                 },
@@ -77,15 +90,26 @@ class _SignInPageState extends State<SignInPage> {
               TextFormListTile(
                 text: 'Password',
                 textController: _passwordController,
+                keyboardType: TextInputType.text,
+                obscureText: _isPasswordVisible,
                 validator: (text) {
-                  if (text!.isEmpty && text.length < 6) {
+                  if (text!.isEmpty || text.length < 6) {
                     return 'Password must be more than 6 characters';
                   }
                   return null;
                 },
-                trailing: Icon(
-                  Icons.visibility,
-                  color: kNeutralColor.withOpacity(0.6),
+                trailing: IconButton(
+                  onPressed: () {
+                    setState(() {
+                      _isPasswordVisible = !_isPasswordVisible;
+                    });
+                  },
+                  icon: Icon(
+                    !_isPasswordVisible
+                        ? Icons.visibility_off
+                        : Icons.visibility,
+                    color: const Color(0xFF1A2731).withOpacity(0.6),
+                  ),
                 ),
               ),
               const Padding(padding: EdgeInsets.only(bottom: 8.0)),
@@ -108,19 +132,25 @@ class _SignInPageState extends State<SignInPage> {
                 ),
               ),
               const Padding(padding: EdgeInsets.only(bottom: 22.0)),
-              ActionButton(
-                buttonWidth: size.width,
-                buttonHeight: 56.0,
+              AuthenticationButton(
+                label: _isLoading == true
+                    ? '  Signing In... Please Wait'
+                    : 'LogIn',
+                icon: _isLoading == true
+                    ? const CircularProgressIndicator()
+                    : const SizedBox.shrink(),
                 onPressed: () {
+                  _focusNode.requestFocus();
                   if (_formKey.currentState!.validate()) {
-                    Navigator.of(context).push(
-                      MaterialPageRoute(
-                        builder: (BuildContext context) => const Home(),
-                      ),
+                    setState(() {
+                      _isLoading = true;
+                    });
+                    _signInUser(
+                      _emailAddressController.text.trim(),
+                      _passwordController.text.trim(),
                     );
                   }
                 },
-                title: 'Sign In',
               ),
               const Padding(padding: EdgeInsets.only(bottom: 46.0)),
               Row(
@@ -225,5 +255,26 @@ class _SignInPageState extends State<SignInPage> {
         ),
       ),
     );
+  }
+
+  void _signInUser(String email, String password) async {
+    try {
+      await _auth.signInWithEmailAndPassword(
+        email: email,
+        password: password,
+      );
+      Fluttertoast.showToast(
+          msg: 'You have succesfully signed into your account!!');
+      Navigator.of(context).pushReplacement(
+        MaterialPageRoute(
+          builder: (context) => const Home(),
+        ),
+      );
+    } catch (e) {
+      Fluttertoast.showToast(msg: e.toString().trim());
+      setState(() {
+        _isLoading = false;
+      });
+    }
   }
 }

@@ -11,8 +11,8 @@ A flutter app that can be used to book event center.
 - Knowledge of flutter and dart
 
 
-## 🤲Build Instructions
--- locate your 'flutter.gradle file', which is found in the '~/flutter/packages/flutter_tools/gradle' directory and add the following line -- 'static int minSdkVersion = 19' inside the FlutterExtension class. 
+## 🤲 Build Instructions
+- locate your 'flutter.gradle file', which is found in the '~/flutter/packages/flutter_tools/gradle' directory and add the following line -- 'static int minSdkVersion = 19' inside the FlutterExtension class. 
 
 
 ## ✨ Features
@@ -25,7 +25,7 @@ A flutter app that can be used to book event center.
 - [] Recommend centers based on location.
 
 
-## 👨‍💻Contributors
+## 👨‍💻 Contributors
 - [Abiona Kazeem](https://www.linkedin.com/in/abiona-kazeem)
 - [Akinwalere John](https://github.com/John-soft)
 - [AbdulSobuur Ishola](https://github.com/t-bolt)

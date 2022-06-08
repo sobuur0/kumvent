@@ -3,6 +3,7 @@ import 'package:kumvent/constants/app_styles.dart';
 import 'package:kumvent/constants/colours.dart';
 import 'package:kumvent/presentation/pages/success_page.dart';
 import 'package:kumvent/presentation/widgets/action_button.dart';
+import 'package:kumvent/presentation/widgets/expiry_dateAnd_cvv_textfiekd.dart';
 import 'package:kumvent/presentation/widgets/text_form_list_tile.dart';
 
 import '../widgets/build_card_widget.dart';
@@ -145,6 +146,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
             TextFormListTile(
               text: 'Card Number',
               textController: _cardNumberController,
+              keyboardType: TextInputType.number,
               validator: (text) {
                 if (text == null || text.isEmpty) {
                   return 'Kindly enter a valid card number';
@@ -163,6 +165,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
             TextFormListTile(
               text: 'Card Holder Name',
               textController: _cardHolderNameController,
+              keyboardType: TextInputType.name,
               validator: (text) {
                 if (text == null || text.isEmpty) {
                   return 'Kindly enter your name';
@@ -176,11 +179,11 @@ class _CheckoutPageState extends State<CheckoutPage> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                ExpiryDateAndCvvWidget(
+                ExpiryDateAndCvvTextField(
                   text: 'Expiration Date',
                   textController: _cardExpiryDateController,
                 ),
-                ExpiryDateAndCvvWidget(
+                ExpiryDateAndCvvTextField(
                   text: 'CVV Code',
                   textController: _cardCvvCodeController,
                 ),

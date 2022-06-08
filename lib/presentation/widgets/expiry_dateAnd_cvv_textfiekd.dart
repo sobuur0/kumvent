@@ -1,27 +1,23 @@
+// ignore: file_names
 import 'package:flutter/material.dart';
 import 'package:kumvent/constants/app_styles.dart';
 import 'package:kumvent/constants/colours.dart';
 
-class TextFormListTile extends StatelessWidget {
+class ExpiryDateAndCvvTextField extends StatelessWidget {
   final String text;
   final TextEditingController textController;
   final Widget? trailing;
-  final String? Function(String?)? validator;
-  final TextInputType keyboardType;
-  final bool obscureText;
-
-  const TextFormListTile({
+  
+  const ExpiryDateAndCvvTextField({
     Key? key,
     required this.text,
     required this.textController,
     this.trailing,
-    required this.validator,
-    required this.keyboardType,
-    this.obscureText = false,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final Size size = MediaQuery.of(context).size;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
@@ -35,31 +31,20 @@ class TextFormListTile extends StatelessWidget {
         const Padding(padding: EdgeInsets.only(bottom: 10.0)),
         TextFormField(
           controller: textController,
-          validator: validator,
-          keyboardType: keyboardType,
-          obscureText: obscureText,
-          obscuringCharacter: '*',
-          textInputAction: TextInputAction.next,
-          onSaved: (value) {
-            textController.text = value!;
-          },
           decoration: InputDecoration(
             filled: true,
-            fillColor: Colors.white,
+            fillColor: kBackgroundFillColor,
             suffixIcon: trailing,
-            contentPadding:
-                const EdgeInsets.symmetric(horizontal: 12.0, vertical: 2.0),
-            border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(5.0),
-              borderSide: const BorderSide(
-                color: kBorderColor,
-                width: 1.0,
+            constraints: BoxConstraints.tight(
+              Size(
+                size.width / 2.5,
+                40.0,
               ),
             ),
             enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(5.0),
               borderSide: const BorderSide(
-                color: kBorderColor,
+                color: kTextViewBorderColor,
                 width: 1.0,
               ),
             ),
@@ -67,6 +52,13 @@ class TextFormListTile extends StatelessWidget {
               borderRadius: BorderRadius.circular(5.0),
               borderSide: const BorderSide(
                 color: kPrimaryColor,
+                width: 1.0,
+              ),
+            ),
+            errorBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(5.0),
+              borderSide: const BorderSide(
+                color: kErrorColor,
                 width: 1.0,
               ),
             ),
