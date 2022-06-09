@@ -37,15 +37,13 @@ class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        elevation: 0.0,
-      ),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
+              const Padding(padding: EdgeInsets.only(top: 40.0)),
               Center(
                 child: Image.asset(
                   'images/profile_image.png',
