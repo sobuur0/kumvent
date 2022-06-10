@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-///Utility class for all styles used in the app
 class TextStyles {
   static TextStyle _defaultTextStyle(
     Color color,

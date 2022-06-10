@@ -3,7 +3,10 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:kumvent/constants/app_styles.dart';
 import 'package:kumvent/constants/colours.dart';
+import 'package:kumvent/constants/pref_key.dart';
 import 'package:kumvent/presentation/pages/onboarding_page.dart';
+import 'package:kumvent/presentation/pages/sign_in_page.dart';
+import 'package:kumvent/services/shared_prefs.dart';
 //import 'package:kumvent/presentation/pages/sign_up_page.dart';
 
 class SplashPage extends StatefulWidget {
@@ -16,15 +19,7 @@ class SplashPage extends StatefulWidget {
 }
 
 class _SplashPageState extends State<SplashPage> {
-  //The solash screen method
-  void splash() {
-    Timer(const Duration(seconds: 5), () {
-      Navigator.pushReplacementNamed(
-        context,
-        OnboardingPage.routeName,
-      );
-    });
-  }
+  final _prefs = SharedPrefs();
 
   @override
   void initState() {
@@ -60,5 +55,31 @@ class _SplashPageState extends State<SplashPage> {
         ),
       ),
     );
+  }
+
+  //The splash screen method
+  void splash() {
+    Timer(const Duration(seconds: 5), () {
+      _readUserPrefs();
+      // Navigator.pushReplacementNamed(
+      //   context,
+      //   _readUserPrefs().toString(),
+      // );
+    });
+  }
+
+  // void _navigate(String isUserOnboarded) {
+  //   _readUserPrefs() 
+  // }
+
+  Future<void> _readUserPrefs() async {
+    final userOnboardedPref = await _prefs.getBool(PrefKey.kOnboardingKey);
+    bool isUserOnboarded = userOnboardedPref ?? false;
+
+    isUserOnboarded
+        ? Navigator.of(context).pushReplacement(
+            MaterialPageRoute(builder: (context) => const SignInPage()))
+        : Navigator.of(context).pushReplacement(
+            MaterialPageRoute(builder: (context) => const OnboardingPage()));
   }
 }

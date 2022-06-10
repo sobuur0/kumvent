@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:kumvent/constants/app_styles.dart';
 import 'package:kumvent/constants/colours.dart';
+import 'package:kumvent/constants/pref_key.dart';
 import 'package:kumvent/presentation/pages/sign_up_page.dart';
 import 'package:kumvent/models/onboarding_contents.dart';
+import 'package:kumvent/services/shared_prefs.dart';
 
 class OnboardingPage extends StatefulWidget {
   const OnboardingPage({Key? key}) : super(key: key);
@@ -16,6 +18,8 @@ class _OnboardingPageState extends State<OnboardingPage> {
   final _pageController = PageController();
   int _currentPage = 0;
   static const Duration _duration = Duration(milliseconds: 700);
+
+  SharedPrefs prefs = SharedPrefs();
 
   @override
   Widget build(BuildContext context) {
@@ -136,9 +140,11 @@ class _OnboardingPageState extends State<OnboardingPage> {
                 _currentPage + 1 == contents.length
                     ? ElevatedButton(
                         onPressed: () {
-                          Navigator.pushNamed(
-                            context,
-                            SignUpPage.routeName,
+                          prefs.setBool(PrefKey.kOnboardingKey, true);
+                          Navigator.of(context).pushReplacement(
+                            MaterialPageRoute(
+                              builder: (context) => const SignUpPage(),
+                            ),
                           );
                           Curves.easeIn;
                         },
