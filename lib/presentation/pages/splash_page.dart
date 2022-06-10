@@ -61,10 +61,6 @@ class _SplashPageState extends State<SplashPage> {
   void splash() {
     Timer(const Duration(seconds: 5), () {
       _readUserPrefs();
-      // Navigator.pushReplacementNamed(
-      //   context,
-      //   _readUserPrefs().toString(),
-      // );
     });
   }
 
