@@ -59,7 +59,7 @@ class _SplashPageState extends State<SplashPage> {
 
   //The splash screen method
   void splash() {
-    Timer(const Duration(seconds: 5), () {
+    Timer(const Duration(milliseconds: 800), () {
       _readUserPrefs();
     });
   }
