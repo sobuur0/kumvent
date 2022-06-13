@@ -8,11 +8,7 @@ A flutter app that can be used to book event center.
 ## 💻 Requirements to Run this project.
 - Any Operating system.
 - A working IDE with flutter sdk installed.
-- Knowledge of flutter and dart
-
-
-## 🤲 Build Instructions
-- locate your 'flutter.gradle file', which is found in the '~/flutter/packages/flutter_tools/gradle' directory and add the following line -- 'static int minSdkVersion = 19' inside the FlutterExtension class. 
+- Knowledge of flutter and dart.
 
 
 ## ✨ Features
