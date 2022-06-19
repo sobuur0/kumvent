@@ -141,8 +141,6 @@ class _SignUpPageState extends State<SignUpPage> {
                     child: Text.rich(
                       TextSpan(
                         children: <TextSpan>[
-                          // ignore: todo
-                          //TODO: tell shina to give the correct fontFamily to these texts
                           TextSpan(
                             text: 'I agree to ',
                             style: TextStyles.regular(
