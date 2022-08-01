@@ -73,6 +73,7 @@ class _SignInPageState extends State<SignInPage> {
               ),
               const Padding(padding: EdgeInsets.only(bottom: 60.0)),
               TextFormListTile(
+                key: const ValueKey('emailText'),
                 text: 'Email Address',
                 textController: _emailAddressController,
                 keyboardType: TextInputType.emailAddress,
@@ -88,6 +89,7 @@ class _SignInPageState extends State<SignInPage> {
               ),
               const Padding(padding: EdgeInsets.only(bottom: 20.0)),
               TextFormListTile(
+                key: const ValueKey('passwordText'),
                 text: 'Password',
                 textController: _passwordController,
                 keyboardType: TextInputType.text,
@@ -133,6 +135,7 @@ class _SignInPageState extends State<SignInPage> {
               ),
               const Padding(padding: EdgeInsets.only(bottom: 22.0)),
               AuthenticationButton(
+                key: const ValueKey('signInBtn'),
                 label: _isLoading == true
                     ? '  Signing In... Please Wait'
                     : 'LogIn',
