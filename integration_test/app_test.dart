@@ -13,7 +13,7 @@ void main() {
 
   testWidgets(
     'Ghost Test',
-    (WidgetTester tester) async {
+    (WidgetTester tester) async { 
       //Setup
       app.main();
       await tester.pumpAndSettle(); //wait to see if app is ready

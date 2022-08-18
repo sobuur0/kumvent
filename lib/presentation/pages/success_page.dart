@@ -68,6 +68,7 @@ class _SuccessPageState extends State<SuccessPage> {
               buttonWidth: double.infinity,
               buttonHeight: 48.0,
               onPressed: () {
+                FocusScope.of(context).unfocus();
                 Navigator.of(context).pushReplacement(
                   MaterialPageRoute(
                     builder: (context) => const Home(),

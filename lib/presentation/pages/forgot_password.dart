@@ -74,6 +74,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
             buttonWidth: size.width,
             buttonHeight: 56.0,
             onPressed: () {
+              FocusScope.of(context).unfocus();
               Navigator.of(context).push(
                 // ignore: always_specify_types
                 MaterialPageRoute(

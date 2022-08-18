@@ -30,8 +30,6 @@ class _SignInPageState extends State<SignInPage> {
 
   bool _isPasswordVisible = true;
 
-  final FocusNode _focusNode = FocusNode();
-
   @override
   void dispose() {
     _emailAddressController.dispose();
@@ -41,7 +39,6 @@ class _SignInPageState extends State<SignInPage> {
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       body: SafeArea(
         child: Form(
@@ -143,7 +140,7 @@ class _SignInPageState extends State<SignInPage> {
                     ? const CircularProgressIndicator()
                     : const SizedBox.shrink(),
                 onPressed: () {
-                  _focusNode.requestFocus();
+                  FocusScope.of(context).unfocus();
                   if (_formKey.currentState!.validate()) {
                     setState(() {
                       _isLoading = true;

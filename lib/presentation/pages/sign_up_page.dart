@@ -26,8 +26,6 @@ class _SignUpPageState extends State<SignUpPage> {
   late bool _isChecked = false;
   late bool _isPasswordVisible = true;
 
-  final FocusNode _focusNode = FocusNode();
-
   final FirebaseAuth _auth = FirebaseAuth.instance;
   final FirebaseFirestore _firebaseFirestore = FirebaseFirestore.instance;
   late User? user;
@@ -184,7 +182,7 @@ class _SignUpPageState extends State<SignUpPage> {
                     ? const CircularProgressIndicator()
                     : const SizedBox.shrink(),
                 onPressed: () {
-                  _focusNode.requestFocus();
+                  FocusScope.of(context).unfocus();
                   if (_formKey.currentState!.validate() && _isChecked == true) {
                     setState(() {
                       _isloading = true;
