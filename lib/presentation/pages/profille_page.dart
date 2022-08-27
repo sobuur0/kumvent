@@ -100,7 +100,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 leadingIcon: Icons.logout,
                 title: 'Logout',
                 onPressed: () {
-                  //TODO: A dialogue that notifies the user first
+                  //TODO: A dialogue that notifies the user first 
                   _logoutUser();
                   Fluttertoast.showToast(
                       msg: 'You have successfully been logged out');
