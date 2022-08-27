@@ -64,7 +64,6 @@ class _ProfilePageState extends State<ProfilePage> {
                   ),
                 ),
               ),
-              const Spacer(),
               ProfileCard(
                 leadingIcon: Icons.person,
                 title: 'Edit profile',
@@ -83,20 +82,31 @@ class _ProfilePageState extends State<ProfilePage> {
                 },
               ),
               ProfileCard(
+                leadingIcon: Icons.history,
+                title: 'About App',
+                onPressed: () {},
+              ),
+              ProfileCard(
                 leadingIcon: Icons.payment_outlined,
                 title: 'Payment',
+                onPressed: () {},
+              ),
+              ProfileCard(
+                leadingIcon: Icons.payment_outlined,
+                title: 'Help Center',
                 onPressed: () {},
               ),
               ProfileCard(
                 leadingIcon: Icons.logout,
                 title: 'Logout',
                 onPressed: () {
+                  //TODO: A dialogue that notifies the user first
                   _logoutUser();
                   Fluttertoast.showToast(
                       msg: 'You have successfully been logged out');
                 },
               ),
-              const Padding(padding: EdgeInsets.only(bottom: 8.0)),
+              const Padding(padding: EdgeInsets.only(bottom: 16.0)),
               const Center(
                 child: Text(
                   'Version 0.4.465',
@@ -106,7 +116,6 @@ class _ProfilePageState extends State<ProfilePage> {
                   ),
                 ),
               ),
-              const Padding(padding: EdgeInsets.only(bottom: 20.0)),
             ],
           ),
         ),
