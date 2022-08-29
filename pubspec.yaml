@@ -26,6 +26,7 @@ dependencies:
   fluttertoast: ^8.0.9
   cloud_firestore: ^3.1.17
   shared_preferences: ^2.0.15
+  flutter_slidable: ^2.0.0
 
 dev_dependencies:
 

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:kumvent/constants/app_styles.dart';
 import 'package:kumvent/constants/colours.dart';
 import 'package:kumvent/presentation/widgets/event_center_widget.dart';
@@ -55,20 +56,18 @@ class HistoryPage extends StatelessWidget {
                 ),
               ),
               const Padding(padding: EdgeInsets.only(bottom: 16.0)),
-              EventCenterWidget(
-                image: 'images/atlantis_center.jpg',
+              _historyWidget(
+                imgurl: 'images/atlantis_center.jpg',
                 centerName: 'Atlantis Event center',
                 centerLocation: 'Ita-Oniyan, Ondo',
-                centerRating: '4.9',
-                shadowColor: const Color(0xFF171717).withOpacity(0.25),
+                centerRating: 4.9,
                 centerStatus: 'Center Available',
               ),
-              EventCenterWidget(
-                image: 'images/atlantis_center.jpg',
+              _historyWidget(
+                imgurl: 'images/atlantis_center.jpg',
                 centerName: 'Atlantis Event center',
                 centerLocation: 'Ita-Oniyan, Ondo',
-                centerRating: '4.9',
-                shadowColor: const Color(0xFF171717).withOpacity(0.25),
+                centerRating: 4.9,
                 centerStatus: 'Not Available',
               ),
               const Padding(padding: EdgeInsets.only(top: 28.0)),
@@ -80,41 +79,76 @@ class HistoryPage extends StatelessWidget {
                 ),
               ),
               const Padding(padding: EdgeInsets.only(bottom: 16.0)),
-              EventCenterWidget(
-                image: 'images/atlantis_center.jpg',
+              _historyWidget(
+                imgurl: 'images/atlantis_center.jpg',
                 centerName: 'Atlantis Event center',
                 centerLocation: 'Ita-Oniyan, Ondo',
-                centerRating: '4.9',
-                shadowColor: const Color(0xFF171717).withOpacity(0.25),
+                centerRating: 4.9,
                 centerStatus: 'Not Available',
               ),
-              EventCenterWidget(
-                image: 'images/atlantis_center.jpg',
+              _historyWidget(
+                imgurl: 'images/atlantis_center.jpg',
                 centerName: 'Atlantis Event center',
                 centerLocation: 'Ita-Oniyan, Ondo',
-                centerRating: '4.9',
-                shadowColor: const Color(0xFF171717).withOpacity(0.25),
+                centerRating: 4.9,
                 centerStatus: 'Center Available',
               ),
-              EventCenterWidget(
-                image: 'images/atlantis_center.jpg',
+              _historyWidget(
+                imgurl: 'images/atlantis_center.jpg',
                 centerName: 'Atlantis Event center',
                 centerLocation: 'Ita-Oniyan, Ondo',
-                centerRating: '4.9',
-                shadowColor: const Color(0xFF171717).withOpacity(0.25),
+                centerRating: 4.9,
                 centerStatus: 'Not Available',
               ),
-              EventCenterWidget(
-                image: 'images/atlantis_center.jpg',
+              _historyWidget(
+                imgurl: 'images/atlantis_center.jpg',
                 centerName: 'Atlantis Event center',
                 centerLocation: 'Ita-Oniyan, Ondo',
-                centerRating: '4.9',
-                shadowColor: const Color(0xFF171717).withOpacity(0.25),
+                centerRating: 4.9,
                 centerStatus: 'Center Available',
               ),
             ],
           ),
         ),
+      ),
+    );
+  }
+
+  Widget _historyWidget({
+    required String imgurl,
+    required String centerName,
+    required String centerLocation,
+    required double centerRating,
+    required String centerStatus,
+  }) {
+    return Slidable(
+      child: EventCenterWidget(
+          image: imgurl,
+          centerName: centerName,
+          centerLocation: centerLocation,
+          centerRating: centerRating.toString(),
+          shadowColor: const Color(0xFF171717).withOpacity(0.25),
+          centerStatus: centerStatus),
+      endActionPane: ActionPane(
+        motion: const DrawerMotion(),
+        children: [
+          SlidableAction(
+            onPressed: null,
+            backgroundColor: const Color(0xFF0392CF),
+            foregroundColor: Colors.white,
+            icon: Icons.bookmark_add,
+            label: 'Save',
+            borderRadius: BorderRadius.circular(8.0),
+          ),
+          SlidableAction(
+            onPressed: null,
+            backgroundColor: Colors.red,
+            foregroundColor: Colors.white,
+            icon: Icons.delete,
+            label: 'Delete',
+            borderRadius: BorderRadius.circular(8.0),
+          ),
+        ],
       ),
     );
   }
