@@ -44,6 +44,7 @@ class _SignInPageState extends State<SignInPage> {
         child: Form(
           key: _formKey,
           child: ListView(
+            physics: const BouncingScrollPhysics(),
             padding: const EdgeInsets.all(16.0),
             children: [
               Image.asset(

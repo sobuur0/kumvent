@@ -128,10 +128,12 @@ class _ProfilePageState extends State<ProfilePage> {
 
   Future<void> _logoutUser() async {
     await _auth.signOut();
-    Navigator.of(context).pushReplacement(
+    Navigator.pushAndRemoveUntil(
+      context,
       MaterialPageRoute(
         builder: (context) => const SignInPage(),
       ),
+      (route) => false,
     );
   }
 }

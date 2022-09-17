@@ -42,72 +42,75 @@ class HistoryPage extends StatelessWidget {
           ),
         ],
       ),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.only(top: 20, right: 16, left: 16),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                'Recent Bookings',
-                style: TextStyles.semiBold(
-                  color: kBlack2,
-                  fontSize: 16.0,
+      body: SlidableAutoCloseBehavior(
+        child: SingleChildScrollView(
+          physics: const BouncingScrollPhysics(),
+          child: Padding(
+            padding: const EdgeInsets.only(top: 20, right: 16, left: 16),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'Recent Bookings',
+                  style: TextStyles.semiBold(
+                    color: kBlack2,
+                    fontSize: 16.0,
+                  ),
                 ),
-              ),
-              const Padding(padding: EdgeInsets.only(bottom: 16.0)),
-              _historyWidget(
-                imgurl: 'images/atlantis_center.jpg',
-                centerName: 'Atlantis Event center',
-                centerLocation: 'Ita-Oniyan, Ondo',
-                centerRating: 4.9,
-                centerStatus: 'Center Available',
-              ),
-              _historyWidget(
-                imgurl: 'images/atlantis_center.jpg',
-                centerName: 'Atlantis Event center',
-                centerLocation: 'Ita-Oniyan, Ondo',
-                centerRating: 4.9,
-                centerStatus: 'Not Available',
-              ),
-              const Padding(padding: EdgeInsets.only(top: 28.0)),
-              Text(
-                'June 3, 2022',
-                style: TextStyles.semiBold(
-                  color: kBlack2,
-                  fontSize: 16.0,
+                const Padding(padding: EdgeInsets.only(bottom: 16.0)),
+                _historyWidget(
+                  imgurl: 'images/atlantis_center.jpg',
+                  centerName: 'Atlantis Event center',
+                  centerLocation: 'Ita-Oniyan, Ondo',
+                  centerRating: 4.9,
+                  centerStatus: 'Center Available',
                 ),
-              ),
-              const Padding(padding: EdgeInsets.only(bottom: 16.0)),
-              _historyWidget(
-                imgurl: 'images/atlantis_center.jpg',
-                centerName: 'Atlantis Event center',
-                centerLocation: 'Ita-Oniyan, Ondo',
-                centerRating: 4.9,
-                centerStatus: 'Not Available',
-              ),
-              _historyWidget(
-                imgurl: 'images/atlantis_center.jpg',
-                centerName: 'Atlantis Event center',
-                centerLocation: 'Ita-Oniyan, Ondo',
-                centerRating: 4.9,
-                centerStatus: 'Center Available',
-              ),
-              _historyWidget(
-                imgurl: 'images/atlantis_center.jpg',
-                centerName: 'Atlantis Event center',
-                centerLocation: 'Ita-Oniyan, Ondo',
-                centerRating: 4.9,
-                centerStatus: 'Not Available',
-              ),
-              _historyWidget(
-                imgurl: 'images/atlantis_center.jpg',
-                centerName: 'Atlantis Event center',
-                centerLocation: 'Ita-Oniyan, Ondo',
-                centerRating: 4.9,
-                centerStatus: 'Center Available',
-              ),
-            ],
+                _historyWidget(
+                  imgurl: 'images/atlantis_center.jpg',
+                  centerName: 'Atlantis Event center',
+                  centerLocation: 'Ita-Oniyan, Ondo',
+                  centerRating: 4.9,
+                  centerStatus: 'Not Available',
+                ),
+                const Padding(padding: EdgeInsets.only(top: 28.0)),
+                Text(
+                  'June 3, 2022',
+                  style: TextStyles.semiBold(
+                    color: kBlack2,
+                    fontSize: 16.0,
+                  ),
+                ),
+                const Padding(padding: EdgeInsets.only(bottom: 16.0)),
+                _historyWidget(
+                  imgurl: 'images/atlantis_center.jpg',
+                  centerName: 'Atlantis Event center',
+                  centerLocation: 'Ita-Oniyan, Ondo',
+                  centerRating: 4.9,
+                  centerStatus: 'Not Available',
+                ),
+                _historyWidget(
+                  imgurl: 'images/atlantis_center.jpg',
+                  centerName: 'Atlantis Event center',
+                  centerLocation: 'Ita-Oniyan, Ondo',
+                  centerRating: 4.9,
+                  centerStatus: 'Center Available',
+                ),
+                _historyWidget(
+                  imgurl: 'images/atlantis_center.jpg',
+                  centerName: 'Atlantis Event center',
+                  centerLocation: 'Ita-Oniyan, Ondo',
+                  centerRating: 4.9,
+                  centerStatus: 'Not Available',
+                ),
+                _historyWidget(
+                  imgurl: 'images/atlantis_center.jpg',
+                  centerName: 'Atlantis Event center',
+                  centerLocation: 'Ita-Oniyan, Ondo',
+                  centerRating: 4.9,
+                  centerStatus: 'Center Available',
+                ),
+              ],
+            ),
           ),
         ),
       ),

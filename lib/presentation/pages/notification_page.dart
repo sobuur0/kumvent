@@ -13,10 +13,8 @@ class NotificationsPage extends StatelessWidget {
         automaticallyImplyLeading: false,
       ),
       body: ListView(
-        padding: const EdgeInsets.symmetric(
-          horizontal: 16.0,
-          vertical: 0.0,
-        ),
+        physics: const BouncingScrollPhysics(),
+        padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 0.0),
         children: [
           Text(
             'Notifications',

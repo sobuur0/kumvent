@@ -36,8 +36,9 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
         ),
       ),
       body: ListView(
+        physics: const BouncingScrollPhysics(),
         padding: const EdgeInsets.symmetric(
-          horizontal: 16.0,
+          horizontal: 16.0
         ),
         children: <Widget>[
           const Padding(padding: EdgeInsets.only(top: 60.0)),
