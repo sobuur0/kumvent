@@ -1,15 +1,16 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:kumvent/constants/app_styles.dart';
 import 'package:kumvent/constants/colours.dart';
-import 'package:kumvent/models/user_model.dart';
+import 'package:kumvent/constants/enums.dart';
+import 'package:kumvent/exception_handler.dart';
 import 'package:kumvent/presentation/pages/sign_in_page.dart';
 import 'package:kumvent/presentation/widgets/authentication_button.dart';
 import 'package:kumvent/presentation/widgets/icon_container.dart';
 import 'package:kumvent/presentation/widgets/text_form_list_tile.dart';
+import 'package:kumvent/services/auth_repository.dart';
 
 class SignUpPage extends StatefulWidget {
   static String routeName = '/signUpPage';
@@ -26,10 +27,11 @@ class _SignUpPageState extends State<SignUpPage> {
   late bool _isChecked = false;
   late bool _isPasswordVisible = true;
 
-  final FirebaseAuth _auth = FirebaseAuth.instance;
-  final FirebaseFirestore _firebaseFirestore = FirebaseFirestore.instance;
+  // final FirebaseAuth _auth = FirebaseAuth.instance;
+  // final FirebaseFirestore _firebaseFirestore = FirebaseFirestore.instance;
+  final FireBaseAuthHelper _authHelper = FireBaseAuthHelper();
   late User? user;
-  final UserModel _userModel = UserModel();
+  // final UserModel _userModel = UserModel();
 
   final _formKey = GlobalKey<FormState>();
 
@@ -188,10 +190,14 @@ class _SignUpPageState extends State<SignUpPage> {
                     setState(() {
                       _isloading = true;
                     });
-                    _registerUser(
+                    _createAccount(
                       _emailAddressController.text.trim(),
                       _passwordController.text.trim(),
                     );
+                    // _registerUser(
+                    //   _emailAddressController.text.trim(),
+                    //   _passwordController.text.trim(),
+                    // );
                   }
                 },
               ),
@@ -300,50 +306,85 @@ class _SignUpPageState extends State<SignUpPage> {
     );
   }
 
-  void _registerUser(String email, String password) async {
-    try {
-      await _auth
-          .createUserWithEmailAndPassword(
-            email: email,
-            password: password,
-          )
-          .then(
-            (value) => {
-              sendUserDetailsToFirestore(),
-              Navigator.of(context).pushAndRemoveUntil(
-                (MaterialPageRoute(
-                  builder: (context) => const SignInPage(),
-                )),
-                (route) => false,
-              ),
-            },
-          );
+  _createAccount(String email, String password) async {
+    final status = await _authHelper.createAccount(email, password);
+    if (status == NetworkResultStatus.successful) {
+      _sendUserDeetsToFirestore();
+      Navigator.of(context).pushAndRemoveUntil(
+        (MaterialPageRoute(
+          builder: (context) => const SignInPage(),
+        )),
+        (route) => false,
+      );
 
       setState(() {
         _isloading = false;
       });
-    } catch (e) {
-      Fluttertoast.showToast(msg: e.toString().trim());
+    } else {
+      final errorMessage =
+          AuthExceptionHandler.generateExceptionMessage(status);
+      Fluttertoast.showToast(msg: errorMessage);
       setState(() {
         _isloading = false;
       });
     }
   }
 
-  sendUserDetailsToFirestore() async {
-    user = _auth.currentUser;
-
-    _userModel.email = user!.email;
-    _userModel.fullName = _fullNameController.text.trim();
-    _userModel.uid = user!.uid;
-
-    await _firebaseFirestore
-        .collection('users')
-        .doc(user!.uid)
-        .set(_userModel.toMap());
-
-    Fluttertoast.showToast(
-        msg:
-            'Yaaayy!!!!\nYour account has been created successfully!!\n Kindly signIn to start a Meaningful Experience');
+  _sendUserDeetsToFirestore() async {
+    final status = await _authHelper.sendDetailsToFirestore(
+      _fullNameController.text.trim(),
+    );
+    if(status == NetworkResultStatus.successful) {
+      Fluttertoast.showToast(msg: 'Your account has been created successfully!');
+    }else {
+      final errorMessage =
+          AuthExceptionHandler.generateExceptionMessage(status);
+      Fluttertoast.showToast(msg: errorMessage);
+    }
   }
+
+  // void _registerUser(String email, String password) async {
+  //   try {
+  //     await _auth
+  //         .createUserWithEmailAndPassword(
+  //           email: email,
+  //           password: password,
+  //         )
+  //         .then(
+  //           (value) => {
+  //             sendUserDetailsToFirestore(),
+  //             Navigator.of(context).pushAndRemoveUntil(
+  //               (MaterialPageRoute(
+  //                 builder: (context) => const SignInPage(),
+  //               )),
+  //               (route) => false,
+  //             ),
+  //           },
+  //         );
+
+  //     setState(() {
+  //       _isloading = false;
+  //     });
+  //   } catch (e) {
+  //     Fluttertoast.showToast(msg: e.toString().trim());
+  //     setState(() {
+  //       _isloading = false;
+  //     });
+  //   }
+  // }
+
+  // sendUserDetailsToFirestore() async {
+  //   user = _auth.currentUser;
+
+  //   _userModel.email = user!.email;
+  //   _userModel.fullName = _fullNameController.text.trim();
+  //   _userModel.uid = user!.uid;
+
+  //   await _firebaseFirestore
+  //       .collection('users')
+  //       .doc(user!.uid)
+  //       .set(_userModel.toMap());
+
+  //   Fluttertoast.showToast(msg: 'Your account has been created successfully!');
+  // }
 }

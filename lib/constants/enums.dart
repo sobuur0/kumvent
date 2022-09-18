@@ -1,4 +1,4 @@
-enum NewtworkResultStatus {
+enum NetworkResultStatus {
   successful,
   emailAlreadyExists,
   wrongPassword,

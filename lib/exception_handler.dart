@@ -1,34 +1,33 @@
 import 'package:kumvent/constants/enums.dart';
 
 class AuthExceptionHandler {
-
   static handleException(e) {
     print(e.code);
     var status;
     switch (e.code) {
       case "ERROR_INVALID_EMAIL":
-        status = NewtworkResultStatus.invalidEmail;
+        status = NetworkResultStatus.invalidEmail;
         break;
       case "ERROR_WRONG_PASSWORD":
-        status = NewtworkResultStatus.wrongPassword;
+        status = NetworkResultStatus.wrongPassword;
         break;
       case "ERROR_USER_NOT_FOUND":
-        status = NewtworkResultStatus.userNotFound;
+        status = NetworkResultStatus.userNotFound;
         break;
       case "ERROR_USER_DISABLED":
-        status = NewtworkResultStatus.userDisabled;
+        status = NetworkResultStatus.userDisabled;
         break;
       case "ERROR_TOO_MANY_REQUESTS":
-        status = NewtworkResultStatus.tooManyRequests;
+        status = NetworkResultStatus.tooManyRequests;
         break;
       case "ERROR_OPERATION_NOT_ALLOWED":
-        status = NewtworkResultStatus.operationNotAllowed;
+        status = NetworkResultStatus.operationNotAllowed;
         break;
       case "ERROR_EMAIL_ALREADY_IN_USE":
-        status = NewtworkResultStatus.emailAlreadyExists;
+        status = NetworkResultStatus.emailAlreadyExists;
         break;
       default:
-        status = NewtworkResultStatus.undefined;
+        status = NetworkResultStatus.undefined;
     }
     return status;
   }
@@ -39,25 +38,25 @@ class AuthExceptionHandler {
   static generateExceptionMessage(exceptionCode) {
     String errorMessage;
     switch (exceptionCode) {
-      case NewtworkResultStatus.invalidEmail:
+      case NetworkResultStatus.invalidEmail:
         errorMessage = "Your email address appears to be invalid.";
         break;
-      case NewtworkResultStatus.wrongPassword:
+      case NetworkResultStatus.wrongPassword:
         errorMessage = "Your password is wrong.";
         break;
-      case NewtworkResultStatus.userNotFound:
+      case NetworkResultStatus.userNotFound:
         errorMessage = "User with this email or password doesn't exist.";
         break;
-      case NewtworkResultStatus.userDisabled:
+      case NetworkResultStatus.userDisabled:
         errorMessage = "User with this email has been disabled.";
         break;
-      case NewtworkResultStatus.tooManyRequests:
+      case NetworkResultStatus.tooManyRequests:
         errorMessage = "Too many requests. Try again later.";
         break;
-      case NewtworkResultStatus.operationNotAllowed:
+      case NetworkResultStatus.operationNotAllowed:
         errorMessage = "Signing in with Email and Password is not enabled.";
         break;
-      case NewtworkResultStatus.emailAlreadyExists:
+      case NetworkResultStatus.emailAlreadyExists:
         errorMessage =
             "The email has already been registered. Please login or reset your password.";
         break;
