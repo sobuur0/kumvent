@@ -65,12 +65,13 @@ class FireBaseAuthHelper {
           .set(_userModel.toMap());
 
       //check firebasefirestore to make sure the data has ben sent
-      //this code is likely incorrect
+      //this code is incorrect
       if (_user!.email != null) {
         _status = NetworkResultStatus.successful;
       } else {
         _status = NetworkResultStatus.undefined;
       }
+      //
     } catch (e) {
       log('Exception @loginUser: $e');
       _status = AuthExceptionHandler.handleException(e);

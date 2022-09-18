@@ -1,4 +1,3 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -30,7 +29,7 @@ class _SignUpPageState extends State<SignUpPage> {
   // final FirebaseAuth _auth = FirebaseAuth.instance;
   // final FirebaseFirestore _firebaseFirestore = FirebaseFirestore.instance;
   final FireBaseAuthHelper _authHelper = FireBaseAuthHelper();
-  late User? user;
+  // late User? user;
   // final UserModel _userModel = UserModel();
 
   final _formKey = GlobalKey<FormState>();
