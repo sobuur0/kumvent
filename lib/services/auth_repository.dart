@@ -9,7 +9,7 @@ import 'package:kumvent/models/user_model.dart';
 class FireBaseAuthHelper {
   final _auth = FirebaseAuth.instance;
   late NetworkResultStatus _status;
-  late User? _user;
+  final User? _user = FirebaseAuth.instance.currentUser;
   final UserModel _userModel = UserModel();
   final FirebaseFirestore _firebaseFirestore = FirebaseFirestore.instance;
 
@@ -51,10 +51,12 @@ class FireBaseAuthHelper {
     return _status;
   }
 
+  Future logoutUser() async {
+    await _auth.signOut();
+  }
+
   Future<NetworkResultStatus> sendDetailsToFirestore(String fullName) async {
     try {
-      _user = _auth.currentUser;
-
       _userModel.email = _user!.email;
       _userModel.fullName = fullName;
       _userModel.uid = _user!.uid;
@@ -77,5 +79,15 @@ class FireBaseAuthHelper {
       _status = AuthExceptionHandler.handleException(e);
     }
     return _status;
+  }
+
+  Future getDetailsFromFirestore() async {
+    try {
+      await _firebaseFirestore.collection("users").doc(_user!.uid).get();
+    } catch (e) {
+      log('Exception @loginUser: $e');
+      _status = AuthExceptionHandler.handleException(e);
+    }
+    // return;
   }
 }

@@ -309,6 +309,7 @@ class _SignUpPageState extends State<SignUpPage> {
     final status = await _authHelper.createAccount(email, password);
     if (status == NetworkResultStatus.successful) {
       _sendUserDeetsToFirestore();
+      //TODO: set a duration of 2-3 seconds to allow the above code to print success message
       Navigator.of(context).pushAndRemoveUntil(
         (MaterialPageRoute(
           builder: (context) => const SignInPage(),
