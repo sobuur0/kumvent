@@ -1,11 +1,10 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:kumvent/models/user_model.dart';
-import 'package:kumvent/presentation/pages/favorites_page.dart';
+import 'package:kumvent/presentation/pages/history_page.dart';
 import 'package:kumvent/presentation/pages/sign_in_page.dart';
 import 'package:kumvent/presentation/widgets/profile_card.dart';
+import 'package:kumvent/services/auth_repository.dart';
 
 class ProfilePage extends StatefulWidget {
   static String routeName = '/profile';
@@ -16,20 +15,27 @@ class ProfilePage extends StatefulWidget {
 }
 
 class _ProfilePageState extends State<ProfilePage> {
-  User? user = FirebaseAuth.instance.currentUser;
   UserModel currentUser = UserModel();
-  final FirebaseAuth _auth = FirebaseAuth.instance;
+  final FireBaseAuthHelper _authHelper = FireBaseAuthHelper();
 
   @override
   void initState() {
-    FirebaseFirestore.instance
-        .collection("users")
-        .doc(user!.uid)
-        .get()
-        .then((value) {
-      setState(() {});
-      currentUser = UserModel.fromMap(value.data());
-    });
+    _authHelper.getDetailsFromFirestore().then(
+      (value) {
+        setState(() {});
+        currentUser = UserModel.fromMap(
+          value.data(),
+        );
+      },
+    );
+    // FirebaseFirestore.instance
+    //     .collection("users")
+    //     .doc(user!.uid)
+    //     .get()
+    //     .then((value) {
+    //   setState(() {});
+    //   currentUser = UserModel.fromMap(value.data());
+    // });
 
     super.initState();
   }
@@ -52,7 +58,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 ),
               ),
               const SizedBox(
-                height: 20,
+                height: 12,
               ),
               Center(
                 child: Text(
@@ -63,6 +69,9 @@ class _ProfilePageState extends State<ProfilePage> {
                     color: Color(0xff061A60),
                   ),
                 ),
+              ),
+              const SizedBox(
+                height: 22,
               ),
               ProfileCard(
                 leadingIcon: Icons.person,
@@ -76,7 +85,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const FavoritesPage(),
+                      builder: (context) => const HistoryPage(),
                     ),
                   );
                 },
@@ -100,10 +109,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 leadingIcon: Icons.logout,
                 title: 'Logout',
                 onPressed: () {
-                  //TODO: A dialogue that notifies the user first 
-                  _logoutUser();
-                  Fluttertoast.showToast(
-                      msg: 'You have successfully been logged out');
+                  _logout();
                 },
               ),
               const Padding(padding: EdgeInsets.only(bottom: 16.0)),
@@ -123,12 +129,26 @@ class _ProfilePageState extends State<ProfilePage> {
     );
   }
 
-  Future<void> _logoutUser() async {
-    await _auth.signOut();
-    Navigator.of(context).pushReplacement(
+  _logout() async {
+    _authHelper.logoutUser();
+    Fluttertoast.showToast(msg: 'Logout succesfull!!');
+    Navigator.pushAndRemoveUntil(
+      context,
       MaterialPageRoute(
         builder: (context) => const SignInPage(),
       ),
+      (route) => false,
     );
   }
+
+  // Future<void> _logoutUser() async {
+  //   await _auth.signOut();
+  //   Navigator.pushAndRemoveUntil(
+  //     context,
+  //     MaterialPageRoute(
+  //       builder: (context) => const SignInPage(),
+  //     ),
+  //     (route) => false,
+  //   );
+  // }
 }

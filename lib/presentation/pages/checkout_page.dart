@@ -3,7 +3,7 @@ import 'package:kumvent/constants/app_styles.dart';
 import 'package:kumvent/constants/colours.dart';
 import 'package:kumvent/presentation/pages/success_page.dart';
 import 'package:kumvent/presentation/widgets/action_button.dart';
-import 'package:kumvent/presentation/widgets/expiry_dateAnd_cvv_textfiekd.dart';
+import 'package:kumvent/presentation/widgets/expiry_date_and_cvv_textfiekd.dart';
 import 'package:kumvent/presentation/widgets/text_form_list_tile.dart';
 
 import '../widgets/build_card_widget.dart';

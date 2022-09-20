@@ -37,11 +37,8 @@ class _ExplorePageState extends State<ExplorePage> {
         ],
       ),
       body: ListView(
-        padding: const EdgeInsets.only(
-          left: 16.0,
-          right: 16.0,
-          top: 20.0,
-        ),
+        physics: const BouncingScrollPhysics(),
+        padding: const EdgeInsets.only(left: 16.0, right: 16.0, top: 20.0),
         children: <Widget>[
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,

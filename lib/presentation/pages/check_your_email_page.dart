@@ -34,6 +34,7 @@ class _CheckEmailPageState extends State<CheckEmailPage> {
         ),
       ),
       body: ListView(
+        physics: const BouncingScrollPhysics(),
         padding: const EdgeInsets.symmetric(
           horizontal: 16.0,
         ),

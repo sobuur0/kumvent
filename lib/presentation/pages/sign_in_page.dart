@@ -1,15 +1,17 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:kumvent/constants/app_styles.dart';
 import 'package:kumvent/constants/colours.dart';
+import 'package:kumvent/constants/enums.dart';
+import 'package:kumvent/exception_handler.dart';
 import 'package:kumvent/presentation/pages/forgot_password.dart';
 import 'package:kumvent/presentation/pages/home.dart';
 import 'package:kumvent/presentation/pages/sign_up_page.dart';
 import 'package:kumvent/presentation/widgets/authentication_button.dart';
 import 'package:kumvent/presentation/widgets/icon_container.dart';
 import 'package:kumvent/presentation/widgets/text_form_list_tile.dart';
+import 'package:kumvent/services/auth_repository.dart';
 
 class SignInPage extends StatefulWidget {
   const SignInPage({Key? key}) : super(key: key);
@@ -25,8 +27,7 @@ class _SignInPageState extends State<SignInPage> {
   late bool _isLoading = false;
 
   final _formKey = GlobalKey<FormState>();
-
-  final FirebaseAuth _auth = FirebaseAuth.instance;
+  final FireBaseAuthHelper _authHelper = FireBaseAuthHelper();
 
   bool _isPasswordVisible = true;
 
@@ -44,6 +45,7 @@ class _SignInPageState extends State<SignInPage> {
         child: Form(
           key: _formKey,
           child: ListView(
+            physics: const BouncingScrollPhysics(),
             padding: const EdgeInsets.all(16.0),
             children: [
               Image.asset(
@@ -145,7 +147,7 @@ class _SignInPageState extends State<SignInPage> {
                     setState(() {
                       _isLoading = true;
                     });
-                    _signInUser(
+                    _loginUser(
                       _emailAddressController.text.trim(),
                       _passwordController.text.trim(),
                     );
@@ -257,24 +259,43 @@ class _SignInPageState extends State<SignInPage> {
     );
   }
 
-  void _signInUser(String email, String password) async {
-    try {
-      await _auth.signInWithEmailAndPassword(
-        email: email,
-        password: password,
-      );
-      Fluttertoast.showToast(
-          msg: 'You have succesfully signed into your account!!');
+  _loginUser(String email, String password) async {
+    final status = await _authHelper.loginUser(email, password);
+    if (status == NetworkResultStatus.successful) {
+      Fluttertoast.showToast(msg: 'Signin succesfull!!');
       Navigator.of(context).pushReplacement(
         MaterialPageRoute(
           builder: (context) => const Home(),
         ),
       );
-    } catch (e) {
-      Fluttertoast.showToast(msg: e.toString().trim());
+    } else {
+      final errorMessage =
+          AuthExceptionHandler.generateExceptionMessage(status);
+      Fluttertoast.showToast(msg: errorMessage);
       setState(() {
         _isLoading = false;
       });
     }
   }
+
+  // void _signInUser(String email, String password) async {
+  //   try {
+  //     await _auth.signInWithEmailAndPassword(
+  //       email: email,
+  //       password: password,
+  //     );
+  //     Fluttertoast.showToast(
+  //         msg: 'You have succesfully signed into your account!!');
+  //     Navigator.of(context).pushReplacement(
+  //       MaterialPageRoute(
+  //         builder: (context) => const Home(),
+  //       ),
+  //     );
+  //   } catch (e) {
+  //     Fluttertoast.showToast(msg: e.toString().trim());
+  //     setState(() {
+  //       _isLoading = false;
+  //     });
+  //   }
+  // }
 }

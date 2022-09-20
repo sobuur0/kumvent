@@ -156,7 +156,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
                           ),
                         ),
                         style: ElevatedButton.styleFrom(
-                          primary: kPrimaryColor,
+                          backgroundColor: kPrimaryColor,
                         ),
                       )
                     : InkWell(

@@ -19,7 +19,7 @@ class AuthenticationButton extends StatelessWidget {
     final size = MediaQuery.of(context).size;
     return ElevatedButton.icon(
       style: ElevatedButton.styleFrom(
-        primary: kPrimaryColor,
+        backgroundColor: kPrimaryColor,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(8.0),
         ),

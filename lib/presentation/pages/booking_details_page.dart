@@ -42,6 +42,7 @@ class _BookingDetailsPageState extends State<BookingDetailsPage> {
         ),
       ),
       body: ListView(
+        physics: const BouncingScrollPhysics(),
         padding: const EdgeInsets.fromLTRB(16.0, 46.0, 16.0, 60.0),
         children: [
           Stack(

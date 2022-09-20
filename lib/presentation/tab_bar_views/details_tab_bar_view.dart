@@ -113,7 +113,7 @@ class _DetailsTabBarViewState extends State<DetailsTabBarView> {
               style: ElevatedButton.styleFrom(
                 padding: const EdgeInsets.symmetric(
                     vertical: 14.0, horizontal: 26.0),
-                primary: const Color(0xFFC3CDF3),
+                backgroundColor: const Color(0xFFC3CDF3),
                 fixedSize: const Size.fromHeight(48.0),
               ),
             ),

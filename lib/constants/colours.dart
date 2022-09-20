@@ -31,3 +31,5 @@ const kReviewStarRatingsColor = Color(0xFFFDCC0D);
 const kDividerColor = Color(0xFFD0CECE);
 const kEditIconColor = Color(0xFFA6A4A4);
 const kBorderColor = Color(0xFFC4C4C4);
+const kBlack2 = Color(0xFF1D1D1D);
+const kBlack3 = Color(0xFF282828);

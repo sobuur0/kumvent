@@ -3,7 +3,7 @@ import 'package:kumvent/constants/app_styles.dart';
 import 'package:kumvent/constants/colours.dart';
 import 'package:kumvent/presentation/pages/event_center_overview_page.dart';
 import 'package:kumvent/presentation/pages/profille_page.dart';
-import 'package:kumvent/presentation/widgets/near_you_widget.dart';
+import 'package:kumvent/presentation/widgets/event_center_widget.dart';
 import 'package:kumvent/presentation/widgets/search_field.dart';
 
 class HomePage extends StatefulWidget {
@@ -124,7 +124,7 @@ class _HomePageState extends State<HomePage> {
                   rightOnpressed: () {},
                 ),
                 const Padding(padding: EdgeInsets.only(bottom: 14.0)),
-                NearYouWidget(
+                EventCenterWidget(
                   image: 'images/atlantis_center.jpg',
                   centerName: 'Atlantis Event center',
                   centerLocation: 'Ita-Oniyan, Ondo',
@@ -132,7 +132,7 @@ class _HomePageState extends State<HomePage> {
                   shadowColor: const Color(0xFF171717).withOpacity(0.25),
                   centerStatus: 'Center Available',
                 ),
-                const NearYouWidget(
+                const EventCenterWidget(
                   image: 'images/orlando.jpg',
                   centerName: 'Orlando Conference Hall',
                   centerLocation: 'Ita-Oniyan, Ondo',

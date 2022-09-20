@@ -3,7 +3,7 @@ import 'package:kumvent/constants/app_styles.dart';
 import 'package:kumvent/constants/colours.dart';
 import 'package:kumvent/presentation/pages/event_center_overview_page.dart';
 
-class NearYouWidget extends StatelessWidget {
+class EventCenterWidget extends StatelessWidget {
   final String image;
   final String centerName;
   final String centerLocation;
@@ -11,7 +11,7 @@ class NearYouWidget extends StatelessWidget {
   final Color shadowColor;
   final String centerStatus;
 
-  const NearYouWidget({
+  const EventCenterWidget({
     Key? key,
     required this.image,
     required this.centerName,
@@ -126,54 +126,33 @@ class NearYouWidget extends StatelessWidget {
                 ),
               ],
             ),
-            Column(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: <Widget>[
-                centerStatus == 'Center Available'
-                    ? const Align(
-                        alignment: Alignment.topRight,
-                        child: Padding(
-                          padding: EdgeInsets.only(
-                            top: 16.0,
-                            right: 12.0,
-                          ),
-                          child: Icon(
-                            Icons.favorite,
-                            color: Color(0xFF0D34BF),
-                          ),
-                        ),
-                      )
-                    : const SizedBox.shrink(),
-                const Spacer(),
-                Align(
-                  alignment: Alignment.bottomRight,
-                  child: Container(
-                    height: 26.0,
-                    width: 106.0,
-                    padding: const EdgeInsets.only(top: 5.0),
-                    margin: const EdgeInsets.only(
-                      right: 9.0,
-                      bottom: 16.0,
-                    ),
-                    decoration: BoxDecoration(
-                      color: centerStatus == 'Center Available'
-                          ? kCenterAvailableIndicatorColor
-                          : kCenterNotAvailableIndicatorColor,
-                      borderRadius: BorderRadius.circular(3.0),
-                    ),
-                    child: Text(
-                      centerStatus,
-                      textAlign: TextAlign.center,
-                      style: TextStyles.semiBold(
-                        color: centerStatus == 'Center Available'
-                            ? kCenterAvailableTextColor
-                            : kCenterNotAvailableTextColor,
-                        fontSize: 12.0,
-                      ),
-                    ),
+            Align(
+              alignment: Alignment.bottomRight,
+              child: Container(
+                height: 26.0,
+                width: 106.0,
+                padding: const EdgeInsets.only(top: 5.0),
+                margin: const EdgeInsets.only(
+                  right: 9.0,
+                  bottom: 8.0,
+                ),
+                decoration: BoxDecoration(
+                  color: centerStatus == 'Center Available'
+                      ? kCenterAvailableIndicatorColor
+                      : kCenterNotAvailableIndicatorColor,
+                  borderRadius: BorderRadius.circular(3.0),
+                ),
+                child: Text(
+                  centerStatus,
+                  textAlign: TextAlign.center,
+                  style: TextStyles.semiBold(
+                    color: centerStatus == 'Center Available'
+                        ? kCenterAvailableTextColor
+                        : kCenterNotAvailableTextColor,
+                    fontSize: 12.0,
                   ),
                 ),
-              ],
+              ),
             ),
           ],
         ),
