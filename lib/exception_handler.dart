@@ -1,9 +1,11 @@
+import 'dart:developer';
+
 import 'package:kumvent/constants/enums.dart';
 
 class AuthExceptionHandler {
   static handleException(e) {
-    print(e.code);
-    var status;
+    log(e.code);
+    NetworkResultStatus status;
     switch (e.code) {
       case "ERROR_INVALID_EMAIL":
         status = NetworkResultStatus.invalidEmail;

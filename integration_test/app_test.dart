@@ -3,6 +3,8 @@
 /// *author @ghost
 /// *date Aug 1 2022
 
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:integration_test/integration_test.dart';
@@ -19,9 +21,9 @@ void main() {
       await tester.pumpAndSettle(); //wait to see if app is ready
       await tester.pump(const Duration(seconds: 2)); //wait for 2 seconds
 
-      print('All States: ');
+      log('All States: ');
       for (var element in tester.allStates) {
-        print(element);
+        log('$element');
       }
 
       //find signIn text fields
