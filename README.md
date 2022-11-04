@@ -22,7 +22,7 @@ A flutter app that can be used to book event center.
 
 
 ## 👨‍💻 Contributors
-- All ui designs were done by world class designer [Abiona Kazeem](https://www.linkedin.com/in/abiona-kazeem)
+- [Abiona Kazeem](https://www.linkedin.com/in/abiona-kazeem)
 - [Akinwalere John](https://github.com/John-soft)
 - [AbdulSobuur Ishola](https://github.com/t-bolt)
 
