@@ -101,7 +101,7 @@ class _HomePageState extends State<HomePage> {
                         size,
                         imgUrl: 'images/jmroyal_main.jpg',
                         eventCenterName: 'JM Royal Event Center',
-                        rating: '4.8',
+                        rating: 4.8,
                         location: 'Sagamu, Ogun',
                         price: '\$250',
                       ),
@@ -109,7 +109,7 @@ class _HomePageState extends State<HomePage> {
                         size,
                         imgUrl: 'images/living_spring_main.jpg',
                         eventCenterName: 'Living Spring Homes',
-                        rating: '4.9',
+                        rating: 4.9,
                         location: 'Oshogbo, Osun',
                         price: '\$123',
                       ),
@@ -128,7 +128,7 @@ class _HomePageState extends State<HomePage> {
                   image: 'images/atlantis_center.jpg',
                   centerName: 'Atlantis Event center',
                   centerLocation: 'Ita-Oniyan, Ondo',
-                  centerRating: '4.9',
+                  centerRating: 4.9,
                   shadowColor: const Color(0xFF171717).withOpacity(0.25),
                   centerStatus: 'Center Available',
                 ),
@@ -136,7 +136,7 @@ class _HomePageState extends State<HomePage> {
                   image: 'images/orlando.jpg',
                   centerName: 'Orlando Conference Hall',
                   centerLocation: 'Ita-Oniyan, Ondo',
-                  centerRating: '5.0',
+                  centerRating: 5.0,
                   shadowColor: Color(0xFFFFFFFF),
                   centerStatus: 'Not Available',
                 ),
@@ -153,7 +153,7 @@ class _HomePageState extends State<HomePage> {
     Size size, {
     required String imgUrl,
     required String eventCenterName,
-    required String rating,
+    required double rating,
     required String location,
     required String price,
   }) {
@@ -300,7 +300,7 @@ class _HomePageState extends State<HomePage> {
   }
 
   Widget _eventRating({
-    required String rating,
+    required double rating,
   }) {
     return Container(
       height: 30.0,
@@ -316,7 +316,7 @@ class _HomePageState extends State<HomePage> {
             color: kSecondaryColor,
           ),
           Text(
-            rating,
+            rating.toString(),
             style: TextStyles.bold(
               color: Colors.white,
               fontSize: 12.0,

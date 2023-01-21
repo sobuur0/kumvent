@@ -9,7 +9,7 @@ import 'package:kumvent/presentation/widgets/star_ratings.dart';
 class EventCenterOverviewPage extends StatefulWidget {
   final String imgUrl;
   final String eventCenterName;
-  final String rating;
+  final double rating;
 
   const EventCenterOverviewPage({
     Key? key,
@@ -210,7 +210,7 @@ class _EventCenterOverviewPageState extends State<EventCenterOverviewPage>
         ),
         const Padding(padding: EdgeInsets.only(right: 12.0)),
         Text(
-          widget.rating,
+          widget.rating.toString(),
           style: TextStyles.bold(
             color: Colors.white,
             fontSize: 14.0,

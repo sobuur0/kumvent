@@ -7,7 +7,7 @@ class EventCenterWidget extends StatelessWidget {
   final String image;
   final String centerName;
   final String centerLocation;
-  final String centerRating;
+  final double centerRating;
   final Color shadowColor;
   final String centerStatus;
 
@@ -114,7 +114,7 @@ class EventCenterWidget extends StatelessWidget {
                           color: kSecondaryColor,
                         ),
                         Text(
-                          centerRating,
+                          centerRating.toString(),
                           style: TextStyles.bold(
                             color: kTextPrimaryColor,
                             fontSize: 14.0,
