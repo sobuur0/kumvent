@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:kumvent/constants/app_styles.dart';
@@ -17,7 +19,7 @@ class HistoryPage extends StatefulWidget {
 class _HistoryPageState extends State<HistoryPage> {
   final String image = 'images/atlantis_center.jpg';
 
-  List<History> historyData = HistoryData.history;
+  List<History> historyData = List.from(HistoryData.history);
 
   @override
   Widget build(BuildContext context) {
@@ -87,7 +89,10 @@ class _HistoryPageState extends State<HistoryPage> {
                         borderRadius: BorderRadius.circular(8.0),
                       ),
                       SlidableAction(
-                        onPressed: null,
+                        onPressed: (context) {
+                          historyData.remove(historyData[index]);
+                          log('this now deletes');
+                        },
                         backgroundColor: Colors.red,
                         foregroundColor: Colors.white,
                         icon: Icons.delete,
@@ -102,44 +107,12 @@ class _HistoryPageState extends State<HistoryPage> {
           ),
         ],
       ),
-      // SlidableAutoCloseBehavior(
-      //   child: SingleChildScrollView(
-      //     physics: const BouncingScrollPhysics(),
-      //     child: Padding(
-      //       padding: const EdgeInsets.only(top: 20, right: 16, left: 16),
-      //       child: Column(
-      //         crossAxisAlignment: CrossAxisAlignment.start,
-      //         children: [
-      //           // Text(
-      //           //   'Recent Bookings',
-      //           //   style: TextStyles.semiBold(
-      //           //     color: kBlack2,
-      //           //     fontSize: 16.0,
-      //           //   ),
-      //           // ),
-      //           // const Padding(padding: EdgeInsets.only(bottom: 16.0)),
-      //           // ...recentBookings,
-      //           // const Padding(padding: EdgeInsets.only(top: 28.0)),
-      //           Text(
-      //             'June 3, 2022',
-      //             style: TextStyles.semiBold(
-      //               color: kBlack2,
-      //               fontSize: 16.0,
-      //             ),
-      //           ),
-      //           const Padding(padding: EdgeInsets.only(bottom: 16.0)),
-      //           ...datedBookings,
-      //         ],
-      //       ),
-      //     ),
-      //   ),
-      // ),
     );
   }
 
-  removeRecentBookingsFromHistory(Widget widget) {
+  removeRecentBookingsFromHistory(int index) {
     setState(() {
-      // recentBookings.removeAt(index);
+      historyData.remove(historyData[index]);
     });
   }
   Widget _eventCenterWidget(int index) {
