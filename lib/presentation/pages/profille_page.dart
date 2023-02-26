@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:gameball/pages/referral_page.dart';
 import 'package:kumvent/models/user_model.dart';
 import 'package:kumvent/presentation/pages/history_page.dart';
 import 'package:kumvent/presentation/pages/sign_in_page.dart';
@@ -93,7 +94,14 @@ class _ProfilePageState extends State<ProfilePage> {
               ProfileCard(
                 leadingIcon: Icons.history,
                 title: 'About App',
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const ReferralPage(),
+                    ),
+                  );
+                },
               ),
               ProfileCard(
                 leadingIcon: Icons.payment_outlined,

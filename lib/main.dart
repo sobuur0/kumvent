@@ -2,11 +2,9 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:kumvent/constants/colours.dart';
-import 'package:kumvent/constants/route_constants.dart';
-// import 'package:kumvent/presentation/pages/home.dart';
-import 'package:kumvent/presentation/pages/splash_page.dart';
+import 'package:kumvent/presentation/pages/home.dart';
 
-Future main() async{
+Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   runApp(const MyApp());
@@ -32,9 +30,9 @@ class MyApp extends StatelessWidget {
               trackHeight: 3.0,
             ),
           ),
-          // home: const Home(),
-          initialRoute: SplashPage.routeName,
-          routes: routes,
+          home: const Home(),
+          // initialRoute: SplashPage.routeName,
+          // routes: routes,
         );
       },
     );
