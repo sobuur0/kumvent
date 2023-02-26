@@ -229,6 +229,15 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  gameball:
+    dependency: "direct main"
+    description:
+      path: "."
+      ref: HEAD
+      resolved-ref: "25ed67f4a7a0105b8028b0542512bf62b57293b7"
+      url: "https://github.com/t-bolt/gameball.git"
+    source: git
+    version: "1.0.0+1"
   google_fonts:
     dependency: "direct main"
     description:
@@ -346,6 +355,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.1.4"
+  percent_indicator:
+    dependency: transitive
+    description:
+      name: percent_indicator
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "4.2.2"
   platform:
     dependency: transitive
     description:

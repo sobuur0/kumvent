@@ -28,9 +28,9 @@ dependencies:
   shared_preferences: ^2.0.15
   flutter_slidable: ^2.0.0
 
-#  gameball:
-#    git:
-#      url: https://github.com/t-bolt/gameball.git
+  gameball:
+    git:
+      url: https://github.com/t-bolt/gameball.git
 
 dev_dependencies:
 

@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return ScreenUtilInit(
       minTextAdapt: true,
-      builder: () {
+      builder: (_, child) {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
           theme: ThemeData(
