@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:gameball/pages/referral_page.dart';
 import 'package:kumvent/models/user_model.dart';
@@ -6,6 +7,7 @@ import 'package:kumvent/presentation/pages/history_page.dart';
 import 'package:kumvent/presentation/pages/sign_in_page.dart';
 import 'package:kumvent/presentation/widgets/profile_card.dart';
 import 'package:kumvent/services/auth_repository.dart';
+import 'package:gameball/main.dart' as gameball;
 
 class ProfilePage extends StatefulWidget {
   static String routeName = '/profile';
@@ -111,7 +113,9 @@ class _ProfilePageState extends State<ProfilePage> {
               ProfileCard(
                 leadingIcon: Icons.payment_outlined,
                 title: 'Help Center',
-                onPressed: () {},
+                onPressed: () {
+                  launchSubmodules(context);
+                },
               ),
               ProfileCard(
                 leadingIcon: Icons.logout,
@@ -138,7 +142,7 @@ class _ProfilePageState extends State<ProfilePage> {
   }
 
   _logout() async {
-    _authHelper.logoutUser();
+    await _authHelper.logoutUser();
     Fluttertoast.showToast(msg: 'Logout succesfull!!');
     Navigator.pushAndRemoveUntil(
       context,
@@ -149,14 +153,8 @@ class _ProfilePageState extends State<ProfilePage> {
     );
   }
 
-  // Future<void> _logoutUser() async {
-  //   await _auth.signOut();
-  //   Navigator.pushAndRemoveUntil(
-  //     context,
-  //     MaterialPageRoute(
-  //       builder: (context) => const SignInPage(),
-  //     ),
-  //     (route) => false,
-  //   );
-  // }
+  void launchSubmodules(BuildContext context) async {
+    await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+    // gameball.main();
+  }
 }

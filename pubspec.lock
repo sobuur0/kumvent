@@ -135,12 +135,12 @@ packages:
     source: hosted
     version: "1.24.0"
   firebase_core_platform_interface:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: firebase_core_platform_interface
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "4.5.3"
+    version: "4.5.1"
   firebase_core_web:
     dependency: transitive
     description:
@@ -162,6 +162,27 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.2.3+15"
+  firebase_messaging:
+    dependency: "direct main"
+    description:
+      name: firebase_messaging
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "13.1.0"
+  firebase_messaging_platform_interface:
+    dependency: transitive
+    description:
+      name: firebase_messaging_platform_interface
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "4.2.0"
+  firebase_messaging_web:
+    dependency: transitive
+    description:
+      name: firebase_messaging_web
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "3.2.0"
   flutter:
     dependency: "direct main"
     description: flutter
@@ -234,7 +255,7 @@ packages:
     description:
       path: "."
       ref: HEAD
-      resolved-ref: "25ed67f4a7a0105b8028b0542512bf62b57293b7"
+      resolved-ref: fb3be43fc33610a0e8d3289f529bfeb5a3b84133
       url: "https://github.com/t-bolt/gameball.git"
     source: git
     version: "1.0.0+1"
