@@ -114,7 +114,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 leadingIcon: Icons.payment_outlined,
                 title: 'Help Center',
                 onPressed: () {
-                  launchSubmodules(context);
+                  // launchSubmodules(context);
                 },
               ),
               ProfileCard(
@@ -153,8 +153,8 @@ class _ProfilePageState extends State<ProfilePage> {
     );
   }
 
-  void launchSubmodules(BuildContext context) async {
-    await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
-    // gameball.main();
-  }
+  // void launchSubmodules(BuildContext context) async {
+  //   await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+  //   // gameball.main();
+  // }
 }
