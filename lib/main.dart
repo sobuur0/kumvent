@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:kumvent/constants/colours.dart';
 import 'package:kumvent/constants/route_constants.dart';
-import 'package:kumvent/presentation/pages/home.dart';
 import 'package:kumvent/presentation/pages/splash_page.dart';
 
 Future main() async {
